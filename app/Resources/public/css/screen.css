@@ -1,0 +1,55 @@
+.container > .footer {
+    text-align: center;
+    color: #fff;
+    background-color: #000;
+    font-size: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.submit-button input {
+    width: 25%;
+    padding: 10px;
+    align-content: center;
+    background-color: darkgreen;
+    margin-bottom: 20px;
+}
+.submit-button input:hover{
+    background-color: green;
+}
+
+
+.login-container label {
+    display: block;
+}
+
+/* Registeration form*/
+
+form { margin: 0px 10px; }
+
+h2 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+
+
+.divider {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.divider hr {
+    margin: 7px 0px;
+    width: 35%;
+}
+
+.left { float: left; }
+
+.right { float: right; }
+
+.coming-soon{
+    color: red;
+    text-align: center;
+}

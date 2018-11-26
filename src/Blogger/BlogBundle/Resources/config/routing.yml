@@ -1,0 +1,28 @@
+index:
+    path:     /
+    defaults: { _controller: BloggerBlogBundle:Page:index }
+
+# app/config/routing.yml
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+view:
+    path:     /blog_view/{id}
+    defaults: { _controller: BloggerBlogBundle:Blog:view }
+    requirements:
+        id: \d+
+
+create:
+    path:     /blog_create
+    defaults: { _controller: BloggerBlogBundle:Blog:create }
+
+edit:
+    path:     /blog_edit/{id}
+    defaults: { _controller: BloggerBlogBundle:Blog:edit }
+    requirements:
+      id: \d+
+
+delete:
+    path:     /bog_delete/{id}
+    defaults: { _controller: BloggerBlogBundle:Blog:delete }
+    requirements:
+      id: \d+
