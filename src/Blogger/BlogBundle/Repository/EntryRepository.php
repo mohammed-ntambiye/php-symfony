@@ -10,4 +10,13 @@ namespace Blogger\BlogBundle\Repository;
  */
 class EntryRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getLatest($limit, $offset)
+    {
+        $queryBuilder = $this->createQueryBuilder('entry');
+        $queryBuilder->orderBy('entry.timestamp', 'DESC')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit);
+        $query = $queryBuilder->getQuery();
+        return $query->getResult();
+    }
 }

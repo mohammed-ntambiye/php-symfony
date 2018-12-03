@@ -1,7 +1,15 @@
 {# src/Blogger/BlogBundle/Resources/views/Page/index.html.twig #}
 {% extends 'BloggerBlogBundle::layout.html.twig' %}
 {% block body %}
-    <div class="coming-soon">
-        <h2 class="coming-soon">Coming soon .......</h2>
-    </div>
+    {% for entry in blogentries %}
+        <article>
+            <h2><a href="{{ path('view',{id : entry.id}) }}">
+                    {{ entry.title | title }}</a></h2>
+            <p>{{ entry.blog | nl2br }}</p>
+            <p>
+                <small>Created by {{ entry.author }} at
+                    {{ entry.timestamp | date('H:i d/m/y') }}</small>
+            </p>
+        </article>
+    {% endfor %}
 {% endblock %}
