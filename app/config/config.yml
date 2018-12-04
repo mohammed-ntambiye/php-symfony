@@ -1,7 +1,7 @@
 imports:
-    - { resource: parameters.yml }
-    - { resource: security.yml }
-    - { resource: services.yml }
+- { resource: parameters.yml }
+- { resource: security.yml }
+- { resource: services.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -70,14 +70,14 @@ swiftmailer:
     spool: { type: memory }
 
 sensio_framework_extra:
-   router:
+    router:
         annotations: false
 
 assetic:
     assets:
         css:
             inputs:
-                - '../app/Resources/public/css/*'
+            - '../app/Resources/public/css/*'
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
