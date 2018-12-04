@@ -6,7 +6,7 @@
  * Time: 12:57
  */
 
-namespace Blogger\BlogBundle\Entity;
+namespace Reviewer\ReviewBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,21 +14,20 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  *
  * @ORM\Entity
- * @ORM\Table(name = "users_workshop")
+ * @ORM\Table(name = "Registred_users")
  */
 class User extends BaseUser
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->entries  = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
-    /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
-     * @ORM\OneToMany(targetEntity="Blogger\BlogBundle\Entity\Entry",mappedBy="author")
-     */
-    protected $entries;
-
 }

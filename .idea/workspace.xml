@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Controller/PageController.php" line="19" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="8a5a850d-9b3f-44c2-b84a-3bf3bdb2b110" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/layout.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/576bce38-4752-4409-8f9c-db81135677c3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/576bce38-4752-4409-8f9c-db81135677c3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/BloggerBlogBundle.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Controller/BlogController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Controller/PageController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/DependencyInjection/BloggerBlogExtension.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/DependencyInjection/Configuration.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Entity/Entry.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Entity/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Entity/User.php~" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Form/EntryType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Repository/EntryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reviewer/Repository/EntryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/config/routing.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/config/services.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/images/download.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Blog/create.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Blog/delete.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Blog/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Blog/view.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Page/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Page/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Page/layout.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Tests/Controller/BlogControllerTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Tests/Controller/DefaultControllerTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Blogger/BlogBundle/Tests/Controller/PageControllerTest.php" beforeDir="false" />
     </list>
     <ignored path="symblog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,7 +81,7 @@
         <item name="helios [2]" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="stb422_advancedweb: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="users_workshop: table" type="98d5ac3d:MysqlImplModel$Table" />
+        <item name="Registred_users: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -182,67 +208,142 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1019351568">
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="Registred_users" value="1" />
+          <entry key="js" value="1" />
+          <entry key="log" value="1" />
+          <entry key="php" value="26" />
+          <entry key="ts" value="1" />
+          <entry key="twig" value="16" />
+          <entry key="workshop_entry" value="1" />
+          <entry key="yml" value="15" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Database Element" value="2" />
+          <entry key="JavaScript" value="1" />
+          <entry key="PHP" value="26" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Twig" value="16" />
+          <entry key="TypeScript" value="1" />
+          <entry key="YAML" value="15" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="1" />
+          <entry key="php" value="100" />
+          <entry key="twig" value="168" />
+          <entry key="yml" value="90" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="1" />
+          <entry key="PHP" value="100" />
+          <entry key="Twig" value="168" />
+          <entry key="YAML" value="90" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts">
+        <counts>
+          <entry key="TypeScriptServerServiceImpl" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="symblog" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/config/routing.yml">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+            <state relative-caret-position="663">
+              <caret line="39" column="86" selection-start-line="39" selection-start-column="86" selection-end-line="39" selection-end-column="86" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            <state relative-caret-position="272">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Config/Definition/VariableNode.php">
+        <entry file="file://$PROJECT_DIR$/web/bundles/sonatacore/vendor/moment/moment.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+            <state relative-caret-position="198">
+              <caret line="280" column="9" selection-start-line="280" selection-start-column="9" selection-end-line="280" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="709">
+              <caret line="44" selection-start-line="44" selection-end-line="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="14" column="43" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Page/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/DefaultController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="72" column="11" selection-start-line="72" selection-start-column="11" selection-end-line="72" selection-end-column="11" />
+            <state relative-caret-position="408">
+              <caret line="91" column="29" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+        <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+            <state relative-caret-position="68">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/console">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-              <folding>
-                <element signature="e#26#81#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/app/config/routing_dev.yml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -271,6 +372,12 @@
       <find>em</find>
       <find>register</find>
       <find>address</find>
+      <find>blogger</find>
+      <find>Reviewer//Entity/User</find>
+      <find>user</find>
+      <find>user</find>
+      <find>books</find>
+      <find>twig</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -282,14 +389,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Default/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Controller/DefaultController.php" />
-        <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Page/helloWorld" />
-        <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Page/helloNumberhtml.twig" />
-        <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Page/helloNumber.html.twig" />
-        <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Page/helloSalutations.html.twig" />
-        <option value="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php" />
         <option value="$PROJECT_DIR$/app/Resources/public/css/helloWorldModule.css" />
         <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Page/about.html.twig" />
         <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/layout.html.twig" />
@@ -313,14 +412,12 @@
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig" />
         <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Entity/Entry.php" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/Resources/public/css/screen.css" />
         <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Form/EntryType.php" />
         <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Blog/create.html.twig" />
         <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Blog/view.html.twig" />
         <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Blog/edit.html.twig" />
         <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Controller/BlogController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig" />
         <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Controller/PageController.php" />
         <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Repository/EntryRepository.php" />
@@ -329,9 +426,20 @@
         <option value="$PROJECT_DIR$/app/config/services.yml" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Page/layout.html.twig" />
+        <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Default/index.html.twig" />
+        <option value="$PROJECT_DIR$/app/AppKernel.php" />
+        <option value="$PROJECT_DIR$/src/Reviewer/Entity/User.php" />
+        <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Entity/User.php" />
+        <option value="$PROJECT_DIR$/web/bundles/sonataadmin/vendor/x-editable/dist/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysihtml5-0.3.0.js" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/app/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Page/index.html.twig" />
       </list>
     </option>
   </component>
@@ -340,6 +448,19 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/web/bundles/sonataadmin/vendor/admin-lte/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/sonataadmin/vendor/jquery.scrollTo/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/sonataadmin/vendor/jqueryui/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/sonataadmin/vendor/readmore-js/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/sonataadmin/vendor/slimScroll/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/sonatacore/vendor/bootstrap/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/sonatacore/vendor/components-font-awesome/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/sonatacore/vendor/select2/package.json" />
+    </packageJsonPaths>
   </component>
   <component name="PhpDebugGeneral" break_at_first_line="true" hide_empty_superglobals="false" listening_started="true" />
   <component name="PhpServers">
@@ -425,8 +546,58 @@
         <subPane>
           <expand>
             <path>
-              <item name="PhpSyfony" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PhpSyfony" type="462c0819:PsiDirectoryNode" />
+              <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PhpSymfony" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PhpSymfony" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PhpSymfony" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PhpSymfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PhpSymfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="AppBundle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PhpSymfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="AppBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PhpSymfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Reviewer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PhpSymfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Reviewer" type="462c0819:PsiDirectoryNode" />
+              <item name="ReviewBundle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PhpSymfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Reviewer" type="462c0819:PsiDirectoryNode" />
+              <item name="ReviewBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -437,7 +608,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="SearchEverywhereHistoryKey" value="confi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSyfony/app/config/config.yml&#10;VariableNode.php&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSyfony/vendor/symfony/symfony/src/Symfony/Component/Config/Definition/VariableNode.php&#10;param&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSyfony/app/config/parameters.yml&#10;rou&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Resources/config/routing.yml&#10;framework.&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Tests/Functional/app/config/framework.yml&#10;se&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/security.yml&#10;services.&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/services.yml&#10;SECUR&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/sensio/framework-extra-bundle/Configuration/Security.php&#10;SE&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/security.yml&#10;DELE&#9;null&#9;null&#10;secu&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/security.yml&#10;sec&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/sensio/framework-extra-bundle/Configuration/Security.php&#10;pag&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Controller/PageController.php&#10;repos&#9;null&#9;null&#10;security&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/security.yml&#10;security &#9;null&#9;null&#10;login&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/Resources/FOSUserBundle/views/Security/login_content.html.twig&#10;logi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login.html.twig&#10;ba&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/Resources/views/base.html.twig&#10;crea&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Resources/views/Blog/create.html.twig&#10;creat&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Resources/views/Blog/create.html.twig&#10;routing&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/routing.yml&#10;BlogController&#9;null&#9;null&#10;create&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Resources/views/Blog/create.html.twig&#10;entry&#9;null&#9;null&#10;ind&#9;null&#9;null&#10;bas&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/Resources/views/base.html.twig&#10;base&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/Resources/views/base.html.twig&#10;FO&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.en.yml&#10;re&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register.html.twig&#10;register_content.html.twig&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig&#10;user&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Entity/User.php&#10;fosuserBundle.en&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.en.yml&#10;fosuserbunde&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.el.yml&#10;log&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login.html.twig&#10;para&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/parameters.yml&#10;con&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/config.yml&#10;register&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register.html.twig&#10;la&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Resources/views/layout.html.twig&#10;layout.html.twig&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Resources/views/layout.html.twig&#10;login_c&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login_content.html.twig&#10;layou&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Resources/views/layout.html.twig&#10;registerB&#9;null&#9;null&#10;login.html.twig&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login.html.twig&#10;PDOConnection.php&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php&#10;conf&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/config.yml&#10;pa&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/parameters.yml&#10;securi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/security.yml&#10;ker&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/AppKernel.php&#10;lay&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Resources/views/layout.html.twig" />
+    <property name="SearchEverywhereHistoryKey" value="index&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/src/Reviewer/ReviewBundle/Resources/views/Page/index.html.twig&#10;bas&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/app/Resources/views/base.html.twig&#10;routing&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/app/config/routing_dev.yml&#10;rou&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/app/config/routing.yml&#10;ROUTI&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/src/Reviewer/ReviewBundle/Resources/config/routing.yml&#10;bA&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/app/Resources/views/base.html.twig&#10;base&#9;null&#9;null&#10;ind&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/src/Reviewer/ReviewBundle/Resources/views/Page/index.html.twig&#10;inde&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/src/Reviewer/ReviewBundle/Resources/views/Page/index.html.twig&#10;contro&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/src/Reviewer/ReviewBundle/Controller/DefaultController.php&#10;routin&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/app/config/routing.yml&#10;confi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/app/config/config.yml&#10;featur&#9;null&#9;null&#10;con&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/app/config/config.yml&#10;conf&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/app/config/config.yml&#10;routi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/src/Reviewer/ReviewBundle/Resources/config/routing.yml&#10;kern&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/app/AppKernel.php&#10;K&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSymfony/app/AppKernel.php&#10;VariableNode.php&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSyfony/vendor/symfony/symfony/src/Symfony/Component/Config/Definition/VariableNode.php&#10;param&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/PhpSyfony/app/config/parameters.yml&#10;framework.&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Tests/Functional/app/config/framework.yml&#10;se&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/security.yml&#10;services.&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/services.yml&#10;SECUR&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/sensio/framework-extra-bundle/Configuration/Security.php&#10;SE&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/security.yml&#10;DELE&#9;null&#9;null&#10;secu&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/security.yml&#10;sec&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/sensio/framework-extra-bundle/Configuration/Security.php&#10;pag&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Controller/PageController.php&#10;repos&#9;null&#9;null&#10;security&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/security.yml&#10;security &#9;null&#9;null&#10;login&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/Resources/FOSUserBundle/views/Security/login_content.html.twig&#10;logi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login.html.twig&#10;ba&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/Resources/views/base.html.twig&#10;crea&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Resources/views/Blog/create.html.twig&#10;creat&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Resources/views/Blog/create.html.twig&#10;BlogController&#9;null&#9;null&#10;create&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Resources/views/Blog/create.html.twig&#10;entry&#9;null&#9;null&#10;FO&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.en.yml&#10;re&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register.html.twig&#10;register_content.html.twig&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig&#10;user&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Entity/User.php&#10;fosuserBundle.en&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.en.yml&#10;fosuserbunde&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.el.yml&#10;log&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login.html.twig&#10;para&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/app/config/parameters.yml&#10;register&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register.html.twig&#10;la&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/symblog/src/Blogger/BlogBundle/Resources/views/layout.html.twig" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
@@ -446,24 +617,26 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Reviewer/Entity" />
     <property name="options.lastSelected" value="org.jetbrains.plugins.sass.extensions.compass.CompassConfigurableProvider$CompassModuleConfigurable" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Reviewer/ReviewBundle" />
+      <recent name="$PROJECT_DIR$/src/Reviewer" />
+      <recent name="$PROJECT_DIR$/src/Reviewer/Entity" />
+      <recent name="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views" />
+      <recent name="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Page" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Reviewer/Entity" />
       <recent name="$PROJECT_DIR$/app/Resources" />
       <recent name="$PROJECT_DIR$/app/Resources/FOSUserBundle/views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/AppBundle" />
-      <recent name="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations" />
-      <recent name="$PROJECT_DIR$/app/Resources/FOSUserBundle" />
-      <recent name="$PROJECT_DIR$/app/Resources/FOSUserBundle/views" />
-      <recent name="$PROJECT_DIR$/src/Blogger/BlogBundle/Resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -567,7 +740,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125807000" />
+    <option name="totallyTimeSpent" value="134698000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -580,17 +753,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.23242944" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.23796348" />
       <window_info id="Structure" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="Database Console" order="0" sideWeight="0.4991699" weight="0.32901832" />
       <window_info anchor="bottom" id="Debug" order="1" sideWeight="0.65789473" weight="0.267316" />
-      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.50512683" side_tool="true" visible="true" weight="0.33513513" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="2" sideWeight="0.5013835" side_tool="true" visible="true" weight="0.32756758" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.499388" weight="0.32900432" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.5002767" side_tool="true" weight="0.27400216" />
+      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.5002767" side_tool="true" weight="0.27351353" />
       <window_info anchor="bottom" id="Version Control" order="5" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.499388" weight="0.32900432" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4986165" weight="0.32864866" />
       <window_info anchor="bottom" id="Find" order="7" sideWeight="0.49487317" weight="0.32842106" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
@@ -624,134 +799,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/check_email.html.twig" />
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.el.yml" />
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/email.txt.twig" />
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Page/about.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register_content.html.twig" />
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/translations/catalogue.sr_Cyrl.52lf549.php" />
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register.html.twig" />
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Schema/Index.php" />
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.eu.yml" />
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Entity/Entry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="132" column="20" selection-start-line="132" selection-start-column="20" selection-end-line="132" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="71" column="7" lean-forward="true" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/BloggerBlogBundle.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/confirmed.html.twig" />
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.en.yml" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/translations/FOSUserBundle.en.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="62" selection-start-line="3" selection-start-column="62" selection-end-line="3" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/public/css/screen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="52" column="15" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Form/EntryType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="6" column="54" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Blog/view.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Page/helloNumber.html.twig" />
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Page/helloSalutations.html.twig" />
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Page/helloWorld.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login.html.twig" />
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Blog/delete.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="46" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Blog/create.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/persistence/lib/Doctrine/Common/Persistence/ObjectManager.php" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="69" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Blog/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="16" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Controller/PageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="2" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -761,20 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://576bce38-4752-4409-8f9c-db81135677c3/schema/stb422_advancedweb/table/workshop_entry">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Repository/EntryRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
@@ -793,32 +830,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Controller/BlogController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="78" column="21" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
-          <folding>
-            <element signature="e#49#106#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Page/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="58" selection-start-column="58" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Tests/Functional/app/config/framework.yml" />
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Tests/Functional/app/config/framework.yml" />
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/console">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -826,13 +839,6 @@
           <folding>
             <element signature="e#26#81#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -850,10 +856,251 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Blog/create.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="29" selection-start-column="12" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/BloggerBlogBundle.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="9" selection-start-line="1" selection-end-line="1" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Page/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/views/Page/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="58" selection-start-column="58" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/DependencyInjection/BloggerBlogExtension.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/DependencyInjection/Configuration.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-229" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Repository/EntryRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/Repository/EntryRepository.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="34" column="4" lean-forward="true" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Controller/PageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="2" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blogger/BlogBundle/Controller/BlogController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="78" column="21" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/var/logs/dev.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="1738" column="235" selection-start-line="1738" selection-start-column="235" selection-end-line="1738" selection-end-column="235" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="33" column="78" lean-forward="true" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="78" />
+          <folding>
+            <element signature="e#130#172#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-327">
+          <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+          <folding>
+            <element signature="e#7#66#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/ReviewerReviewBundle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://576bce38-4752-4409-8f9c-db81135677c3/schema/stb422_advancedweb/table/workshop_entry">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/sonataadmin/vendor/x-editable/dist/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysihtml5-0.3.0.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="8911" column="48" selection-start-line="8911" selection-start-column="43" selection-end-line="8911" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://576bce38-4752-4409-8f9c-db81135677c3/schema/stb422_advancedweb/table/Registred_users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+          <folding>
+            <element signature="e#6#87#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-277">
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/sonatacore/vendor/moment/moment.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="280" column="9" selection-start-line="280" selection-start-column="9" selection-end-line="280" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="709">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing_dev.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="72" column="11" selection-start-line="72" selection-start-column="11" selection-end-line="72" selection-end-column="11" />
+        <state relative-caret-position="408">
+          <caret line="91" column="29" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="86" selection-start-line="39" selection-start-column="86" selection-end-line="39" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Page/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
         </state>
       </provider>
     </entry>

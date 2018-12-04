@@ -1,7 +1,4 @@
-blogger_blog:
-    resource: "@BloggerBlogBundle/Resources/config/routing.yml"
-    prefix:   /
+reviewer_review:
+    resource: "@ReviewerReviewBundle/Resources/config/routing.yml"
+    prefix:
 
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
