@@ -1,5 +1,5 @@
 reviewer_review_homepage:
-    path:  index
+    path:  /
     defaults: { _controller: ReviewerReviewBundle:Default:index }
 
 # app/config/routing.yml
@@ -14,3 +14,19 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
+
+view:
+    path:     /view
+    defaults: { _controller: ReviewerReviewBundle:BookReview:view }
+
+create:
+    path:     /create
+    defaults: { _controller: ReviewerReviewBundle:BookReview:create }
+
+edit:
+    path:     /edit
+    defaults: { _controller: ReviewerReviewBundle:BookReview:edit }
+
+delete:
+    path:     /delete
+    defaults: { _controller: ReviewerReviewBundle:BookReview:delete }
