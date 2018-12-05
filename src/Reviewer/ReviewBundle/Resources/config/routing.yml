@@ -16,17 +16,23 @@ _sonata_admin:
     prefix: /admin
 
 view:
-    path:     /view
+    path: /view/{id}
     defaults: { _controller: ReviewerReviewBundle:BookReview:view }
+    requirements:
+        id: \d+
 
 create:
     path:     /create
     defaults: { _controller: ReviewerReviewBundle:BookReview:create }
 
 edit:
-    path:     /edit
+    path:     /edit/{id}
     defaults: { _controller: ReviewerReviewBundle:BookReview:edit }
+    requirements:
+        id: \d+
 
 delete:
-    path:     /delete
+    path:     /delete/{id}
     defaults: { _controller: ReviewerReviewBundle:BookReview:delete }
+    requirements:
+        id: \d+

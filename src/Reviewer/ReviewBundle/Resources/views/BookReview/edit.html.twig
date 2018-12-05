@@ -3,5 +3,7 @@
 {% block title %}ReviewerReviewBundle:BookReview:edit{% endblock %}
 
 {% block body %}
-<h1>Welcome to the BookReview:edit page</h1>
+    <h1>Edit review</h1>
+    {{ form(form) }}
+    <p><a href="{{ path('delete',{id: bookReview.id}) }}">delete</a></p>
 {% endblock %}
