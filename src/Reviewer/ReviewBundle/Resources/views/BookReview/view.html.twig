@@ -3,13 +3,16 @@
 {% block title %}ReviewerReviewBundle:BookReview:view{% endblock %}
 
 {% block body %}
-    <h1>{{ bookReview.title }}</h1>
-    <p>{{bookReview.bookAuthor}} </p>
-    <p>{{bookReview.summaryReviewer}} </p>
-    <p> {{bookReview.review }}</p>
-    <p><small>Created by {{ bookReview.author }} at
-            {{ bookReview.timestamp|date('H:i d/m/y') }}
-        </small>
-        <a href="{{ path('edit',{'id':bookReview.id}) }}">edit</a>
-    </p>
+    <article class="col-md-6">
+        <h1>{{ bookReview.title }}</h1>
+        <p>{{ bookReview.bookAuthor }} </p>
+        <p>{{ bookReview.summaryReviewer }} </p>
+        <p> {{ bookReview.review }}</p>
+        <p>
+            <small>Created by {{ bookReview.author }} at
+                {{ bookReview.timestamp|date('H:i d/m/y') }}
+            </small>
+            <a href="{{ path('edit',{'id':bookReview.id}) }}">edit</a>
+        </p>
+    </article>
 {% endblock %}

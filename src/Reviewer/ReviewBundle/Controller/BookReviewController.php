@@ -76,12 +76,12 @@ class BookReviewController extends Controller
     public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $bookReview = $em->getRepository('ReviewerReviewBundle:BookReview:')->find($id);
+        $bookReview = $em->getRepository('ReviewerReviewBundle:BookReview')->find($id);
         $em->remove($bookReview);
         $em->flush();
 
         return $this->redirect(
-            $this->generateUrl('BloggerBlogBundle_homepage'));
+            $this->generateUrl('reviewer_review_homepage'));
 
     }
 

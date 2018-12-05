@@ -1,11 +1,11 @@
 {% extends 'ReviewerReviewBundle::layout.html.twig' %}
 {% block body %}
     {% for review in bookReviews %}
-        <article CLASS="col-md-5">
+        <article CLASS="col-md-6">
             <h2><a href="{{ path('view',{id : review.id}) }}">
                     {{ review.title | title }}</a></h2>
-            <p>{{review.review}}</p>
-            <p>{{review.review}}</p>
+            <img src="{{ asset('exampleBook.png') }}" />
+            <p>{{review.summaryReviewer}}</p>
             <p>
             <p><small>Created by {{ review.author }} at
                     {{ review.timestamp|date('H:i d/m/y') }}
