@@ -11,6 +11,7 @@ class BookReviewController extends Controller
 
     public function viewAction($id)
     {
+
         // Get the doctrine Entity manager
         $em = $this->getDoctrine()->getManager();
         // Use the entity manager to retrieve the Entry entity for the id
