@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class BookReviewType extends AbstractType
 {
@@ -16,8 +17,8 @@ class BookReviewType extends AbstractType
     {
         $builder->add('bookAuthor')
             ->add('title')
-            ->add('summaryReviewer')
-            ->add('review')
+            ->add('summaryReviewer',TextareaType::class)
+            ->add('review',TextareaType::class)
             ->add('submit',SubmitType::class);
     }/**
      * {@inheritdoc}

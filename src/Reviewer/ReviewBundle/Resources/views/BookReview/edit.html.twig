@@ -4,6 +4,29 @@
 
 {% block body %}
     <h1>Edit review</h1>
-    {{ form(form) }}
+
+    <div class="row form-group">
+        <div class="col-sm-3">{{ form_label(form.title) }}</div>
+        <div class="col-sm-5" >{{ form_widget(form.title, {'attr': {'class': 'form-control' }}) }}</div>
+        <div class="col-sm-6">{{ form_errors(form.title) }}</div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-3">{{ form_label(form.bookAuthor) }}</div>
+        <div class="col-sm-5" >{{ form_widget(form.bookAuthor, {'attr': {'class': 'form-control' }}) }}</div>
+        <div class="col-sm-6">{{ form_errors(form.bookAuthor) }}</div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-3">{{ form_label(form.summaryReviewer) }}</div>
+        <div class="col-sm-5" >{{ form_widget(form.summaryReviewer, {'attr': {'class': 'form-control', 'rows': '6' }})  }}</div>
+        <div class="col-sm-6">{{ form_errors(form.summaryReviewer) }}</div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-sm-3">{{ form_label(form.review) }}</div>
+        <div class="col-sm-5" >{{ form_widget(form.review, {'attr': {'class': 'form-control','rows':'10' }}) }}</div>
+        <div class="col-sm-6">{{ form_errors(form.review) }}</div>
+    </div>
+
+    {#{{ form(form) }}#}
     <p><a href="{{ path('delete',{id: bookReview.id}) }}">delete</a></p>
 {% endblock %}
