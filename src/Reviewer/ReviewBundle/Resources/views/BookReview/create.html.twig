@@ -3,6 +3,39 @@
 {% block title %}ReviewerReviewBundle:BookReview:create{% endblock %}
 
 {% block body %}
-    <h1>Create a review entry</h1>
-    {{ form(form) }}
+    <form name="reviewer_reviewbundle_bookreview" method="post" >
+        <div id="reviewer_reviewbundle_bookreview">
+            <div class="formElement">
+                <h2>Create a review</h2>
+                <div class="row form-group">
+                    <div class="col-sm-2">{{ form_label(form.bookAuthor) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.bookAuthor, {'attr': {'class': 'form-control' }}) }}</div>
+                    <div class="col-sm-6">{{ form_errors(form.bookAuthor) }}</div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-2">{{ form_label(form.title) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.title, {'attr': {'class': 'form-control' }}) }}</div>
+                    <div class="col-sm-6">{{ form_errors(form.title) }}</div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-sm-2">{{ form_label(form.summaryReviewer) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.summaryReviewer, {'attr': {'class': 'form-control', 'rows': '6','maxlength':'300','col':'40' }}) }}</div>
+                    <div class="col-sm-6">{{ form_errors(form.summaryReviewer) }}</div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-sm-2">{{ form_label(form.review) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.review, {'attr': {'class': 'form-control','rows':'10','maxlength':'500' }}) }}</div>
+                    <div class="col-sm-6">{{ form_errors(form.review) }}</div>
+                </div>
+                <div class="form-group">
+                    <button id="reviewer_reviewbundle_bookreview_submitModifications" type="submit" class="btn btn-info btn-block createEditForm">Submit review</button>
+                </div>
+                <div class="invisible">
+                    {{ form(form) }}
+                    <div>
+                    </div>
+                </div>
+    </form>
 {% endblock %}

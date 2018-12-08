@@ -19,7 +19,7 @@ class BookReviewType extends AbstractType
             ->add('title')
             ->add('summaryReviewer',TextareaType::class)
             ->add('review',TextareaType::class)
-            ->add('submit',SubmitType::class);
+            ->add('submitModifications',SubmitType::class);
     }/**
      * {@inheritdoc}
      */

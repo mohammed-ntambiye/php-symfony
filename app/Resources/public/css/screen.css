@@ -7,10 +7,13 @@
     border-radius: 5px;
 }
 
-.title{
+.title {
     color: #900000 !important;
 }
 
+.formElement {
+    margin-left: 20%;
+}
 
 .submit-button input {
     width: 25%;
@@ -19,10 +22,10 @@
     background-color: darkgreen;
     margin-bottom: 20px;
 }
-.submit-button input:hover{
+
+.submit-button input:hover {
     background-color: green;
 }
-
 
 .login-container label {
     display: block;
@@ -30,14 +33,14 @@
 
 /* Registeration form*/
 
-form { margin: 0px 10px; }
+form {
+    margin: 0px 10px;
+}
 
 h2 {
     margin-top: 2px;
     margin-bottom: 2px;
 }
-
-
 
 .divider {
     text-align: center;
@@ -50,11 +53,30 @@ h2 {
     width: 35%;
 }
 
-.left { float: left; }
+.left {
+    float: left;
+}
 
-.right { float: right; }
+.right {
+    float: right;
+}
 
-.coming-soon{
+.coming-soon {
     color: red;
     text-align: center;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.createEditForm {
+    background-color: #3c763d;
+    border-color: #2b2b2b;
+    font-weight: bold;
+
+}
+
+.createEditForm:hover {
+    background-color: #3c763d9c;
 }
