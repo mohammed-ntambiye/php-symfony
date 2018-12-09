@@ -20,4 +20,14 @@ class BookReviewRepository extends \Doctrine\ORM\EntityRepository
         $query = $queryBuilder->getQuery();
         return $query->getResult();
     }
+
+    public function checkForExistingReview($bookTitle, $bookAuthor)
+    {
+        var_dump($bookTitle);
+        var_dump($bookAuthor);
+//        $queryBuilder = $this->createQueryBuilder('entry');
+//        $queryBuilder->select('entry.bookAuthor')->where(' entry.tile' == '$tile');
+//        $query = $queryBuilder->getQuery();
+//        return $query->getResult();
+    }
 }

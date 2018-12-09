@@ -1,6 +1,6 @@
 <?php
 
-namespace Blogger\BlogBundle\Repository;
+namespace Reviewer\ReviewBundle\Repository;
 
 /**
  * EntryRepository
@@ -19,4 +19,5 @@ class EntryRepository extends \Doctrine\ORM\EntityRepository
         $query = $queryBuilder->getQuery();
         return $query->getResult();
     }
+
 }

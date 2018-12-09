@@ -1,0 +1,201 @@
+<?php
+
+namespace Reviewer\ReviewBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * review
+ *
+ * @ORM\Table(name="review")
+ * @ORM\Entity(repositoryClass="Reviewer\ReviewBundle\Repository\reviewRepository")
+ */
+class Review
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="timestamp", type="datetime")
+     */
+    private $timestamp;
+
+    /**
+     * @var \Reviewer\ReviewBundle\Entity\User
+     * @ORM\ManyToOne(targetEntity="Reviewer\ReviewBundle\Entity\User", inversedBy="entries")
+
+     * @ORM\JoinColumn(name="author", referencedColumnName="id")
+     */
+    private $author;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="summaryReview", type="string", length=255)
+     */
+    private $summaryReview;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fullReview", type="string", length=255)
+     */
+    private $fullReview;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rating", type="string", length=255)
+     */
+    private $rating;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bookId", type="string", length=255)
+     */
+    /**
+     * @ORM\ManyToOne(targetEntity="Reviewer\ReviewBundle\Entity\Book")
+     * @ORM\JoinColumn(name="bookId", referencedColumnName="id")
+     */
+    private $bookId;
+
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set timestamp.
+     *
+     * @param \DateTime $timestamp
+     *
+     * @return review
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Get timestamp.
+     *
+     * @return \DateTime
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * Set author.
+     *
+     * @param string $author
+     *
+     * @return review
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author.
+     *
+     * @return string
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set summaryReview.
+     *
+     * @param string $summaryReview
+     *
+     * @return review
+     */
+    public function setSummaryReview($summaryReview)
+    {
+        $this->summaryReview = $summaryReview;
+
+        return $this;
+    }
+
+    /**
+     * Get summaryReview.
+     *
+     * @return string
+     */
+    public function getSummaryReview()
+    {
+        return $this->summaryReview;
+    }
+
+    /**
+     * Set rating.
+     *
+     * @param string $rating
+     *
+     * @return review
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * Get rating.
+     *
+     * @return string
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * Set bookId.
+     *
+     * @param string $bookId
+     *
+     * @return review
+     */
+    public function setBookId($bookId)
+    {
+        $this->bookId = $bookId;
+
+        return $this;
+    }
+
+    /**
+     * Get bookId.
+     *
+     * @return string
+     */
+    public function getBookId()
+    {
+        return $this->bookId;
+    }
+}

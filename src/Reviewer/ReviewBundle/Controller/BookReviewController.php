@@ -1,11 +1,12 @@
 <?php
 
 namespace Reviewer\ReviewBundle\Controller;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Reviewer\ReviewBundle\Form\BookReviewType;
 use Reviewer\ReviewBundle\Entity\BookReview;
 use Symfony\Component\HttpFoundation\Request;
-
+use Reviewer\ReviewBundle\Repository\BookReviewRepository;
 class BookReviewController extends Controller
 {
 
@@ -24,17 +25,20 @@ class BookReviewController extends Controller
 
     public function createAction(Request $request)
     {
-        // Create an new (empty) Entry entity
         $reviewEntry = new BookReview();
-        // Create a form from the EntryType class to be validated
-        // against the Entry entity and set the form action attribute
-        // to the current URI
         $form = $this->createForm(BookReviewType::class, $reviewEntry, [
             'action' => $request->getUri()
         ]);
 
         // If the request is post it will populate the form
         $form->handleRequest($request);
+
+//        var_dump($reviewEntry);
+        $em = $this->getDoctrine()->getManager();
+        $bookReview = $em->getRepository('ReviewerReviewBundle:BookReview')
+            ->checkForExistingReview($reviewEntry->getTitle(),$reviewEntry->getBookAuthor());
+
+
         // validates the form
         if ($form->isValid()) {
             // Retrieve the doctrine entity manager
@@ -47,8 +51,8 @@ class BookReviewController extends Controller
             $em->persist($reviewEntry);
             // commit all changes
             $em->flush();
-            return $this->redirect($this->generateUrl('view',
-                ['id' => $reviewEntry->getId()]));
+//            return $this->redirect($this->generateUrl('view',
+//                ['id' => $reviewEntry->getId()]));
         }
         // Render the view from the twig file and pass the form to the view
         return $this->render('ReviewerReviewBundle:BookReview:create.html.twig',
@@ -63,7 +67,7 @@ class BookReviewController extends Controller
             'action' => $request->getUri()
         ]);
         $form->handleRequest($request);
-        if($form->isValid()) {
+        if ($form->isValid()) {
             $em->flush();
             return $this->redirect($this->generateUrl('view',
                 ['id' => $bookReview->getId()]));
