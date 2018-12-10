@@ -14,7 +14,6 @@ class BookReviewController extends Controller
 
     public function viewBookAction($id)
     {
-        var_dump("hello");
         // Get the doctrine Entity manager
         $em = $this->getDoctrine()->getManager();
         // Use the entity manager to retrieve the Entry entity for the id
@@ -41,8 +40,8 @@ class BookReviewController extends Controller
             $em->persist($book);
             // commit all changes
             $em->flush();
-            return $this->redirect($this->generateUrl('view',
-                ['id' => $book->getId()]));
+
+            return $this->redirect($this->generateUrl('book_view', ['id' => $book->getId()]));
         }
         return $this->render('ReviewerReviewBundle:Book:create.html.twig',
             ['form' => $form->createView()]);
@@ -51,16 +50,16 @@ class BookReviewController extends Controller
 
     public function viewReviewAction($id)
     {
+        var_dump("here");
         // Get the doctrine Entity manager
         $em = $this->getDoctrine()->getManager();
         // Use the entity manager to retrieve the Entry entity for the id
         // that has been passed
-        $book = $em->getRepository('ReviewerReviewBundle:Book')->find($id);
+        $review = $em->getRepository('ReviewerReviewBundle:Review')->find($id);
         // Pass the entry entity to the view for displaying
         return $this->render('ReviewerReviewBundle:BookReview:view.html.twig',
-            ['book' => $book]);
+            ['review' => $review]);
     }
-
 
 
     public function createReviewAction(Request $request)
@@ -85,8 +84,7 @@ class BookReviewController extends Controller
             $em->persist($review);
             // commit all changes
             $em->flush();
-            return $this->redirect($this->generateUrl('view',
-                ['id' => $review->getId()]));
+            return $this->redirect($this->generateUrl('review_view', ['id' => $review->getId()]));
         }
         // Render the view from the twig file and pass the form to the view
         return $this->render('ReviewerReviewBundle:BookReview:create.html.twig',

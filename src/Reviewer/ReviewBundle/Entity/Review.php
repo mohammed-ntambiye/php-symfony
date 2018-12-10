@@ -46,21 +46,21 @@ class Review
     /**
      * @var string
      *
-     * @ORM\Column(name="fullReview", type="string", length=255)
+     * @ORM\Column(name="fullReview", type="string", length=500)
      */
     private $fullReview;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="rating", type="string", length=255)
+     * @ORM\Column(name="rating", type="string", length=500)
      */
     private $rating;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="bookId", type="string", length=255)
+     * @ORM\Column(name="bookId", type="string", length=1)
      */
     /**
      * @ORM\ManyToOne(targetEntity="Reviewer\ReviewBundle\Entity\Book")
@@ -221,5 +221,17 @@ class Review
     public function getFullReview()
     {
         return $this->fullReview;
+    }
+
+    /**
+     * Get fullReview.
+     *
+     * @return string
+     */
+    public function setId($id)
+    {
+        $this->id = id;
+
+        return $this;
     }
 }

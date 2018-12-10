@@ -8,7 +8,7 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $bookReview = $em->getRepository('ReviewerReviewBundle:BookReview')
+        $bookReview = $em->getRepository('ReviewerReviewBundle:Review')
             ->getLatest(10, 0);
         return $this->render('ReviewerReviewBundle:Default:index.html.twig',
             ['bookReviews' => $bookReview]);

@@ -1,19 +1,21 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}ReviewerReviewBundle:BookReview:view{% endblock %}
+{% block title %}ReviewerReviewBundle:review:view{% endblock %}
 
 {% block body %}
     <article class="col-md-6">
-        {#<h1>{{ book.title }}</h1>#}
-        {#<p>{{ bookReview.bookAuthor }} </p>#}
-        {#<p>{{ bookReview.summaryReviewer }} </p>#}
-        {#<p> {{ bookReview.review }}</p>#}
+        <p>{{ review.summaryReview }} </p>
+        <p> {{ review.fullReview}}</p>
+        <h1>{{ review.rating }}</h1>
+        <h1>{{ review.id }}</h1>
         <p>
-            {#<small>Created by {{ bookReview.author }} at#}
-                {#{{ bookReview.timestamp|date('H:i d/m/y') }}#}
-            {#</small>#}
-            {#<a href="{{ path('edit',{'id':bookReview.id}) }}">edit</a>#}
-            {{ form(form) }}
+        <p>
+            <small>Created by {{ review.author }} at
+                {{ review.timestamp|date('H:i d/m/y') }}
+            </small>
+            {#{{ form(form) }}#}
+            {#<a href="{{ path('edit',{'id':review.id}) }}">edit</a>#}
+
         </p>
     </article>
 {% endblock %}

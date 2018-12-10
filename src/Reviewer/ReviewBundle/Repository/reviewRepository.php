@@ -10,4 +10,15 @@ namespace Reviewer\ReviewBundle\Repository;
  */
 class reviewRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getLatest($limit, $offset)
+    {
+        $queryBuilder = $this->createQueryBuilder('Review');
+        $queryBuilder->orderBy('Review.timestamp', 'DESC')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit);
+        $query = $queryBuilder->getQuery();
+        return $query->getResult();
+    }
+
 }

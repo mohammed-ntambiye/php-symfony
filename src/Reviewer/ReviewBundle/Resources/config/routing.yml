@@ -16,7 +16,7 @@ _sonata_admin:
     prefix: /admin
 
 review_view:
-    path:     /create/review/{id}
+    path:     /view/review/{id}
     defaults: { _controller: ReviewerReviewBundle:BookReview:viewReview }
     requirements:
         id: \d+
