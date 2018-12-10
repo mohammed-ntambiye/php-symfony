@@ -1,6 +1,10 @@
 imports:
     - { resource: config.yml }
 
+parameters:
+    locale: en
+    book-cover-images: '%kernel.root_dir%/../web/Public/image-uploads%'
+
 framework:
     router:
         resource: '%kernel.project_dir%/app/config/routing_dev.yml'
@@ -10,6 +14,7 @@ framework:
 web_profiler:
     toolbar: true
     intercept_redirects: false
+
 
 monolog:
     handlers:
@@ -39,3 +44,10 @@ monolog:
 
 #swiftmailer:
 #    delivery_addresses: ['me@example.com']
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        book_covers:
+            uri_prefix:         '/Public/image-uploads'
+            upload_destination: '%book-cover-images%'

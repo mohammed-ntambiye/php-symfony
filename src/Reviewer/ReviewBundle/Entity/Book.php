@@ -3,6 +3,8 @@
 namespace Reviewer\ReviewBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 /**
  * Book
@@ -19,7 +21,15 @@ class Book
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
+
     private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="timestamp", type="datetime")
+     */
+    private $timestamp;
 
     /**
      * @var string
@@ -52,6 +62,16 @@ class Book
      * @ORM\Column(name="coverImage", type="string", length=255)
      */
     private $coverImage;
+
+    /**
+     * @Vich\UploadableField(mapping="book_covers", fileNameProperty="coverImage")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @return int
+     */
 
 
     /**
@@ -182,5 +202,29 @@ class Book
     public function getGenreId()
     {
         return $this->genre_id;
+    }
+
+    /**
+     * Set timestamp.
+     *
+     * @param \DateTime $timestamp
+     *
+     * @return Book
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Get timestamp.
+     *
+     * @return \DateTime
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
     }
 }

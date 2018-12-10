@@ -10,4 +10,14 @@ namespace Reviewer\ReviewBundle\Repository;
  */
 class genreRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getGenres()
+    {
+        $queryBuilder = $this->createQueryBuilder('genre');
+        $queryBuilder->select('genre.genreName');
+        $query = $queryBuilder->getQuery();
+        var_dump($query->getResult);
+        return $query->getResult();
+    }
+
 }

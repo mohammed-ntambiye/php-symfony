@@ -33,3 +33,9 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    book_service:
+        class: Reviewer\ReviewBundle\Service\BookService
+        arguments: ['%app.mailer.transport%']
+
+

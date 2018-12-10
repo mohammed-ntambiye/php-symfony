@@ -19,7 +19,15 @@ class Book
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
+
     private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="timestamp", type="datetime")
+     */
+    private $timestamp;
 
     /**
      * @var string

@@ -8,6 +8,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    book-cover-images: '%kernel.root_dir%/../web/Public/image-uploads%'
 
 framework:
     #esi: ~
@@ -90,3 +91,10 @@ sonata_block:
     blocks:
         sonata.admin.block.admin_list:
             contexts: [admin]
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        book_covers:
+            uri_prefix:         '/Public/image-uploads'
+            upload_destination: '%book-cover-images%'

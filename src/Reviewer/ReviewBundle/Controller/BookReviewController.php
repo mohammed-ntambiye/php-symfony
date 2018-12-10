@@ -35,6 +35,23 @@ class BookReviewController extends Controller
         $form->handleRequest($request);
         // validates the form
         if ($form->isValid()) {
+
+
+            /** @var UploadedFile $image */
+            $image = $book->getCoverImage();
+            var_dump($image);
+
+            $filename = md5(uniqid()).'.'.$image->guessExtension();
+
+            $image->move(
+                $this->getParameter('book-cover-images'),
+                $filename
+            );
+
+            $book->setCoverImage($filename);
+
+
+            $book->setTimestamp(new \DateTime());
             // Retrieve the doctrine entity manager
             $em = $this->getDoctrine()->getManager();
             $em->persist($book);

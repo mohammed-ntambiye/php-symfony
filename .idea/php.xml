@@ -60,6 +60,9 @@
       <path value="$PROJECT_DIR$/vendor/sonata-project/doctrine-extensions" />
       <path value="$PROJECT_DIR$/vendor/sonata-project/datagrid-bundle" />
       <path value="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
+      <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.5.0" />
