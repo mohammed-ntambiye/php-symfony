@@ -5,6 +5,8 @@ namespace Reviewer\ReviewBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ReviewType extends AbstractType
 {
@@ -14,9 +16,10 @@ class ReviewType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('summaryReview')
             ->add('rating')
-            ->add('fullReview');
+            ->add('summaryReview',TextareaType::class)
+            ->add('fullReview',TextareaType::class)
+            ->add('SubmitReview', SubmitType::class);
     }
 
     /**

@@ -13,5 +13,6 @@ class DefaultController extends Controller
         return $this->render('ReviewerReviewBundle:Default:index.html.twig',
             ['bookReviews' => $bookReview]);
     }
-}
+
+  }
 

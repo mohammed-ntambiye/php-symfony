@@ -15,32 +15,43 @@ _sonata_admin:
     type: sonata_admin
     prefix: /admin
 
-view:
-    path: /view/{id}
-    defaults: { _controller: ReviewerReviewBundle:BookReview:view }
+review_view:
+    path:     /create/review/{id}
+    defaults: { _controller: ReviewerReviewBundle:BookReview:viewReview }
     requirements:
         id: \d+
 
-create:
-    path:     /create
-    defaults: { _controller: ReviewerReviewBundle:BookReview:create }
+review_create:
+    path:     /create/review
+    defaults: { _controller: ReviewerReviewBundle:BookReview:createReview }
 
-edit:
-    path:     /edit/{id}
-    defaults: { _controller: ReviewerReviewBundle:BookReview:edit }
+
+book_view:
+    path:     /view/book/{id}
+    defaults: {  _controller: ReviewerReviewBundle:BookReview:viewBook}
     requirements:
         id: \d+
 
-delete:
-    path:     /delete/{id}
-    defaults: { _controller: ReviewerReviewBundle:BookReview:delete }
-    requirements:
-        id: \d+
+book_create:
+    path:     /create/book
+    defaults: {  _controller: ReviewerReviewBundle:BookReview:createBook}
 
-view:
-    path:     /view
-    defaults: { _controller: ReviewerReviewBundle:Book:view }
 
-create:
-    path:     /book_create
-    defaults: { _controller: ReviewerReviewBundle:Book:create }
+
+#edit:
+#    path:     /edit/{id}
+#    defaults: { _controller: ReviewerReviewBundle:BookReview:edit }
+#    requirements:
+#        id: \d+
+
+#book_create:
+#    path:     /book/create/{id}
+#    defaults: { _controller: ReviewerReviewBundle:DefaultController:createBook }
+#    requirements:
+#        id: \d+
+
+#delete:
+#    path:     /delete/{id}
+#    defaults: { _controller: ReviewerReviewBundle:BookReview:delete }
+#    requirements:
+#        id: \d+

@@ -15,9 +15,8 @@ class BookType extends AbstractType
     {
         $builder->add('isbn')
             ->add('title')
-            ->add('coverImage')
-            ->add('genre_id');
-    }
+            ->add('coverImage');
+     }
 
     /**
      * {@inheritdoc}
