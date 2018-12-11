@@ -6,9 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * genre
- *
+ * @ORM\Entity
  * @ORM\Table(name="genre")
- * @ORM\Entity(repositoryClass="Reviewer\ReviewBundle\Repository\genreRepository")
  */
 class Genre
 {

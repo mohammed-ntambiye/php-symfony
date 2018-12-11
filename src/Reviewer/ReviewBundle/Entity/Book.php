@@ -9,9 +9,8 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Book
- *
+ * @ORM\Entity
  * @ORM\Table(name="book")
- * @ORM\Entity(repositoryClass="Reviewer\ReviewBundle\Repository\BookRepository")
  * @Vich\Uploadable
  */
 class Book
@@ -47,11 +46,6 @@ class Book
      */
     private $title;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="genre", type="string", length=255)
-     */
     /**
      * @ORM\ManyToOne(targetEntity="Reviewer\ReviewBundle\Entity\Genre")
      * @ORM\JoinColumn(name="genre_id", referencedColumnName="id")
@@ -129,30 +123,6 @@ class Book
     }
 
     /**
-     * Set genre.
-     *
-     * @param string $genre
-     *
-     * @return Book
-     */
-    public function setGenre_id($genre)
-    {
-        $this->genre_id = $genre;
-
-        return $this;
-    }
-
-    /**
-     * Get genre.
-     *
-     * @return string
-     */
-    public function getGenre_id()
-    {
-        return $this->genre_id;
-    }
-
-    /**
      * Set coverImage.
      *
      * @param string $coverImage
@@ -177,20 +147,6 @@ class Book
     }
 
     /**
-     * Set genreId.
-     *
-     * @param \Reviewer\ReviewBundle\Entity\genre|null $genreId
-     *
-     * @return Book
-     */
-    public function setGenreId(\Reviewer\ReviewBundle\Entity\genre $genreId = null)
-    {
-        $this->genre_id = $genreId;
-
-        return $this;
-    }
-
-    /**
      * Get genreId.
      *
      * @return \Reviewer\ReviewBundle\Entity\genre|null
@@ -198,6 +154,16 @@ class Book
     public function getGenreId()
     {
         return $this->genre_id;
+    }
+
+    /**
+     * Set genre.
+     *
+     * @param mixed $genre
+     */
+    public function setGenreId($genre)
+    {
+        $this->genre_id = $genre;
     }
 
     /**

@@ -3,6 +3,8 @@
 namespace Reviewer\ReviewBundle\Service;
 
 use \Reviewer\ReviewBundle\Entity\Genre;
+use \Reviewer\ReviewBundle\Entity\Book;
+use \Reviewer\ReviewBundle\Entity\Review;
 use Doctrine\ORM\EntityManager;
 
 class BookService
@@ -30,11 +32,10 @@ class BookService
      */
     public function getGenres()
     {
-        var_dump("here");
         $em = $this->getEntityManager();
 
         $query = $em->createQuery(
-            'SELECT g.id, g.genre FROM genre:Genre g');
+            'SELECT g.id, g.genreName FROM ReviewerReviewBundle:Genre g');
 
         return $query->getResult();
     }
@@ -52,5 +53,33 @@ class BookService
 
         return $result;
     }
+
+    /**
+     * @return EntityManager
+     */
+    private function getEntityManager()
+    {
+        return $this->entityManager;
+    }
+
+
+    public function getBookById($id)
+    {
+        $em = $this->getEntityManager();
+
+        return $em->getRepository(Book::class)->find($id);
+    }
+
+    public function getLatest($limit, $offset)
+    {
+        $queryBuilder = $this->createQueryBuilder('Review');
+        $queryBuilder->orderBy('Review.timestamp', 'DESC')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit);
+        $query = $queryBuilder->getQuery();
+        return $query->getResult();
+    }
+
+
 
 }

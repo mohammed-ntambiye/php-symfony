@@ -3,36 +3,37 @@
 {% block title %}ReviewerReviewBundle:Book:create{% endblock %}
 
 {% block body %}
-    <form name="reviewer_reviewbundle_bookreview" method="post" >
-        <div id="reviewer_reviewbundle_bookreview">
+    <section>
+        {{ form_start(form) }}
+
             <div class="formElement">
-                <h2>Create Book</h2>
+                {#<h2>Create Book</h2>#}
                 {#<div class="row form-group">#}
-                    {#<div class="col-sm-2">{{ form_label(form.Isbm) }}</div>#}
-                    {#<div class="col-sm-6">{{ form_widget(form.Isbm, {'attr': {'class': 'form-control' }}) }}</div>#}
-                    {#<div class="col-sm-6">{{ form_errors(form.Isbm) }}</div>#}
+                {#<div class="col-sm-2">{{ form_label(form.isbn) }}</div>#}
+                {#<div class="col-sm-6">{{ form_widget(form.isbn, {'attr': {'class': 'form-control' }}) }}</div>#}
+                {#<div class="col-sm-6">{{ form_errors(form.Isbm) }}</div>#}
                 {#</div>#}
                 {#<div class="row form-group">#}
-                    {#<div class="col-sm-2">{{ form_label(form.title) }}</div>#}
-                    {#<div class="col-sm-6">{{ form_widget(form.title, {'attr': {'class': 'form-control' }}) }}</div>#}
-                    {#<div class="col-sm-6">{{ form_errors(form.title) }}</div>#}
+                {#<div class="col-sm-2">{{ form_label(form.title) }}</div>#}
+                {#<div class="col-sm-6">{{ form_widget(form.title, {'attr': {'class': 'form-control' }}) }}</div>#}
+                {#<div class="col-sm-6">{{ form_errors(form.title) }}</div>#}
                 {#</div>#}
 
                 {#<div class="row form-group">#}
-                    {#<div class="col-sm-2">{{ form_label(form.coverImage) }}</div>#}
-                    {#<div class="col-sm-6">{{ form_widget(form.coverImage, {'attr': {'class': 'form-control', 'rows': '6','maxlength':'300','col':'40' }}) }}</div>#}
-                    {#<div class="col-sm-6">{{ form_errors(form.coverImage) }}</div>#}
+                {#<div class="col-sm-2">{{ form_label(form.coverImage) }}</div>#}
+                {#<div class="col-sm-6">{{ form_widget(form.coverImage, {'attr': {'class': 'form-control', 'rows': '6','maxlength':'300','col':'40' }}) }}</div>#}
+                {#<div class="col-sm-6">{{ form_errors(form.coverImage) }}</div>#}
                 {#</div>#}
+
+                {{ form_row(form.genre_id) }}
+                {{ form_row(form.title) }}
+                {{ form_row(form.isbn) }}
                 {{ form_row(form.cover_image) }}
 
-                {{ form(form) }}
-                <div class="form-group">
-                    <button id="reviewer_reviewbundle_bookreview_submitModifications" type="submit" class="btn btn-info btn-block createEditForm">Submit review</button>
-                </div>
-                <div class="invisible">
-                    {{ form(form) }}
-                    <div>
-                    </div>
-                </div>
-    </form>
+                {#{{ form(form) }}#}
+                {#<div class="form-group">#}
+                {#<button id="reviewer_reviewbundle_bookreview_submitModifications" type="submit" class="btn btn-info btn-block createEditForm">Submit review</button>#}
+            </div>
+        {{ form_end(form) }}
+    </section>
 {% endblock %}

@@ -7,6 +7,7 @@ use Reviewer\ReviewBundle\Form\BookType;
 use Reviewer\ReviewBundle\Form\ReviewType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Reviewer\ReviewBundle\Entity\Book;
+use Reviewer\ReviewBundle\Service\BookService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -17,11 +18,17 @@ class BookReviewController extends Controller
 
     public function viewBookAction($id)
     {
+
+        $entityManger = $this->getDoctrine()->getManager();
+        $bookService = $this->container->get('book_service');
+        $bookEntry = new Book();
+
+
         // Get the doctrine Entity manager
         $em = $this->getDoctrine()->getManager();
         // Use the entity manager to retrieve the Entry entity for the id
         // that has been passed
-        $book = $em->getRepository('ReviewerReviewBundle:Book')->find($id);
+        $book = $bookService->getBookById($id);
         // Pass the entry entity to the view for displaying
         return $this->render('ReviewerReviewBundle:Book:view.html.twig',
             ['book' => $book]);
@@ -29,9 +36,10 @@ class BookReviewController extends Controller
 
     public function createBookAction(Request $request)
     {
+        $bookService = $this->container->get('book_service');
         $book = new Book();
         $form = $this->createForm(BookType::class, $book, [
-            'action' => $request->getUri()
+            'action' => $request->getUri(), 'book_service' => $bookService
         ]);
 
         // If the request is post it will populate the form
@@ -39,16 +47,14 @@ class BookReviewController extends Controller
         // validates the form
         if ($form->isValid()) {
 
-
+            $book->setGenreId($bookService->getGenreById($book->getGenreId()));
             /** @var @Vich\Uploadable $image */
-            $image = $book->getImageFile();
-            var_dump($image);
-            var_dump($book);
+            $image = $book->getCoverImage();
 
             $filename = md5(uniqid()).'.'.$image->guessExtension();
 
             $image->move(
-                $this->getParameter('book-cover-images'),
+                $this->getParameter('book_covers'),
                 $filename
             );
 

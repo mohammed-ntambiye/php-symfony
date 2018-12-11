@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class BookType extends AbstractType
 {
@@ -18,17 +19,12 @@ class BookType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         /** @var BookService $bookService */
-        //  $bookService = $options['book_service'];
+        $bookService = $options['book_service'];
+        $genreArray = array_column($bookService->getGenres(), 'id', 'genreName');
 
-        // $genreArray = array_column($bookService->getGenres(), 'genre', 'id');
 
-        $genreArray = array(
-            'Love' => null,
-            'Horor' => null
-        );
-
-        $builder->add('isbn')
-            ->add('title')
+        $builder->add('isbn', TextType::class)
+            ->add('title', TextType::class)
             ->add('genre_id', ChoiceType::class, [
                 'choices' => [
                     'Pick a genre' => $genreArray
@@ -51,6 +47,8 @@ class BookType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'Reviewer\ReviewBundle\Entity\Book'
         ));
+
+        $resolver->setRequired('book_service');
     }
 
     /**
