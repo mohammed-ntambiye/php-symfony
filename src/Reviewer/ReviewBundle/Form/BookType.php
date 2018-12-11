@@ -35,7 +35,7 @@ class BookType extends AbstractType
                 ],
                 'label' => 'Genre'
             ])
-            ->add('coverImage', FileType::class, [
+            ->add('cover_image', FileType::class, [
                 'data_class' => null])
             ->add('submit', SubmitType::class, [
                 'attr' => array(
@@ -60,6 +60,5 @@ class BookType extends AbstractType
     {
         return 'reviewer_reviewbundle_book';
     }
-
 
 }

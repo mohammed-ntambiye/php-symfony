@@ -25,6 +25,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Reviewer\ReviewBundle\ReviewerReviewBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle()
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

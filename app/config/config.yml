@@ -8,7 +8,8 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    book-cover-images: '%kernel.root_dir%/../web/Public/image-uploads%'
+    book_covers: '%kernel.root_dir%/../web/Public/image-uploads%'
+
 
 framework:
     #esi: ~
@@ -96,5 +97,5 @@ vich_uploader:
     db_driver: orm
     mappings:
         book_covers:
-            uri_prefix:         '/Public/image-uploads'
-            upload_destination: '%book-cover-images%'
+            uri_prefix:         'Public/image-uploads'
+            upload_destination: '%book_covers%'

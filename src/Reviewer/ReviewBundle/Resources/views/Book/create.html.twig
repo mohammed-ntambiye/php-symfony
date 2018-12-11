@@ -23,9 +23,9 @@
                     {#<div class="col-sm-6">{{ form_widget(form.coverImage, {'attr': {'class': 'form-control', 'rows': '6','maxlength':'300','col':'40' }}) }}</div>#}
                     {#<div class="col-sm-6">{{ form_errors(form.coverImage) }}</div>#}
                 {#</div>#}
+                {{ form_row(form.cover_image) }}
 
                 {{ form(form) }}
-
                 <div class="form-group">
                     <button id="reviewer_reviewbundle_bookreview_submitModifications" type="submit" class="btn btn-info btn-block createEditForm">Submit review</button>
                 </div>

@@ -8,6 +8,9 @@ use Reviewer\ReviewBundle\Form\ReviewType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Reviewer\ReviewBundle\Entity\Book;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 class BookReviewController extends Controller
 {
@@ -37,9 +40,10 @@ class BookReviewController extends Controller
         if ($form->isValid()) {
 
 
-            /** @var UploadedFile $image */
-            $image = $book->getCoverImage();
+            /** @var @Vich\Uploadable $image */
+            $image = $book->getImageFile();
             var_dump($image);
+            var_dump($book);
 
             $filename = md5(uniqid()).'.'.$image->guessExtension();
 
@@ -89,7 +93,13 @@ class BookReviewController extends Controller
         // If the request is post it will populate the form
         $form->handleRequest($request);
 
-        // validates the form
+        // validates the form//
+//            $image->move(
+//                $this->getParameter('book-cover-images'),
+//                $filename
+//            );
+
+           // $book->setCoverImage($filename);
         if ($form->isValid()) {
             // Retrieve the doctrine entity manager
             $em = $this->getDoctrine()->getManager();

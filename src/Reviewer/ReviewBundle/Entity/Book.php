@@ -4,13 +4,15 @@ namespace Reviewer\ReviewBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Form\Type\VichImageType;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * Book
  *
  * @ORM\Table(name="book")
  * @ORM\Entity(repositoryClass="Reviewer\ReviewBundle\Repository\BookRepository")
+ * @Vich\Uploadable
  */
 class Book
 {
@@ -57,9 +59,7 @@ class Book
     private $genre_id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="coverImage", type="string", length=255)
+     * @ORM\Column(type="string")
      */
     private $coverImage;
 
@@ -69,12 +69,8 @@ class Book
      */
     private $imageFile;
 
-    /**
-     * @return int
-     */
 
-
-    /**
+    /**Register
      * Get id.
      *
      * @return int
@@ -226,5 +222,18 @@ class Book
     public function getTimestamp()
     {
         return $this->timestamp;
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile
+     */
+    public function setImageFile(File $imageFile = null)
+    {
+        $this->imageFile = $imageFile;
     }
 }
