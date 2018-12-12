@@ -7,19 +7,18 @@
     <title>{% block title %}Uncovered{% endblock %} Uncovered</title>
     {% block stylesheets %}
         {% stylesheets
-        'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'
-        '../app/Resources/public/css/screen.css'
-        %}
-        <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
+            'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'
+            '../app/Resources/public/css/screen.css' %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
         {% endstylesheets %}
     {% endblock %}
     {% block javascript %}
-        {% javascripts
-        'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'
-        %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-    {% endblock %}
+    {% javascripts
+    'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
@@ -44,13 +43,13 @@
                         <li><a href="{{ path('review_create') }}">Add a review</a></li>
                     {% else %}
                         <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
-                        <li><a href="{{path('fos_user_registration_register')}}">Register</a></li>
+                        <li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
                     {% endif %}
 
                 </ul>
             </div>
-            </div
         </div>
+    </nav>
     </nav>
     <div class="row">
         <section class="col-md-12">
@@ -58,7 +57,7 @@
         </section>
         <section class="col-md-4">
             {% block sidebar %}{% endblock %}
-            </section>
+        </section>
     </div>
     <div class="footer">
         {% block footer %}

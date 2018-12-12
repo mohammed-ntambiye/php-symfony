@@ -72,14 +72,28 @@ class BookService
 
     public function getLatest($limit, $offset)
     {
-        $queryBuilder = $this->createQueryBuilder('Review');
-        $queryBuilder->orderBy('Review.timestamp', 'DESC')
-            ->setFirstResult($offset)
-            ->setMaxResults($limit);
-        $query = $queryBuilder->getQuery();
+        $em = $this->getEntityManager();
+        $query = $em->createQuery(
+            'SELECT bookAuthor FROM ReviewerReviewBundle:Review b');
+
         return $query->getResult();
+
+//        $queryBuilder = $this->createQueryBuilder('review');
+//        $queryBuilder->orderBy('Review.timestamp', 'DESC')
+//            ->setFirstResult($offset)
+//            ->setMaxResults($limit);
+//        $query = $queryBuilder->getQuery();
+//        return $query->getResult();
     }
 
+    public function getBookIdByIsbn($isbn)
+    {
+        $em = $this->getEntityManager();
+        return $em->getRepository(Book::class)->findOneBy(
+            [ 'isbn' => $isbn ]
+        );
+
+    }
 
 
 }

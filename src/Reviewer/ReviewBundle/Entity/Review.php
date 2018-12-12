@@ -6,9 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * review
- *
+ * @ORM\Entity
  * @ORM\Table(name="review")
- * @ORM\Entity(repositoryClass="Reviewer\ReviewBundle\Repository\reviewRepository")
  */
 class Review
 {
@@ -57,11 +56,6 @@ class Review
      */
     private $rating;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="bookId", type="string", length=1)
-     */
     /**
      * @ORM\ManyToOne(targetEntity="Reviewer\ReviewBundle\Entity\Book")
      * @ORM\JoinColumn(name="bookId", referencedColumnName="id")

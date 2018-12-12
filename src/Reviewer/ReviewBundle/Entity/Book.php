@@ -35,7 +35,7 @@ class Book
     /**
      * @var string
      *
-     * @ORM\Column(name="isbn", type="string", length=12)
+     * @ORM\Column(name="isbn", type="string", length=12, unique=true)
      */
     private $isbn;
 

@@ -20,6 +20,7 @@ class BookType extends AbstractType
     {
         /** @var BookService $bookService */
         $bookService = $options['book_service'];
+
         $genreArray = array_column($bookService->getGenres(), 'id', 'genreName');
 
 

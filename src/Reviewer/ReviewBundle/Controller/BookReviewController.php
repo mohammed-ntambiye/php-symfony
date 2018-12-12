@@ -8,6 +8,7 @@ use Reviewer\ReviewBundle\Form\ReviewType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Reviewer\ReviewBundle\Entity\Book;
 use Reviewer\ReviewBundle\Service\BookService;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -51,7 +52,7 @@ class BookReviewController extends Controller
             /** @var @Vich\Uploadable $image */
             $image = $book->getCoverImage();
 
-            $filename = md5(uniqid()).'.'.$image->guessExtension();
+            $filename = md5(uniqid()) . '.' . $image->guessExtension();
 
             $image->move(
                 $this->getParameter('book_covers'),
@@ -77,7 +78,6 @@ class BookReviewController extends Controller
 
     public function viewReviewAction($id)
     {
-        var_dump("here");
         // Get the doctrine Entity manager
         $em = $this->getDoctrine()->getManager();
         // Use the entity manager to retrieve the Entry entity for the id
@@ -95,27 +95,25 @@ class BookReviewController extends Controller
         $form = $this->createForm(ReviewType::class, $review, [
             'action' => $request->getUri()
         ]);
+        $bookService = $this->container->get('book_service');
 
-        // If the request is post it will populate the form
         $form->handleRequest($request);
 
-        // validates the form//
-//            $image->move(
-//                $this->getParameter('book-cover-images'),
-//                $filename
-//            );
+        if ($request->isMethod('post')) {
+            $bookId = $bookService->getBookIdByIsbn($review->getBookId());
+            if (!isset($bookId)) {
+                $form->get('bookId')->addError(new FormError('Invalid isbn please try again or use the search'));
 
-           // $book->setCoverImage($filename);
+            }
+        }
+
         if ($form->isValid()) {
-            // Retrieve the doctrine entity manager
             $em = $this->getDoctrine()->getManager();
-            // manually set the author to the current user
+            $review->setBookId($bookId);
+
             $review->setAuthor($this->getUser());
-            // manually set the timestamp to a new DateTime object
             $review->setTimestamp(new \DateTime());
-            // tell the entity manager we want to persist this entity
             $em->persist($review);
-            // commit all changes
             $em->flush();
             return $this->redirect($this->generateUrl('review_view', ['id' => $review->getId()]));
         }

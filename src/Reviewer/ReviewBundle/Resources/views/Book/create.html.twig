@@ -3,37 +3,32 @@
 {% block title %}ReviewerReviewBundle:Book:create{% endblock %}
 
 {% block body %}
-    <section>
+        <h2>Create Book</h2>
         {{ form_start(form) }}
-
-            <div class="formElement">
-                {#<h2>Create Book</h2>#}
-                {#<div class="row form-group">#}
-                {#<div class="col-sm-2">{{ form_label(form.isbn) }}</div>#}
-                {#<div class="col-sm-6">{{ form_widget(form.isbn, {'attr': {'class': 'form-control' }}) }}</div>#}
-                {#<div class="col-sm-6">{{ form_errors(form.Isbm) }}</div>#}
-                {#</div>#}
-                {#<div class="row form-group">#}
-                {#<div class="col-sm-2">{{ form_label(form.title) }}</div>#}
-                {#<div class="col-sm-6">{{ form_widget(form.title, {'attr': {'class': 'form-control' }}) }}</div>#}
-                {#<div class="col-sm-6">{{ form_errors(form.title) }}</div>#}
-                {#</div>#}
-
-                {#<div class="row form-group">#}
-                {#<div class="col-sm-2">{{ form_label(form.coverImage) }}</div>#}
-                {#<div class="col-sm-6">{{ form_widget(form.coverImage, {'attr': {'class': 'form-control', 'rows': '6','maxlength':'300','col':'40' }}) }}</div>#}
-                {#<div class="col-sm-6">{{ form_errors(form.coverImage) }}</div>#}
-                {#</div>#}
-
-                {{ form_row(form.genre_id) }}
-                {{ form_row(form.title) }}
-                {{ form_row(form.isbn) }}
-                {{ form_row(form.cover_image) }}
-
-                {#{{ form(form) }}#}
-                {#<div class="form-group">#}
-                {#<button id="reviewer_reviewbundle_bookreview_submitModifications" type="submit" class="btn btn-info btn-block createEditForm">Submit review</button>#}
+        <section class="formElement">
+            <div class="row form-group">
+                <div class="col-sm-2">{{ form_label(form.isbn) }}</div>
+                <div class="col-sm-6">{{ form_widget(form.isbn, {'attr': {'class': 'form-control' }}) }}</div>
+                <div class="col-sm-6">{{ form_errors(form.isbn) }}</div>
             </div>
-        {{ form_end(form) }}
-    </section>
+
+            <div class="row form-group">
+                <div class="col-sm-2">{{ form_label(form.title) }}</div>
+                <div class="col-sm-6">{{ form_widget(form.title, {'attr': {'class': 'form-control' }}) }}</div>
+                <div class="col-sm-6">{{ form_errors(form.title) }}</div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-2">{{ form_label(form.genre_id) }}</div>
+                <div class="col-sm-6">{{ form_widget(form.genre_id, {'attr': {'class': 'form-control' }}) }}</div>
+                <div class="col-sm-6">{{ form_errors(form.genre_id) }}</div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-sm-2">{{ form_label(form.cover_image) }}</div>
+                <div class="col-sm-6">{{ form_widget(form.cover_image, {'attr': {'class': 'form-control' }}) }}</div>
+                <div class="col-sm-6">{{ form_errors(form.cover_image) }}</div>
+            </div>
+            {{ form_row(form.submit,{'attr': {'class': 'btn btn-primary' }}) }}
+            {{ form_end(form) }}
+        </section>
 {% endblock %}
