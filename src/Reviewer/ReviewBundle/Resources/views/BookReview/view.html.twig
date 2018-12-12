@@ -5,10 +5,8 @@
 {% block body %}
     <article class="col-md-6">
         <p>{{ review.summaryReview }} </p>
-        <p> {{ review.fullReview}}</p>
+        <p> {{ review.fullReview }}</p>
         <h1>{{ review.rating | rating(5, "fa-3x") }}</h1>
-        <h1>{{ review.id }}</h1>
-        <p>
         <p>
             <small>Created by {{ review.author }} at
                 {{ review.timestamp|date('H:i d/m/y') }}

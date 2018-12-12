@@ -4,15 +4,16 @@
 
 {% block body %}
     <article class="col-md-6">
-        <h1>{{ book.title }}</h1>
-        <p>{{ book.coverImage }} </p>
-        <p>{{ book.isbn }} </p>
-        {#<p> {{ bookReview.review }}</p>#}
-        <p>
-            {#<small>Created by {{ bookReview.author }} at#}
-                {#{{ bookReview.timestamp|date('H:i d/m/y') }}#}
-            {#</small>#}
-            {#<a href="{{ path('edit',{'id':bookReview.id}) }}">edit</a>#}
-        </p>
+        <div class="col-md-3">
+            <img
+                    class="center-block img-responsive"
+                    src="{{ asset('Public/image-uploads/' ~ book.coverImage) }}"
+                    alt="cover"
+            >
+        </div>
+        <div class="col-md-9">
+            <p><b>Book Isbn:</b> {{ book.isbn }} </p>
+            <p><b>Book title:</b> {{ book.title }}</p>
+        </div>
     </article>
 {% endblock %}
