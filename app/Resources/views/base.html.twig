@@ -3,20 +3,25 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Uncovered{% endblock %} Uncovered</title>
     {% block stylesheets %}
         {% stylesheets
             'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'
-            '../app/Resources/public/css/screen.css' %}
+            '../app/Resources/public/css/screen.css'
+            'bundles/starrating/css/rating.css'%}
             <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
         {% endstylesheets %}
     {% endblock %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     {% block javascript %}
     {% javascripts
     'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'
+    '@StarRatingBundle/Resources/public/js/rating.js'
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
+
     {% endjavascripts %}
 {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
@@ -38,9 +43,13 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ path('reviewer_review_homepage') }}">Home</a></li>
                     {% if is_granted('ROLE_USER') %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li><a href="{{ path('sonata_admin_redirect') }}">Admin panel</a></li>
+                        {% endif %}
                         <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
-                        <li><a href="{{ path('book_create') }}">Add a book</a></li>
-                        <li><a href="{{ path('review_create') }}">Add a review</a></li>
+                        <li><a href="{{ path('book_create') }}">Add book</a></li>
+                        <li><a href="{{ path('review_create') }}">Add review</a></li>
+
                     {% else %}
                         <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
                         <li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>

@@ -50,9 +50,7 @@ class Review
     private $fullReview;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="rating", type="string", length=500)
+     * @ORM\Column(type="float")
      */
     private $rating;
 

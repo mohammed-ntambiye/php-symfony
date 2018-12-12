@@ -6,9 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * review
- *
+ * @ORM\Entity
  * @ORM\Table(name="review")
- * @ORM\Entity(repositoryClass="Reviewer\ReviewBundle\Repository\reviewRepository")
  */
 class Review
 {
@@ -46,22 +45,15 @@ class Review
     /**
      * @var string
      *
-     * @ORM\Column(name="fullReview", type="string", length=255)
+     * @ORM\Column(name="fullReview", type="string", length=500)
      */
     private $fullReview;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="rating", type="string", length=255)
+     * @ORM\Column(type="float")
      */
     private $rating;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="bookId", type="string", length=255)
-     */
     /**
      * @ORM\ManyToOne(targetEntity="Reviewer\ReviewBundle\Entity\Book")
      * @ORM\JoinColumn(name="bookId", referencedColumnName="id")
@@ -197,5 +189,41 @@ class Review
     public function getBookId()
     {
         return $this->bookId;
+    }
+
+    /**
+     * Set fullReview.
+     *
+     * @param string $fullReview
+     *
+     * @return Review
+     */
+    public function setFullReview($fullReview)
+    {
+        $this->fullReview = $fullReview;
+
+        return $this;
+    }
+
+    /**
+     * Get fullReview.
+     *
+     * @return string
+     */
+    public function getFullReview()
+    {
+        return $this->fullReview;
+    }
+
+    /**
+     * Get fullReview.
+     *
+     * @return string
+     */
+    public function setId($id)
+    {
+        $this->id = id;
+
+        return $this;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Reviewer\ReviewBundle\Form;
 
+use blackknight467\StarRatingBundle\Form\RatingType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,7 +19,9 @@ class ReviewType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('rating')
+            ->add('rating', RatingType::class, [
+                'label' => 'Rating'
+            ])
             ->add('summaryReview', TextareaType::class)
             ->add('fullReview', TextareaType::class)
             ->add('bookId', TextType::class, [

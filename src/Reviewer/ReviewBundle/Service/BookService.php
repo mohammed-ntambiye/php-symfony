@@ -72,11 +72,11 @@ class BookService
 
     public function getLatest($limit, $offset)
     {
-        $em = $this->getEntityManager();
-        $query = $em->createQuery(
-            'SELECT bookAuthor FROM ReviewerReviewBundle:Review b');
-
-        return $query->getResult();
+//        $em = $this->getEntityManager();
+//        $query = $em->createQuery(
+//            'SELECT bookAuthor FROM ReviewerReviewBundle:Review b');
+//
+//        return $query->getResult();
 
 //        $queryBuilder = $this->createQueryBuilder('review');
 //        $queryBuilder->orderBy('Review.timestamp', 'DESC')

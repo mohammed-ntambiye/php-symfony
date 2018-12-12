@@ -10,7 +10,6 @@ parameters:
     locale: en
     book_covers: '%kernel.root_dir%/../web/Public/image-uploads'
 
-
 framework:
     #esi: ~
     translator: { fallbacks: ['%locale%'] }
@@ -80,6 +79,9 @@ assetic:
         css:
             inputs:
             - '../app/Resources/public/css/*'
+    filters:
+        cssrewrite: ~
+
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main

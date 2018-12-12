@@ -24,11 +24,12 @@
             <div class="col-sm-6">{{ form_widget(form.fullReview, {'attr': {'class': 'form-control', 'rows': '6','maxlength':'300','col':'40'  }}) }}</div>
             <div class="col-sm-6">{{ form_errors(form.fullReview) }}</div>
         </div>
-         <div class="row form-group">
+        <div class="row form-group">
             <div class="col-sm-2">{{ form_label(form.rating) }}</div>
-            <div class="col-sm-6">{{ form_widget(form.rating, {'attr': {'class': 'form-control' }}) }}</div>
+            <div class="col-sm-6">{{ form_widget(form.rating) }}</div>
             <div class="col-sm-6">{{ form_errors(form.rating) }}</div>
         </div>
+
         {{ form_row(form.submit,{'attr': {'class': 'btn btn-primary' }}) }}
         {{ form_end(form) }}
     </section>

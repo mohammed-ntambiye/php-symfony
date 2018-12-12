@@ -25,7 +25,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Reviewer\ReviewBundle\ReviewerReviewBundle(),
-            new Vich\UploaderBundle\VichUploaderBundle()
+            new Vich\UploaderBundle\VichUploaderBundle(),
+            new blackknight467\StarRatingBundle\StarRatingBundle()
 
         ];
 
