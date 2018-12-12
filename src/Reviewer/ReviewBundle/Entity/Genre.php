@@ -27,6 +27,14 @@ class Genre
      */
     private $genreName;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="genreIcon", type="string", length=10)
+     */
+    private $genreIcon;
+
+
 
     /**
      * Get id.
@@ -60,5 +68,29 @@ class Genre
     public function getGenreName()
     {
         return $this->genreName;
+    }
+
+    /**
+     * Set genreIcon.
+     *
+     * @param string $genreIcon
+     *
+     * @return Genre
+     */
+    public function setGenreIcon($genreIcon)
+    {
+        $this->genreIcon = $genreIcon;
+
+        return $this;
+    }
+
+    /**
+     * Get genreIcon.
+     *
+     * @return string
+     */
+    public function getGenreIcon()
+    {
+        return $this->genreIcon;
     }
 }

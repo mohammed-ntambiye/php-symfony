@@ -14,8 +14,12 @@
         <section class="col-md-9">
             <p><b>Book Isbn:</b> {{ book.isbn }} </p>
             <p><b>Book title:</b> {{ book.title }}</p>
-            <p class="descriptionText"><b>Book Description:</b> {{ book.bookDescription}}</p>
+            <p class="descriptionText"><b>Book Description:</b> {{ book.bookDescription }}</p>
         </section>
+
+        <div class="col-md-12">
+            <a class="btn btn-primary btn-lg btn-block createEditForm"  href="{{ path('review_create', { 'id': book.id }) }}">Write a review</a>
+        </div>
         <section class="col-md-12">
             <h3>Reviews</h3>
             <p> Coming soon</p>

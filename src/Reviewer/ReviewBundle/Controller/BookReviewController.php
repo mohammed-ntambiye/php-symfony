@@ -23,14 +23,19 @@ class BookReviewController extends Controller
         $entityManger = $this->getDoctrine()->getManager();
         $bookService = $this->container->get('book_service');
         $bookEntry = new Book();
-        // Get the doctrine Entity manager
         $em = $this->getDoctrine()->getManager();
-        // Use the entity manager to retrieve the Entry entity for the id
-        // that has been passed
+
+
         $book = $bookService->getBookById($id);
-        // Pass the entry entity to the view for displaying
-        return $this->render('ReviewerReviewBundle:Book:view.html.twig',
-            ['book' => $book]);
+        if (isset($book)) {
+            return $this->render('ReviewerReviewBundle:Book:view.html.twig',
+                ['book' => $book]);
+        } else {
+            return $this->render('ReviewerReviewBundle:ErrorPages:error.html.twig',[
+                'message' => 'This book does not exist'
+            ]);
+        }
+
     }
 
     public function createBookAction(Request $request)
@@ -76,14 +81,21 @@ class BookReviewController extends Controller
 
     public function viewReviewAction($id)
     {
-        // Get the doctrine Entity manager
+        $entityManger = $this->getDoctrine()->getManager();
+        $bookService = $this->container->get('book_service');
+        $bookEntry = new Review();
         $em = $this->getDoctrine()->getManager();
-        // Use the entity manager to retrieve the Entry entity for the id
-        // that has been passed
-        $review = $em->getRepository('ReviewerReviewBundle:Review')->find($id);
-        // Pass the entry entity to the view for displaying
-        return $this->render('ReviewerReviewBundle:BookReview:view.html.twig',
-            ['review' => $review]);
+
+        $review = $bookService->getReviewById($id);
+
+        if (isset($review)) {
+            return $this->render('ReviewerReviewBundle:BookReview:view.html.twig',
+                ['review' => $review]);
+        } else {
+            return $this->render('ReviewerReviewBundle:ErrorPages:error.html.twig',[
+                'message' => 'This review does not exist'
+            ]);
+        }
     }
 
 

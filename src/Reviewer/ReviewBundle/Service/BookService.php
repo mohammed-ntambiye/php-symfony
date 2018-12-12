@@ -63,27 +63,24 @@ class BookService
     }
 
 
-    public function getBookById($id)
+
+    public function getRevieWById($id)
     {
         $em = $this->getEntityManager();
 
-        return $em->getRepository(Book::class)->find($id);
+        return $em->getRepository(Review::class)->find($id);
     }
+
+
 
     public function getLatest($limit, $offset)
     {
+
 //        $em = $this->getEntityManager();
 //        $query = $em->createQuery(
-//            'SELECT bookAuthor FROM ReviewerReviewBundle:Review b');
-//
+//            'SELECT rating FROM ReviewerReviewBundle:Review g');
 //        return $query->getResult();
 
-//        $queryBuilder = $this->createQueryBuilder('review');
-//        $queryBuilder->orderBy('Review.timestamp', 'DESC')
-//            ->setFirstResult($offset)
-//            ->setMaxResults($limit);
-//        $query = $queryBuilder->getQuery();
-//        return $query->getResult();
     }
 
     public function getBookIdByIsbn($isbn)
