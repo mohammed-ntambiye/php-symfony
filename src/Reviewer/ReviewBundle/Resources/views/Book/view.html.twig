@@ -11,9 +11,14 @@
                     alt="cover"
             >
         </div>
-        <div class="col-md-9">
+        <section class="col-md-9">
             <p><b>Book Isbn:</b> {{ book.isbn }} </p>
             <p><b>Book title:</b> {{ book.title }}</p>
-        </div>
+            <p class="descriptionText"><b>Book Description:</b> {{ book.bookDescription}}</p>
+        </section>
+        <section class="col-md-12">
+            <h3>Reviews</h3>
+            <p> Coming soon</p>
+        </section>
     </article>
 {% endblock %}

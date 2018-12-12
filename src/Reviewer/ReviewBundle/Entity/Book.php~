@@ -47,6 +47,14 @@ class Book
     private $title;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="$bookDescription", type="string", length=400)
+     */
+    private $bookDescription;
+
+
+    /**
      * @ORM\ManyToOne(targetEntity="Reviewer\ReviewBundle\Entity\Genre")
      * @ORM\JoinColumn(name="genre_id", referencedColumnName="id")
      */

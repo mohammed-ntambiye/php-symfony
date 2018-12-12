@@ -4,6 +4,7 @@ namespace Reviewer\ReviewBundle\Form;
 
 use Reviewer\ReviewBundle\Service\BookService;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -26,6 +27,10 @@ class BookType extends AbstractType
 
         $builder->add('isbn', TextType::class)
             ->add('title', TextType::class)
+            ->add('bookDescription', TextareaType::class,[
+
+                'label' => 'Book Description'
+            ])
             ->add('genre_id', ChoiceType::class, [
                 'choices' => [
                     'Pick a genre' => $genreArray

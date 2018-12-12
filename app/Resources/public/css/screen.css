@@ -10,6 +10,10 @@
 .title {
     color: #900000 !important;
 }
+.descriptionText{
+    text-align: justify;
+    text-justify: inter-word;
+}
 
 .formElement {
     margin-top: 5%;

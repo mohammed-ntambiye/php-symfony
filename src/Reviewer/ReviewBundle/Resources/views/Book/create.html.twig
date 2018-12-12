@@ -22,6 +22,11 @@
                 <div class="col-sm-6">{{ form_widget(form.genre_id, {'attr': {'class': 'form-control' }}) }}</div>
                 <div class="col-sm-6">{{ form_errors(form.genre_id) }}</div>
             </div>
+            <div class="row form-group">
+                <div class="col-sm-2">{{ form_label(form.bookDescription) }}</div>
+                <div class="col-sm-6">{{ form_widget(form.bookDescription, {'attr': {'class': 'form-control', 'rows': '6','maxlength':'300','col':'40'  }}) }}</div>
+                <div class="col-sm-6">{{ form_errors(form.bookDescription) }}</div>
+            </div>
 
             <div class="row form-group">
                 <div class="col-sm-2">{{ form_label(form.cover_image) }}</div>

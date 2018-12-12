@@ -47,6 +47,14 @@ class Book
     private $title;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="$bookDescription", type="string", length=400)
+     */
+    private $bookDescription;
+
+
+    /**
      * @ORM\ManyToOne(targetEntity="Reviewer\ReviewBundle\Entity\Genre")
      * @ORM\JoinColumn(name="genre_id", referencedColumnName="id")
      */
@@ -201,5 +209,29 @@ class Book
     public function setImageFile(File $imageFile = null)
     {
         $this->imageFile = $imageFile;
+    }
+
+    /**
+     * Set bookDescription.
+     *
+     * @param string $bookDescription
+     *
+     * @return Book
+     */
+    public function setBookDescription($bookDescription)
+    {
+        $this->bookDescription = $bookDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get bookDescription.
+     *
+     * @return string
+     */
+    public function getBookDescription()
+    {
+        return $this->bookDescription;
     }
 }
