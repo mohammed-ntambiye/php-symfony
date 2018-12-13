@@ -86,3 +86,9 @@ h2 {
 .createEditForm:hover {
     background-color: #3c763d9c;
 }
+
+.GenreSelection > h2 {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

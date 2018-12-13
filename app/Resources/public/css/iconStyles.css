@@ -1,6 +1,17 @@
-.fa-times{
+.fa-times {
     color: red;
 }
-.error-message{
-   text-align: center;
+
+.error-message {
+    text-align: center;
+}
+
+.icon {
+    margin-bottom: 10px;
+    color: #101010;
+    text-align: center;
+    font-family: bold;
+    font-size: medium;
+    border: 2px solid maroon ;
+    margin-right: 2px;
 }

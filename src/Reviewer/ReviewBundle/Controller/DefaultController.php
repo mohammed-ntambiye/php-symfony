@@ -12,12 +12,13 @@ class DefaultController extends Controller
 
     public function indexAction()
 
-    {  $entityManger = $this->getDoctrine()->getManager();
+    {
+        $entityManger = $this->getDoctrine()->getManager();
         $bookService = $this->container->get('book_service');
-        $bookReview = $bookService ->getLatest(10, 0);
+        $Allgenres = $bookService ->getAllGenres();
 
         return $this->render('ReviewerReviewBundle:Default:index.html.twig',
-            ['bookReviews' => $bookReview]);
+            ['genres' => $Allgenres]);
     }
 
   }

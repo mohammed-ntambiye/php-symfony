@@ -54,6 +54,18 @@ class BookService
         return $result;
     }
 
+
+
+    public function getAllGenres()
+    {
+        $em = $this->getEntityManager();
+
+        $result = $em->getRepository(Genre::class)->findAll();
+
+        return $result;
+    }
+
+
     /**
      * @return EntityManager
      */

@@ -1,31 +1,29 @@
 {% extends 'ReviewerReviewBundle::layout.html.twig' %}
 {% block body %}
     <section class="GenreSelection col-md-12">
-        <div>
-            <a href="http://example.com icon">
-                <div class="col-md-3">
-                    <p>Romance <br> <i class="fa fa-heart fa-5x" aria-hidden="true"></i></p>
-                </div>
-                <div class="col-md-3">
-                    <p> Travel <br><i class="fa fa-suitcase fa-5x" aria-hidden="true"></i></p>
+        <h2>Book Genres</h2>
+        {% for genres in genres %}
+            <a href="">
+                <div class="col-md-2 icon">
+                    <p>{{genres.genreName }} <br> <i class="{{ genres.genreIcon }}" aria-hidden="true"></i></p>
                 </div>
             </a>
-        </div>
+        {% endfor %}
     </section>
 
     {#<h1>Newly added reviews</h1>#}
     {#{% for review in bookReviews %}#}
-    {#<article CLASS="col-md-6">#}
-    {#<h2><a href="{{ path('review_view',{id : review.id}) }}">#}
-    {#{{ review.rating | title }}</a></h2>#}
-    {#<p>{{ review.summaryReview }}</p>#}
-    {#<p>{{ review.fullReview }}</p>#}
-    {#<p>#}
-    {#<small>Created by {{ review.author }} at#}
-    {#{{ review.timestamp|date('H:i d/m/y') }}#}
-    {#</small>#}
-    {#</p>#}
-    {#</article>#}
+        {#<article CLASS="col-md-6">#}
+            {#<h2><a href="{{ path('review_view',{id : review.id}) }}">#}
+                    {#{{ review.rating | title }}</a></h2>#}
+            {#<p>{{ review.summaryReview }}</p>#}
+            {#<p>{{ review.fullReview }}</p>#}
+            {#<p>#}
+                {#<small>Created by {{ review.author }} at#}
+                    {#{{ review.timestamp|date('H:i d/m/y') }}#}
+                {#</small>#}
+            {#</p>#}
+        {#</article>#}
     {#{% endfor %}#}
 
     {#<Article class="col-sm-12">#}
