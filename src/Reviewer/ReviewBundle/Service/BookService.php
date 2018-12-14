@@ -6,6 +6,7 @@ use \Reviewer\ReviewBundle\Entity\Genre;
 use \Reviewer\ReviewBundle\Entity\Book;
 use \Reviewer\ReviewBundle\Entity\Review;
 use Doctrine\ORM\EntityManager;
+use Reviewer\ReviewBundle\ReviewerReviewBundle;
 
 class BookService
 {
@@ -95,21 +96,18 @@ class BookService
     public function getLatestReviews()
     {
 
+
         $em = $this->getEntityManager();
 
-        $reviews = $em->getRepository(Review::class)->findBy(
-            ['timestamp' => 'ASC']
+        $query = $em->createQuery(
+            'SELECT r.id, r.timestamp, b.title, r.rating, b.coverImage FROM ReviewerReviewBundle:Review r
+             JOIN  ReviewerReviewBundle:Book b
+             WITH r.bookId =  b.id
+             ORDER BY r.timestamp DESC
+            ');
 
-        );
-
-        $result = array();
-
-        foreach ($reviews as $review) {
-            array_push($result, $this->getBookById($review->getBookId()));
-        }          [timestamp => 'ASC']
-
-        return $result;
-
+        $query->setMaxResults(5);
+        return $query->getResult();
     }
 
 
