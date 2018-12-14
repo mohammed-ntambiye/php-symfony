@@ -45,6 +45,16 @@ class BookService
      *
      * @return null|object
      */
+    public function getBookById($id)
+    {
+        $em = $this->getEntityManager();
+
+        $result = $em->getRepository(Book::class)->find($id);
+
+        return $result;
+    }
+
+
     public function getGenreById($id)
     {
         $em = $this->getEntityManager();
@@ -53,7 +63,6 @@ class BookService
 
         return $result;
     }
-
 
 
     public function getAllGenres()
@@ -75,8 +84,7 @@ class BookService
     }
 
 
-
-    public function getRevieWById($id)
+    public function getReviewById($id)
     {
         $em = $this->getEntityManager();
 
@@ -84,22 +92,32 @@ class BookService
     }
 
 
-
-    public function getLatest($limit, $offset)
+    public function getLatestReviews()
     {
 
-//        $em = $this->getEntityManager();
-//        $query = $em->createQuery(
-//            'SELECT rating FROM ReviewerReviewBundle:Review g');
-//        return $query->getResult();
+        $em = $this->getEntityManager();
+
+        $reviews = $em->getRepository(Review::class)->findBy(
+            ['timestamp' => 'ASC']
+
+        );
+
+        $result = array();
+
+        foreach ($reviews as $review) {
+            array_push($result, $this->getBookById($review->getBookId()));
+        }          [timestamp => 'ASC']
+
+        return $result;
 
     }
+
 
     public function getBookIdByIsbn($isbn)
     {
         $em = $this->getEntityManager();
         return $em->getRepository(Book::class)->findOneBy(
-            [ 'isbn' => $isbn ]
+            ['isbn' => $isbn]
         );
 
     }

@@ -16,6 +16,9 @@ class DefaultController extends Controller
         $entityManger = $this->getDoctrine()->getManager();
         $bookService = $this->container->get('book_service');
         $Allgenres = $bookService ->getAllGenres();
+       $latestReviews =$bookService ->getLatestReviews();
+
+       var_dump($latestReviews);
 
         return $this->render('ReviewerReviewBundle:Default:index.html.twig',
             ['genres' => $Allgenres]);

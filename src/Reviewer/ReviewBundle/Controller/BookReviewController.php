@@ -25,7 +25,6 @@ class BookReviewController extends Controller
         $bookEntry = new Book();
         $em = $this->getDoctrine()->getManager();
 
-
         $book = $bookService->getBookById($id);
         if (isset($book)) {
             return $this->render('ReviewerReviewBundle:Book:view.html.twig',

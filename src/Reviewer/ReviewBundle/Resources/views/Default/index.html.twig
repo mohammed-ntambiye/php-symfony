@@ -3,13 +3,18 @@
     <section class="GenreSelection col-md-12">
         <h2>Book Genres</h2>
         {% for genres in genres %}
-            <a href="">
+            <a href="{{ genres.id }}">
                 <div class="col-md-2 icon">
                     <p>{{genres.genreName }} <br> <i class="{{ genres.genreIcon }}" aria-hidden="true"></i></p>
                 </div>
             </a>
         {% endfor %}
     </section>
+
+    <section class="col-md-12 latestAddedReviews">
+        <h2>Latest reviews</h2>
+    </section>
+
 
     {#<h1>Newly added reviews</h1>#}
     {#{% for review in bookReviews %}#}
@@ -29,4 +34,5 @@
     {#<Article class="col-sm-12">#}
     {#<h1>Review newly a added books</h1>#}
     {#</article>#}
+
 {% endblock %}
