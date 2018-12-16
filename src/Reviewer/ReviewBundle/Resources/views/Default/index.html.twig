@@ -3,7 +3,7 @@
     <section class="GenreSelection col-md-12">
         <h2>Book Genres</h2>
         {% for genres in genres %}
-            <a href="{{ genres.id }}">
+            <a href="{{path('book_genre', {'genreId': genres.id} )}}">
                 <div class="col-md-2 icon">
                     <p>{{ genres.genreName }} <br> <i class="{{ genres.genreIcon }}" aria-hidden="true"></i></p>
                 </div>
@@ -14,21 +14,21 @@
     <section class="col-md-12 latestAddedReviews">
         <h2>Latest reviews</h2>
         {% for review in bookReviews %}
-                <div class="col-md-3">
-                    <p>{{ review.title }}</p>
+            <div class="col-md-3">
+                <p>{{ review.title }}</p>
+                <a href="{{ path('book_view', { 'id': review.id }) }}">
                     <img
                             class="center-block img-responsive"
                             src="{{ asset('Public/image-uploads/' ~ review.coverImage) }}"
                             alt="cover"
                     >
-                    {{ review.rating | rating(5, "fa-2x") }}
-                </div>
+                </a>
+                {{ review.rating | rating(5, "fa-2x") }}
+            </div>
         {% endfor %}
 
 
     </section>
-
-
 
     {#<Article class="col-sm-12">#}
     {#<h1>Review newly a added books</h1>#}

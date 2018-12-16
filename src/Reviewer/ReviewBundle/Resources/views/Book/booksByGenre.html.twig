@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ReviewerReviewBundle:Book:bookByGenre{% endblock %}
+
+{% block body %}
+
+    {% for book in books %}
+        <div class="col-md-3">
+            <p><b>{{ book.title }}</b></p>
+            <img
+                    class="center-block img-responsive"
+                    src="{{ asset('Public/image-uploads/' ~ book.coverImage) }}"
+                    alt="cover"
+            >
+        </div>
+    {% endfor %}
+{% endblock %}

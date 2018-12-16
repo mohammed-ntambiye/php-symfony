@@ -30,7 +30,7 @@ class BookReviewController extends Controller
             return $this->render('ReviewerReviewBundle:Book:view.html.twig',
                 ['book' => $book]);
         } else {
-            return $this->render('ReviewerReviewBundle:ErrorPages:error.html.twig',[
+            return $this->render('ReviewerReviewBundle:ErrorPages:error.html.twig', [
                 'message' => 'This book does not exist'
             ]);
         }
@@ -91,7 +91,7 @@ class BookReviewController extends Controller
             return $this->render('ReviewerReviewBundle:BookReview:view.html.twig',
                 ['review' => $review]);
         } else {
-            return $this->render('ReviewerReviewBundle:ErrorPages:error.html.twig',[
+            return $this->render('ReviewerReviewBundle:ErrorPages:error.html.twig', [
                 'message' => 'This review does not exist'
             ]);
         }
@@ -129,6 +129,22 @@ class BookReviewController extends Controller
         // Render the view from the twig file and pass the form to the view
         return $this->render('ReviewerReviewBundle:BookReview:create.html.twig',
             ['form' => $form->createView()]);
+    }
+
+    public function viewBooksByGenreAction($genreId)
+    {
+        $bookService = $this->container->get('book_service');
+        $book = $bookService->getBookByGenre($genreId);
+
+        if (isset($book)) {
+            return $this->render('ReviewerReviewBundle:Book:booksByGenre.html.twig',
+                ['books' => $book]);
+        } else {
+            return $this->render('ReviewerReviewBundle:ErrorPages:error.html.twig', [
+                'message' => 'This book does not exist'
+            ]);
+        }
+
     }
 
 //    public function editAction($id, Request $request)

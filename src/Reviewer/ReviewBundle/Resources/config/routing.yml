@@ -36,6 +36,13 @@ book_create:
     path:     /create/book
     defaults: {  _controller: ReviewerReviewBundle:BookReview:createBook}
 
+book_genre:
+    path:     /book/genre/{genreId}
+    defaults: {  _controller: ReviewerReviewBundle:BookReview:viewBooksByGenre}
+    requirements:
+        genreId: \d+
+
+
 
 
 #edit:

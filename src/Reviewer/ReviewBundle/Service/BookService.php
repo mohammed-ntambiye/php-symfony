@@ -100,13 +100,13 @@ class BookService
         $em = $this->getEntityManager();
 
         $query = $em->createQuery(
-            'SELECT r.id, r.timestamp, b.title, r.rating, b.coverImage FROM ReviewerReviewBundle:Review r
-             JOIN  ReviewerReviewBundle:Book b
+            'SELECT r.timestamp, b.title, b.isbn,b.id,r.rating, b.coverImage FROM ReviewerReviewBundle:Review r
+             JOIN  ReviewerReviewBundle:Book b 
              WITH r.bookId =  b.id
              ORDER BY r.timestamp DESC
             ');
 
-        $query->setMaxResults(5);
+        $query->setMaxResults(4);
         return $query->getResult();
     }
 
@@ -118,6 +118,14 @@ class BookService
             ['isbn' => $isbn]
         );
 
+    }
+
+    public function getBookByGenre($genreId)
+    {
+        $em = $this->getEntityManager();
+        return $em->getRepository(Book::class)->findBy(
+            ['genre_id' => $genreId]
+        );
     }
 
 
