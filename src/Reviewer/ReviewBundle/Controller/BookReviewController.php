@@ -17,20 +17,30 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 class BookReviewController extends Controller
 {
 
-    public function viewBookAction($id)
+    public function viewBookAction($id, Request $request)
     {
-
         $bookService = $this->container->get('book_service');
         $book = $bookService->getBookById($id);
+        $bookReviews = $bookService->getReviewsByBookId($id);
+
+        $paginator = $this->get('knp_paginator');
+
+        $pagination = $paginator->paginate(
+            $bookReviews,
+            $request->query->getInt('page', 1),
+            3
+        );
+
         if (isset($book)) {
             return $this->render('ReviewerReviewBundle:Book:view.html.twig',
-                ['book' => $book]);
+                ['book' => $book,
+                    'pagination' => $pagination
+                ]);
         } else {
             return $this->render('ReviewerReviewBundle:ErrorPages:error.html.twig', [
                 'message' => 'This book does not exist'
             ]);
         }
-
     }
 
     public function createBookAction(Request $request)
@@ -41,7 +51,6 @@ class BookReviewController extends Controller
             'action' => $request->getUri(), 'book_service' => $bookService
         ]);
 
-        // If the request is post it will populate the form
         $form->handleRequest($request);
         // validates the form
         if ($form->isValid()) {
@@ -56,7 +65,6 @@ class BookReviewController extends Controller
                 $this->getParameter('book_covers'),
                 $filename
             );
-
             $book->setCoverImage($filename);
             $book->setTimestamp(new \DateTime());
             // Retrieve the doctrine entity manager
@@ -143,6 +151,7 @@ class BookReviewController extends Controller
         }
 
     }
+
 
 //    public function editAction($id, Request $request)
 //    {

@@ -22,7 +22,19 @@
         </div>
         <section class="col-md-12">
             <h3>Reviews</h3>
-            <p> Coming soon</p>
+            {% for article in pagination %}
+                <tr {% if loop.index is odd %}class="color"{% endif %}>
+                    <div class="col-md-12">
+                        <p>{{ article.summaryReview}}</p>
+                        <p><b>{{ article.rating | rating }}</b></p>
+                        </a>
+                    </div>
+                </tr>
+                <p><i>Penned by <strong>{{ article.author }}</strong> on {{ article.timestamp|date("m/d/Y") }}</i></p>
+            {% endfor %}
         </section>
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
     </article>
 {% endblock %}

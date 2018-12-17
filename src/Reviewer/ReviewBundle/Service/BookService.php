@@ -95,10 +95,7 @@ class BookService
 
     public function getLatestReviews()
     {
-
-
         $em = $this->getEntityManager();
-
         $query = $em->createQuery(
             'SELECT r.timestamp, b.title, b.isbn,b.id,r.rating, b.coverImage FROM ReviewerReviewBundle:Review r
              JOIN  ReviewerReviewBundle:Book b 
@@ -114,10 +111,7 @@ class BookService
     public function getBookIdByIsbn($isbn)
     {
         $em = $this->getEntityManager();
-        return $em->getRepository(Book::class)->findOneBy(
-            ['isbn' => $isbn]
-        );
-
+        return $em->getRepository(Book::class)->findOneBy(['isbn' => $isbn]);
     }
 
     public function getBookByGenre($genreId)
@@ -125,6 +119,15 @@ class BookService
         $em = $this->getEntityManager();
         return $em->getRepository(Book::class)->findBy(
             ['genre_id' => $genreId]
+        );
+    }
+
+    public function getReviewsByBookId($bookId)
+    {
+        $em = $this->getEntityManager();
+        return $em->getRepository(Review::class)->findBy(
+            ['bookId' => $bookId],
+            ['timestamp' => 'DESC']
         );
     }
 
