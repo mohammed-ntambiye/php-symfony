@@ -118,3 +118,26 @@ h2 {
 .footer {
     margin-top: 15px;
 }
+
+.reviews {
+    text-decoration: none;
+    color: black;
+}
+
+.searchBar {
+    margin-bottom: 20px;
+    margin-top: 15px;
+    float: right;
+    width: 70%;
+}
+
+/*.searchBar .form-control-borderless {*/
+/*border: none;*/
+/*}*/
+
+/*.searchBar.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {*/
+/*border: none;*/
+/*outline: none;*/
+/*box-shadow: none;*/
+/*}*/
+

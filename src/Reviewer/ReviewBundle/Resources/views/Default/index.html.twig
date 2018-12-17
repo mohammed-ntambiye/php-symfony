@@ -1,6 +1,15 @@
 {% extends 'ReviewerReviewBundle::layout.html.twig' %}
 {% block body %}
-    <section class="GenreSelection col-md-12">
+    <section class="searchBar col-md-12">
+        <div class="col-md-6">
+            <input class="form-control form-control-lg form-control-borderless" type="search"
+                   placeholder="Search  Book title, Book author or Genre">
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-default">
+                <span class="fa fa-search "></span> Search
+            </button>
+        </div>
     </section>
 
     <section class="GenreSelection col-md-12">

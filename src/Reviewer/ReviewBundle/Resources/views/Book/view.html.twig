@@ -18,17 +18,19 @@
             <p class="descriptionText"><b>Book Description:</b> {{ book.bookDescription }}</p>
         </section>
         <div class="col-md-12">
-            <a class="btn btn-primary btn-lg btn-block createEditForm"  href="{{ path('review_create', { 'id': book.id,'isbn': book.isbn,  }) }}">Write a review</a>
+            <a class="btn btn-primary btn-lg btn-block createEditForm"
+               href="{{ path('review_create', { 'id': book.id,'isbn': book.isbn,  }) }}">Write a review</a>
         </div>
         <section class="col-md-12">
             <h3>Reviews</h3>
             {% for article in pagination %}
                 <tr {% if loop.index is odd %}class="color"{% endif %}>
-                    <div class="col-md-12">
-                        <p>{{ article.summaryReview}}</p>
-                        <p><b>{{ article.rating | rating }}</b></p>
-                        </a>
-                    </div>
+                    <a class="reviews" href="{{ path('review_view', { 'id': article.id }) }}">
+                        <div class="col-md-12">
+                            <p>{{ article.summaryReview }}</p>
+                            <p><b>{{ article.rating | rating }}</b></p>
+                        </div>
+                    </a>
                 </tr>
                 <p><i>Penned by <strong>{{ article.author }}</strong> on {{ article.timestamp|date("m/d/Y") }}</i></p>
             {% endfor %}
