@@ -6,7 +6,6 @@
     <h2>Create Review</h2>
     {{ form_start(form) }}
     <section class="formElement">
-
         <div class="row form-group">
             <div class="col-sm-2">{{ form_label(form.bookId) }}</div>
             <div class="col-sm-6">{{ form_widget(form.bookId, {'attr': {'class': 'form-control' }}) }}</div>
@@ -33,4 +32,10 @@
         {{ form_row(form.submit,{'attr': {'class': 'btn btn-primary' }}) }}
         {{ form_end(form) }}
     </section>
+
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        document.getElementById("reviewer_reviewbundle_review_bookId").value = urlParams.get('isbn');
+        // document.getElementById("reviewer_reviewbundle_review_bookId").disabled = true;
+    </script>
 {% endblock %}

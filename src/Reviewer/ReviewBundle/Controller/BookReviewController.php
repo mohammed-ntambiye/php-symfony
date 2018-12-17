@@ -102,7 +102,6 @@ class BookReviewController extends Controller
             $bookId = $bookService->getBookIdByIsbn($review->getBookId());
             if (!isset($bookId)) {
                 $form->get('bookId')->addError(new FormError('Invalid isbn please try again or use the search'));
-
             }
         }
 
