@@ -123,11 +123,49 @@ easy_admin:
         - id
         - title
         - author
-#        - { property: 'coverImage', type: 'image', base_path: 'uploads/covers/' }
-#        - genreId
+        - isbn
+        - { property: 'coverImage', type: 'image', base_path: 'Public/image-uploads' }
       edit:
         fields:
         - title
         - author
-#        - synopsis
-#        - { property: 'imageFile', type: 'vich_file' }
+        - bookDescription
+        - isbn
+        - { property: 'imageFile', type: 'vich_file' }
+    User:
+      class: Reviewer\ReviewBundle\Entity\User
+      disabled_actions: ['new']
+      list:
+        fields:
+        - username
+        - email
+        - enabled
+        - { property: 'last_login', type: 'datetime' }
+      edit:
+        fields:
+        - email
+        - enabled
+        - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'Standard User', 'ROLE_ADMIN': 'Administrator', 'ROLE_MODERATOR': 'Moderator'} } }
+    Genre:
+      class:  Reviewer\ReviewBundle\Entity\Genre
+      list:
+        fields:
+        - id
+        - genreName
+        - genreIcon
+      edit:
+        fields:
+        - genreName
+        - genreIcon
+
+    Review:
+      class: Reviewer\ReviewBundle\Entity\Review
+      disabled_actions: ['new']
+      list:
+        fields:
+        - id
+        - author
+        - bookId
+        - rating
+        - summaryReview
+        - fullReview
