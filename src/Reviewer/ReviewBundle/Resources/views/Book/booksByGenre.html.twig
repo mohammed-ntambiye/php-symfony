@@ -3,15 +3,22 @@
 {% block title %}ReviewerReviewBundle:Book:bookByGenre{% endblock %}
 
 {% block body %}
+    <article class="col-md-12">
+        {% for article in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <div class="col-md-3">
+                    <p><b>{{ article.title }}</b></p>
+                    <img
+                            class="center-block img-responsive"
+                            src="{{ asset('Public/image-uploads/' ~ article.coverImage) }}"
+                    >
+                </div>
+            </tr>
+        {% endfor %}
 
-    {% for book in books %}
-        <div class="col-md-3">
-            <p><b>{{ book.title }}</b></p>
-            <img
-                    class="center-block img-responsive"
-                    src="{{ asset('Public/image-uploads/' ~ book.coverImage) }}"
-                    alt="cover"
-            >
-        </div>
-    {% endfor %}
+    </article>
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
 {% endblock %}

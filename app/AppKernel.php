@@ -26,7 +26,8 @@ class AppKernel extends Kernel
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Reviewer\ReviewBundle\ReviewerReviewBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
-            new blackknight467\StarRatingBundle\StarRatingBundle()
+            new blackknight467\StarRatingBundle\StarRatingBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle()
 
         ];
 

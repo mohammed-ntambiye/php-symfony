@@ -49,6 +49,13 @@ class Book
     /**
      * @var string
      *
+     * @ORM\Column(name="author", type="string", length=255)
+     */
+    private $author;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="$bookDescription", type="string", length=400)
      */
     private $bookDescription;
@@ -233,5 +240,29 @@ class Book
     public function getBookDescription()
     {
         return $this->bookDescription;
+    }
+
+    /**
+     * Set author.
+     *
+     * @param string $author
+     *
+     * @return Book
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author.
+     *
+     * @return string
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }

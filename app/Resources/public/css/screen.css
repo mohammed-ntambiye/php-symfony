@@ -6,10 +6,10 @@
     padding: 10px;
     border-radius: 5px;
 }
-.navbar{
+
+.navbar {
     /*background-color:maroon !important;*/
 }
-
 
 .title {
     color: #900000 !important;
@@ -103,4 +103,11 @@ h2 {
     margin-bottom: 15px;
     text-align: center;
     padding-top: 10px;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.navigation {
+    font-weight: bold;
+    font-size: large;
 }

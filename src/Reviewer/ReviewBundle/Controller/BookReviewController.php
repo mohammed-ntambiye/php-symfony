@@ -20,11 +20,7 @@ class BookReviewController extends Controller
     public function viewBookAction($id)
     {
 
-        $entityManger = $this->getDoctrine()->getManager();
         $bookService = $this->container->get('book_service');
-        $bookEntry = new Book();
-        $em = $this->getDoctrine()->getManager();
-
         $book = $bookService->getBookById($id);
         if (isset($book)) {
             return $this->render('ReviewerReviewBundle:Book:view.html.twig',
@@ -62,8 +58,6 @@ class BookReviewController extends Controller
             );
 
             $book->setCoverImage($filename);
-
-
             $book->setTimestamp(new \DateTime());
             // Retrieve the doctrine entity manager
             $em = $this->getDoctrine()->getManager();
@@ -80,11 +74,7 @@ class BookReviewController extends Controller
 
     public function viewReviewAction($id)
     {
-        $entityManger = $this->getDoctrine()->getManager();
         $bookService = $this->container->get('book_service');
-        $bookEntry = new Review();
-        $em = $this->getDoctrine()->getManager();
-
         $review = $bookService->getReviewById($id);
 
         if (isset($review)) {
@@ -119,26 +109,34 @@ class BookReviewController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $review->setBookId($bookId);
-
             $review->setAuthor($this->getUser());
             $review->setTimestamp(new \DateTime());
             $em->persist($review);
             $em->flush();
             return $this->redirect($this->generateUrl('review_view', ['id' => $review->getId()]));
         }
-        // Render the view from the twig file and pass the form to the view
         return $this->render('ReviewerReviewBundle:BookReview:create.html.twig',
             ['form' => $form->createView()]);
     }
 
-    public function viewBooksByGenreAction($genreId)
+    public function viewBooksByGenreAction($genreId, Request $request)
     {
         $bookService = $this->container->get('book_service');
         $book = $bookService->getBookByGenre($genreId);
 
+        $paginator = $this->get('knp_paginator');
+
+        $pagination = $paginator->paginate(
+            $book,
+            $request->query->getInt('page', 1),
+            1
+        );
+
         if (isset($book)) {
             return $this->render('ReviewerReviewBundle:Book:booksByGenre.html.twig',
-                ['books' => $book]);
+                ['books' => $book,
+                    'pagination' => $pagination
+                ]);
         } else {
             return $this->render('ReviewerReviewBundle:ErrorPages:error.html.twig', [
                 'message' => 'This book does not exist'

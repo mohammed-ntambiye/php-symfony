@@ -11,6 +11,11 @@
                 <div class="col-sm-6">{{ form_widget(form.isbn, {'attr': {'class': 'form-control' }}) }}</div>
                 <div class="col-sm-6">{{ form_errors(form.isbn) }}</div>
             </div>
+            <div class="row form-group">
+                <div class="col-sm-2">{{ form_label(form.author) }}</div>
+                <div class="col-sm-6">{{ form_widget(form.author, {'attr': {'class': 'form-control' }}) }}</div>
+                <div class="col-sm-6">{{ form_errors(form.author) }}</div>
+            </div>
 
             <div class="row form-group">
                 <div class="col-sm-2">{{ form_label(form.title) }}</div>

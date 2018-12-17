@@ -27,6 +27,7 @@ class BookType extends AbstractType
 
         $builder->add('isbn', TextType::class)
             ->add('title', TextType::class)
+            ->add('author', TextType::class)
             ->add('bookDescription', TextareaType::class,[
 
                 'label' => 'Book Description'
