@@ -14,13 +14,13 @@
 
         <div class="row form-group">
             <div class="col-sm-2">{{ form_label(form.summaryReview) }}</div>
-            <div class="col-sm-6">{{ form_widget(form.summaryReview, {'attr': {'class': 'form-control', 'rows': '4', 'maxlength':'300', 'col':'20' }}) }}</div>
+            <div class="col-sm-6">{{ form_widget(form.summaryReview, {'attr': {'class': 'form-control', 'rows': '4', 'maxlength':'255', 'col':'20' }}) }}</div>
             <div class="col-sm-6">{{ form_errors(form.summaryReview) }}</div>
         </div>
 
         <div class="row form-group">
             <div class="col-sm-2">{{ form_label(form.fullReview) }}</div>
-            <div class="col-sm-6">{{ form_widget(form.fullReview, {'attr': {'class': 'form-control', 'rows': '6','maxlength':'300','col':'40'  }}) }}</div>
+            <div class="col-sm-6">{{ form_widget(form.fullReview, {'attr': {'class': 'form-control', 'rows': '6','maxlength':'500','col':'40'  }}) }}</div>
             <div class="col-sm-6">{{ form_errors(form.fullReview) }}</div>
         </div>
         <div class="row form-group">
@@ -36,6 +36,5 @@
     <script>
         var urlParams = new URLSearchParams(window.location.search);
         document.getElementById("reviewer_reviewbundle_review_bookId").value = urlParams.get('isbn');
-        // document.getElementById("reviewer_reviewbundle_review_bookId").disabled = true;
     </script>
 {% endblock %}
