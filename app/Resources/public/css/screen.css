@@ -12,7 +12,7 @@
 }
 
 .title {
-    color: #900000 !important;
+    color: #d9edf7!important;
 }
 
 .descriptionText {
@@ -131,13 +131,21 @@ h2 {
     width: 70%;
 }
 
-/*.searchBar .form-control-borderless {*/
-/*border: none;*/
-/*}*/
+.navigationBar{
+    background-color: #333!important;
+}
 
-/*.searchBar.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {*/
-/*border: none;*/
-/*outline: none;*/
-/*box-shadow: none;*/
-/*}*/
+navigationBar  li {
+    float: left;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: #d9edf7!important;
+}
+
+
+navigationBar  li a:hover {
+    background-color: #111;
+}
+
 
