@@ -1,46 +1,42 @@
 reviewer_review_homepage:
-    path:  /
-    defaults: { _controller: ReviewerReviewBundle:Default:index }
+  path:  /
+  defaults: { _controller: ReviewerReviewBundle:Default:index }
 
 # app/config/routing.yml
 fos_user:
-    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-
-admin_area:
-    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
-    prefix: /admin
-
-_sonata_admin:
-    resource: .
-    type: sonata_admin
-    prefix: /admin
+  resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
 review_view:
-    path:     /view/review/{id}
-    defaults: { _controller: ReviewerReviewBundle:BookReview:viewReview }
-    requirements:
-        id: \d+
+  path:     /view/review/{id}
+  defaults: { _controller: ReviewerReviewBundle:BookReview:viewReview }
+  requirements:
+    id: \d+
 
 review_create:
-    path:     /create/review
-    defaults: { _controller: ReviewerReviewBundle:BookReview:createReview }
+  path:     /create/review
+  defaults: { _controller: ReviewerReviewBundle:BookReview:createReview }
 
 
 book_view:
-    path:     /view/book/{id}
-    defaults: {  _controller: ReviewerReviewBundle:BookReview:viewBook}
-    requirements:
-        id: \d+
+  path:     /view/book/{id}
+  defaults: {  _controller: ReviewerReviewBundle:BookReview:viewBook}
+  requirements:
+    id: \d+
 
 book_create:
-    path:     /create/book
-    defaults: {  _controller: ReviewerReviewBundle:BookReview:createBook}
+  path:     /create/book
+  defaults: {  _controller: ReviewerReviewBundle:BookReview:createBook}
 
 book_genre:
-    path:     /book/genre/{genreId}
-    defaults: {  _controller: ReviewerReviewBundle:BookReview:viewBooksByGenre}
-    requirements:
-        genreId: \d+
+  path:     /book/genre/{genreId}
+  defaults: {  _controller: ReviewerReviewBundle:BookReview:viewBooksByGenre}
+  requirements:
+    genreId: \d+
+
+easy_admin_bundle:
+  resource: "@EasyAdminBundle/Controller/AdminController.php"
+  type:     annotation
+  prefix:   /admin
 
 
 

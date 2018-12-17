@@ -1,9 +1,12 @@
 {% extends 'ReviewerReviewBundle::layout.html.twig' %}
 {% block body %}
     <section class="GenreSelection col-md-12">
+    </section>
+
+    <section class="GenreSelection col-md-12">
         <h2>Book Genres</h2>
         {% for genres in genres %}
-            <a href="{{path('book_genre', {'genreId': genres.id} )}}">
+            <a href="{{ path('book_genre', {'genreId': genres.id} ) }}">
                 <div class="col-md-2 icon">
                     <p>{{ genres.genreName }} <br> <i class="{{ genres.genreIcon }}" aria-hidden="true"></i></p>
                 </div>
@@ -26,8 +29,6 @@
                 {{ review.rating | rating(5, "fa-2x") }}
             </div>
         {% endfor %}
-
-
     </section>
 
     {#<Article class="col-sm-12">#}
