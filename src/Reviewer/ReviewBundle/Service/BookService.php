@@ -7,6 +7,7 @@ use \Reviewer\ReviewBundle\Entity\Book;
 use \Reviewer\ReviewBundle\Entity\Review;
 use Doctrine\ORM\EntityManager;
 use Reviewer\ReviewBundle\ReviewerReviewBundle;
+Use Sentiment\Analyzer;
 
 class BookService
 {
@@ -129,6 +130,13 @@ class BookService
             ['bookId' => $bookId],
             ['timestamp' => 'DESC']
         );
+    }
+
+    public function textAnalyzer($statence){
+        $analyzer = new Analyzer();
+        $result = $analyzer->getSentiment($statence);
+        $max = array_keys($result, max($result));
+        return $max;
     }
 
 

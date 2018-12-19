@@ -25,14 +25,31 @@
             <h3>Reviews</h3>
             {% for article in pagination %}
                 <tr {% if loop.index is odd %}class="color"{% endif %}>
-                    <a class="reviews" href="{{ path('review_view', { 'id': article.id }) }}">
+                    <a class="reviews" href="{{ path('review_view', { 'id': article.Review.id }) }}">
                         <div class="col-md-12">
-                            <p>{{ article.summaryReview }}</p>
-                            <p><b>{{ article.rating | rating }}</b></p>
+                            <p>{{ article.Review.fullReview }}</p>
+                            <p><b>{{ article.Review.rating | rating }}</b></p>
+                            {% if article.Analysis == "neu" %}
+
+                                <i class="fa fa-meh-o fa-3x" aria-hidden="true"></i>
+
+                            {% elseif article.Analysis == "neg" %}
+
+                                <i class="fa fa-frown-o fa-3x" aria-hidden="true"></i>
+
+                            {% elseif article.Analysis == "pos" %}
+
+                                <i class="fa fa-smile-o fa-3x" aria-hidden="true"></i>
+
+                            {% else %}
+
+                            {% endif %}
+
                         </div>
                     </a>
                 </tr>
-                <p><i>Penned by <strong>{{ article.author }}</strong> on {{ article.timestamp|date("m/d/Y") }}</i></p>
+                <p><i>Penned by <strong>{{ article.Review.author }}</strong>
+                        on {{ article.Review.timestamp|date("m/d/Y") }}</i></p>
             {% endfor %}
         </section>
         <div class="navigation">

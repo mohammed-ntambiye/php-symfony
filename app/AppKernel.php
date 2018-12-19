@@ -24,7 +24,7 @@ class AppKernel extends Kernel
             new Vich\UploaderBundle\VichUploaderBundle(),
             new blackknight467\StarRatingBundle\StarRatingBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-            new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle()
+            new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
 
         ];
 

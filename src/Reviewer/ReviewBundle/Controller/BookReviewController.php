@@ -12,6 +12,7 @@ use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+Use Sentiment\Analyzer;
 
 
 class BookReviewController extends Controller
@@ -22,11 +23,20 @@ class BookReviewController extends Controller
         $bookService = $this->container->get('book_service');
         $book = $bookService->getBookById($id);
         $bookReviews = $bookService->getReviewsByBookId($id);
+        $analysedReview = array();
+
+        foreach ($bookReviews as $review) {
+          $results= $bookService->textAnalyzer($review->getFullReview());
+            array_push($analysedReview, [
+                "Analysis" => $results[0],
+                "Review" => $review
+            ]);
+
+        }
 
         $paginator = $this->get('knp_paginator');
-
         $pagination = $paginator->paginate(
-            $bookReviews,
+            $analysedReview,
             $request->query->getInt('page', 1),
             3
         );
@@ -42,6 +52,9 @@ class BookReviewController extends Controller
             ]);
         }
     }
+
+
+
 
     public function createBookAction(Request $request)
     {
@@ -151,6 +164,7 @@ class BookReviewController extends Controller
         }
 
     }
+
 
 
 //    public function editAction($id, Request $request)

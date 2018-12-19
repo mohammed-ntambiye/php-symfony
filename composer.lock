@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b71ced4275cdd06916147b8971e1d003",
+    "content-hash": "b82e9a4f9df716c9e73c3c1549b4ccad",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -221,6 +221,53 @@
                 "tls"
             ],
             "time": "2018-10-18T06:09:13+00:00"
+        },
+        {
+            "name": "davmixcool/php-sentiment-analyzer",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davmixcool/php-sentiment-analyzer.git",
+                "reference": "1dd1e80c612ee69c768846e2abdd03b397ff975e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davmixcool/php-sentiment-analyzer/zipball/1dd1e80c612ee69c768846e2abdd03b397ff975e",
+                "reference": "1dd1e80c612ee69c768846e2abdd03b397ff975e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sentiment\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Oti",
+                    "email": "davmixcool@gmail.com",
+                    "role": "Software Developer"
+                }
+            ],
+            "description": "PHP Sentiment Analyzer is a lexicon and rule-based sentiment analysis tool that is used to understand sentiments in a sentence using VADER (Valence Aware Dictionary and sentiment Reasoner).",
+            "homepage": "https://github.com/davmixcool/php-sentiment-analyzer",
+            "keywords": [
+                "Deep learning",
+                "Sentiment Analyzer",
+                "ai",
+                "machine learning",
+                "nlp",
+                "php",
+                "social"
+            ],
+            "time": "2018-08-29T15:58:40+00:00"
         },
         {
             "name": "doctrine/annotations",
