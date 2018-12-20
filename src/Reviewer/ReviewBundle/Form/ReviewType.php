@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Reviewer\ReviewBundle\Service\BookService;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class ReviewType extends AbstractType
 {
@@ -22,11 +23,8 @@ class ReviewType extends AbstractType
             ->add('rating', RatingType::class, [
                 'label' => 'Rating'
             ])
-            ->add('summaryReview', TextareaType::class)
             ->add('fullReview', TextareaType::class)
-            ->add('bookId', TextType::class, [
-                'label' => "Isbn"
-            ])
+            ->add('bookId', HiddenType::class)
             ->add('submit', SubmitType::class, [
                 'label' => 'Add a review'
             ]);

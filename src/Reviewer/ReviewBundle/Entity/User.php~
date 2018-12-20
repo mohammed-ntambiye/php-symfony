@@ -60,4 +60,18 @@ class User extends BaseUser
         return $this->entries;
     }
 
+
+    /**
+     * Add entry.
+     *
+     * @param \Reviewer\ReviewBundle\Entity\BookReview $entry
+     *
+     * @return User
+     */
+    public function addEntry(\Reviewer\ReviewBundle\Entity\BookReview $entry)
+    {
+        $this->entries[] = $entry;
+
+        return $this;
+    }
 }

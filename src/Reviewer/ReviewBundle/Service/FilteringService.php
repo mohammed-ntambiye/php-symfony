@@ -6,7 +6,7 @@ use AppBundle\Entity\Book;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Query\ResultSetMapping;
 
-class SearchService
+class FilteringService
 {
     /**
      * @var EntityManager
@@ -14,7 +14,7 @@ class SearchService
     private $entityManager;
 
     /**
-     * SearchService constructor.
+     * FilteringService constructor.
      *
      * @param $entityManager EntityManager
      */

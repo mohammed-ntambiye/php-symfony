@@ -4,7 +4,6 @@
 
 {% block body %}
     <article class="col-md-6">
-        <p>{{ review.summaryReview }} </p>
         <p> {{ review.fullReview }}</p>
         <h1>{{ review.rating | rating(5, "fa-3x") }}</h1>
         <p>

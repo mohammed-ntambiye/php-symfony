@@ -5,17 +5,8 @@
     <h2>Create Review</h2>
     {{ form_start(form) }}
     <section class="formElement">
-        <div class="row form-group">
-            <div class="col-sm-2">{{ form_label(form.bookId) }}</div>
-            <div class="col-sm-6">{{ form_widget(form.bookId, {'attr': {'class': 'form-control' }}) }}</div>
-            <div class="col-sm-6">{{ form_errors(form.bookId) }}</div>
-        </div>
 
-        <div class="row form-group">
-            <div class="col-sm-2">{{ form_label(form.summaryReview) }}</div>
-            <div class="col-sm-6">{{ form_widget(form.summaryReview, {'attr': {'class': 'form-control', 'rows': '4', 'maxlength':'255', 'col':'20' }}) }}</div>
-            <div class="col-sm-6">{{ form_errors(form.summaryReview) }}</div>
-        </div>
+    {{ form_widget(form.bookId)}}
 
         <div class="row form-group">
             <div class="col-sm-2">{{ form_label(form.fullReview) }}</div>

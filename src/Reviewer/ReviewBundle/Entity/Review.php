@@ -38,13 +38,6 @@ class Review
     /**
      * @var string
      *
-     * @ORM\Column(name="summaryReview", type="string", length=255)
-     */
-    private $summaryReview;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="fullReview", type="string", length=500)
      */
     private $fullReview;
@@ -204,7 +197,6 @@ class Review
 
         return $this;
     }
-
     /**
      * Get fullReview.
      *
