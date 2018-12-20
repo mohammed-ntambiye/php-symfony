@@ -10,28 +10,6 @@ class BookReviewControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/view');
+        $crawler = $client->request('GET', 'book/view');
     }
-
-    public function testCreate()
-    {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', '/create');
-    }
-
-    public function testEdit()
-    {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', '/edit');
-    }
-
-    public function testDelete()
-    {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', '/delete');
-    }
-
 }

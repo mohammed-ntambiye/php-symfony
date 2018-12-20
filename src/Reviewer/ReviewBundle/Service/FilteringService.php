@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Service;
+namespace Reviewer\ReviewBundle\Service;
 
 use AppBundle\Entity\Book;
 use Doctrine\ORM\EntityManager;
