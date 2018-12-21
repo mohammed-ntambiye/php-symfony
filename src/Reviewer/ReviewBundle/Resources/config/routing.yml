@@ -2,7 +2,6 @@ reviewer_review_homepage:
   path:  /
   defaults: { _controller: ReviewerReviewBundle:Default:index }
 
-# app/config/routing.yml
 fos_user:
   resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
@@ -39,7 +38,7 @@ easy_admin_bundle:
   prefix:   /admin
 
 search:
-  path:  /search/{query}
+  path:  /search/{seachQuery}
   defaults: {  _controller: ReviewerReviewBundle:Filtering:submitSearch}
 
 

@@ -1,8 +1,11 @@
-#services:
-#    reviewer_review.example:
-#        class: Reviewer\ReviewBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
 services:
+  filtering_service:
+    class: Reviewer\ReviewBundle\Service\FilteringService
+    arguments: [ "@doctrine.orm.entity_manager" ]
+
   book_service:
     class: Reviewer\ReviewBundle\Service\BookService
     arguments: [ "@doctrine.orm.entity_manager" ]
+
+
+

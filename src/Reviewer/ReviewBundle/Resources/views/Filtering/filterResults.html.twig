@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ReviewerReviewBundle:Filtering:filterResults.html.twig{% endblock %}
+
+{% block body %}
+    <section class="col-md-12">
+        {% for search in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <div class="col-md-3">
+                    <p>{{ search.title }}</p>
+                    <a href="{{ path('book_view', { 'id': search.id }) }}">
+                        <img
+                                class="center-block img-responsive"
+                                src="{{ asset('Public/image-uploads/' ~ search.cover_image) }}"
+                                alt="cover"
+                        >
+                    </a>
+                </div>
+            </tr>
+        {% endfor %}
+    </section>
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}

@@ -17,6 +17,7 @@ class DefaultController extends Controller
     {
         $entityManger = $this->getDoctrine()->getManager();
         $bookService = $this->container->get('book_service');
+
         $Allgenres = $bookService->getAllGenres();
 
         $latestReviews = $bookService->getLatestReviews();
@@ -24,18 +25,8 @@ class DefaultController extends Controller
         return $this->render('ReviewerReviewBundle:Default:index.html.twig',
             ['genres' => $Allgenres,
                 'bookReviews' => $latestReviews
-
             ]
-
         );
     }
-
-
-    public function submitSearch($information)
-    {
-
-
-    }
-
 }
 

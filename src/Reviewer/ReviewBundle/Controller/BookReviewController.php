@@ -53,8 +53,6 @@ class BookReviewController extends Controller
     }
 
 
-
-
     public function createBookAction(Request $request)
     {
         $bookService = $this->container->get('book_service');
