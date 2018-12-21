@@ -92,7 +92,7 @@
   </component>
   <component name="PhpUnit">
     <phpunit_settings>
-      <PhpUnitSettings load_method="PHPUNIT_PHAR" configuration_file_path="$PROJECT_DIR$/bin/phpunit.phar" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" phpunit_phar_path="$PROJECT_DIR$/bin/phpunit.phar" use_configuration_file="true" />
+      <PhpUnitSettings load_method="PHPUNIT_PHAR" configuration_file_path="$PROJECT_DIR$/tests/ReviewerReviewBundle/Controller/BookReviewControllerTests.php" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" phpunit_phar_path="$PROJECT_DIR$/bin/phpunit.phar" use_configuration_file="true" />
     </phpunit_settings>
   </component>
 </project>

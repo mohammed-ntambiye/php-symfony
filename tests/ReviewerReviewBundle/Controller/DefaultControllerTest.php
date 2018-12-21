@@ -15,6 +15,4 @@ class DefaultControllerTest extends WebTestCase
         $this->assertContains('Book Genres', $client->getResponse()->getContent());
 
     }
-
-
 }
