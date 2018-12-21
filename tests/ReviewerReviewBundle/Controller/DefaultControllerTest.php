@@ -14,15 +14,7 @@ class DefaultControllerTest extends WebTestCase
 
         $this->assertContains('Book Genres', $client->getResponse()->getContent());
 
-
-        $crawler = $client->request('GET', '/login');
-
-        $this->assertContains('Login', $client->getResponse()->getContent());
-
-
-        $crawler = $client->request('GET', '/Register');
-
-        $this->assertContains('Register', $client->getResponse()->getContent());
     }
+
 
 }

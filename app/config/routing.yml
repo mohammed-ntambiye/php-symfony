@@ -7,3 +7,37 @@ easy_admin_bundle:
     type:     annotation
     prefix:   /admin
 
+reviewer_review_homepage:
+    path:  /
+    defaults: { _controller: ReviewerReviewBundle:Default:index }
+
+# app/config/routing.yml
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+review_view:
+    path:     /view/review/{id}
+    defaults: { _controller: ReviewerReviewBundle:BookReview:viewReview }
+    requirements:
+        id: \d+
+
+review_create:
+    path:     /create/review
+    defaults: { _controller: ReviewerReviewBundle:BookReview:createReview }
+
+
+book_view:
+    path:     /view/book/{id}
+    defaults: {  _controller: ReviewerReviewBundle:BookReview:viewBook}
+    requirements:
+        id: \d+
+
+book_create:
+    path:     /create/book
+    defaults: {  _controller: ReviewerReviewBundle:BookReview:createBook}
+
+book_genre:
+    path:     /book/genre/{genreId}
+    defaults: {  _controller: ReviewerReviewBundle:BookReview:viewBooksByGenre}
+    requirements:
+        genreId: \d+
