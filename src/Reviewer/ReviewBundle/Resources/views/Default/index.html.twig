@@ -3,17 +3,16 @@
     <section class="searchBar col-md-12">
         <form method="post">
             <div class="col-md-6">
-                <input class="form-control form-control-lg form-control-borderless" type="search"
+                <input class="form-control searchInfo form-control-lg form-control-borderless" type="search"
                        placeholder="Search  Book title, Book author or Genre">
             </div>
             <div class="col-md-3">
-                <button type="submit" class="btn btn-default">
+                <button type="submit" class="btn btn-default search">
                     <span class="fa fa-search "></span> Search
                 </button>
             </div>
         </form>
     </section>
-
     <section class="GenreSelection col-md-12">
         <h2>Book Genres</h2>
         {% for genres in genres %}
@@ -41,4 +40,17 @@
             </div>
         {% endfor %}
     </section>
+    <script>
+        $(document).ready(function () {
+            $(".search").click(function ($event) {
+                event.preventDefault();
+                var seachQuey = $(".searchInfo").val().trim();
+                if (seachQuey != '') {
+                    window.location.href = "/search/" + seachQuey;
+                }
+            });
+        });
+
+    </script>
 {% endblock %}
+

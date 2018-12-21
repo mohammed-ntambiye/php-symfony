@@ -31,47 +31,4 @@ class User extends BaseUser
      */
     protected $id;
 
-    /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
-     * @ORM\OneToMany(targetEntity="Reviewer\ReviewBundle\Entity\BookReview",mappedBy="bookAuthor")
-     */
-    protected $entries;
-
-
-    /**
-     * Remove entry.
-     *
-     * @param \Reviewer\ReviewBundle\Entity\BookReview $entry
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-
-    public function removeEntry(\Reviewer\ReviewBundle\Entity\BookReview $entry)
-    {
-        return $this->entries->removeElement($entry);
-    }
-    /**
-     * Get entries.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getEntries()
-    {
-        return $this->entries;
-    }
-
-
-    /**
-     * Add entry.
-     *
-     * @param \Reviewer\ReviewBundle\Entity\BookReview $entry
-     *
-     * @return User
-     */
-    public function addEntry(\Reviewer\ReviewBundle\Entity\BookReview $entry)
-    {
-        $this->entries[] = $entry;
-
-        return $this;
-    }
 }

@@ -38,6 +38,9 @@ easy_admin_bundle:
   type:     annotation
   prefix:   /admin
 
+search:
+  path:  /search/{query}
+  defaults: {  _controller: ReviewerReviewBundle:Filtering:submitSearch}
 
 
 

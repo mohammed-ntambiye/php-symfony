@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 Use Sentiment\Analyzer;
 
-
 class BookReviewController extends Controller
 {
 

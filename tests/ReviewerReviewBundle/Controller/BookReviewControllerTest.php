@@ -4,7 +4,7 @@ namespace Reviewer\ReviewBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class BookReviewControllerTests extends WebTestCase
+class BookReviewControllerTest extends WebTestCase
 {
     public function testIndex()
     {

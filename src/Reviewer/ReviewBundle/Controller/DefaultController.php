@@ -30,5 +30,12 @@ class DefaultController extends Controller
         );
     }
 
+
+    public function submitSearch($information)
+    {
+
+
+    }
+
 }
 
