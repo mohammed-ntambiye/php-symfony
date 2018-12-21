@@ -132,10 +132,10 @@ class BookService
         );
     }
 
-    public function textAnalyzer($statence)
+    public function textAnalyzer($sentence)
     {
         $analyzer = new Analyzer();
-        $result = $analyzer->getSentiment($statence);
+        $result = $analyzer->getSentiment($sentence);
         $max = array_keys($result, max($result));
         return $max;
     }
