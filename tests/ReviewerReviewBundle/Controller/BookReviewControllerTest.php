@@ -89,12 +89,5 @@ class BookReviewControllerTest extends WebTestCase
         //checking login user can create a book
         $client->request('GET', '/create/book');
         $this->assertEquals(302, $client->getResponse()->getStatusCode());
-
-
-
     }
-
-
-
-
 }
