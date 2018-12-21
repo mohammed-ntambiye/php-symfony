@@ -21,7 +21,6 @@ class FilteringController extends Controller
         $entityManger = $this->getDoctrine()->getManager();
         $FilteringService = $this->container->get('filtering_service');
         $results = $FilteringService->searchBooks($seachQuery);
-
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $results,
