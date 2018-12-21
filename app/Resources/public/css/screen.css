@@ -148,4 +148,8 @@ navigationBar  li a:hover {
     background-color: #111;
 }
 
-
+.error-page {
+    box-shadow: 0 33px 120px rgba(0, 0, 0, .5);
+    padding-bottom: 15px;
+    height: unset;
+}
