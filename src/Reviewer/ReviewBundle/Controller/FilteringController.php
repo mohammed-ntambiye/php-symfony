@@ -18,9 +18,9 @@ class FilteringController extends Controller
 
     public function submitSearchAction($seachQuery, Request $request)
     {
-        $entityManger = $this->getDoctrine()->getManager();
         $FilteringService = $this->container->get('filtering_service');
         $results = $FilteringService->searchBooks($seachQuery);
+
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $results,
@@ -31,12 +31,5 @@ class FilteringController extends Controller
         return $this->render('ReviewerReviewBundle:Filtering:filterResults.html.twig',
             ['pagination' => $pagination]);
     }
-
-
-    public function submitFilter()
-    {
-
-    }
-
 }
 
