@@ -1,6 +1,6 @@
 <?php
 
-namespace Reviewer\ReviewBundle\Tests\Controller;
+namespace Reviewer\ReviewBundle\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

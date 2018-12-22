@@ -1,6 +1,6 @@
 <?php
 
-namespace Reviewer\ReviewBundle\Tests\Controller;
+namespace Reviewer\ReviewBundle\Tests;
 
 use Reviewer\ReviewBundle\Service\BookService;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -70,9 +70,9 @@ class BookServiceTest extends KernelTestCase
         $this->assertNotNull($result);
     }
 
-    public function tesTtextAnalyzerNotNull()
+    public function testTextAnalyzerNotNull()
     {
         $result = $this->bookService->textAnalyzer("i love symfony");
-        $this->assertEquals("pos",$result);
+        $this->assertEquals("pos",$result[0]);
     }
 }
