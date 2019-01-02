@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8a5a850d-9b3f-44c2-b84a-3bf3bdb2b110" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/exception.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/FilteringController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/FilteringController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Filtering/filterResults.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Filtering/filterResults.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/BookReviewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/BookReviewController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Entity/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Entity/Book.php" afterDir="false" />
     </list>
     <ignored path="symblog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -295,7 +294,7 @@
           <entry key="genre" value="5" />
           <entry key="js" value="1" />
           <entry key="json" value="6" />
-          <entry key="php" value="137" />
+          <entry key="php" value="140" />
           <entry key="review" value="7" />
           <entry key="twig" value="73" />
           <entry key="xml" value="2" />
@@ -308,7 +307,7 @@
           <entry key="Database Element" value="28" />
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="137" />
+          <entry key="PHP" value="140" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="Twig" value="73" />
           <entry key="XML" value="4" />
@@ -322,7 +321,7 @@
           <entry key="dist" value="6" />
           <entry key="dummy" value="14" />
           <entry key="json" value="14" />
-          <entry key="php" value="5017" />
+          <entry key="php" value="5042" />
           <entry key="twig" value="1761" />
           <entry key="yml" value="394" />
         </counts>
@@ -331,7 +330,7 @@
         <counts>
           <entry key="CSS" value="569" />
           <entry key="JSON" value="14" />
-          <entry key="PHP" value="5016" />
+          <entry key="PHP" value="5041" />
           <entry key="PLAIN_TEXT" value="14" />
           <entry key="SQL" value="1" />
           <entry key="Scratch" value="89" />
@@ -352,44 +351,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Service/FilteringService.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
-              <folding>
-                <element signature="e#49#80#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Filtering/filterResults.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/BookReviewController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/config/routing.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/FilteringController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+            <state relative-caret-position="394">
+              <caret line="136" column="14" selection-start-line="136" selection-start-column="14" selection-end-line="136" selection-end-column="14" />
               <folding>
-                <element signature="e#53#93#0#PHP" expanded="true" />
+                <element signature="e#52#92#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Entity/Book.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-306">
+              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+              <folding>
+                <element signature="e#48#80#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/DefaultController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -448,7 +438,6 @@
         <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Book/booksByGenre.html.twig" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Entity/Book.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/AppBundle.php" />
         <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/BookReview/create.html.twig" />
@@ -465,7 +454,6 @@
         <option value="$PROJECT_DIR$/tests/ReviewerReviewBundle/Controller/DefaultControllerTest.php" />
         <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/BookReviewController.php" />
         <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/app/config/services.yml" />
         <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/config/services.yml" />
@@ -494,6 +482,8 @@
         <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/FilteringController.php" />
         <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Service/FilteringService.php" />
         <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Filtering/filterResults.html.twig" />
+        <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/BookReviewController.php" />
+        <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Entity/Book.php" />
       </list>
     </option>
   </component>
@@ -601,17 +591,6 @@
             <path>
               <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
               <item name="php-symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
-              <item name="php-symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
-              <item name="php-symfony" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -641,7 +620,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Reviewer" type="462c0819:PsiDirectoryNode" />
               <item name="ReviewBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
+              <item name="php-symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Reviewer" type="462c0819:PsiDirectoryNode" />
+              <item name="ReviewBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Form" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
@@ -650,17 +637,6 @@
               <item name="Reviewer" type="462c0819:PsiDirectoryNode" />
               <item name="ReviewBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
-              <item name="php-symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Reviewer" type="462c0819:PsiDirectoryNode" />
-              <item name="ReviewBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Filtering" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
@@ -669,6 +645,11 @@
               <item name="Reviewer" type="462c0819:PsiDirectoryNode" />
               <item name="ReviewBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Uncovered" type="b2602c69:ProjectViewProjectNode" />
+              <item name="php-symfony" type="462c0819:PsiDirectoryNode" />
+              <item name="var" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -875,7 +856,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="429048000" />
+    <option name="totallyTimeSpent" value="429224000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -887,16 +868,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="1747" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.8508065" visible="true" weight="0.29662424" />
-      <window_info id="Structure" order="2" sideWeight="0.14919356" side_tool="true" visible="true" weight="0.29662424" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.8397329" visible="true" weight="0.31101272" />
+      <window_info id="Structure" order="2" sideWeight="0.16026711" side_tool="true" visible="true" weight="0.31101272" />
       <window_info anchor="bottom" id="TypeScript" order="0" />
       <window_info anchor="bottom" id="Database Console" order="1" sideWeight="0.4986165" weight="0.32864866" />
       <window_info anchor="bottom" id="Debug" order="2" sideWeight="0.28002214" weight="0.43783784" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.64250135" side_tool="true" visible="true" weight="0.46378377" />
+      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.64250135" side_tool="true" visible="true" weight="0.35243243" />
       <window_info anchor="bottom" id="Run" order="4" sideWeight="0.35749862" weight="0.4745946" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5002767" side_tool="true" weight="0.27351353" />
       <window_info anchor="bottom" id="Version Control" order="6" show_stripe_button="false" />
@@ -904,7 +885,7 @@
       <window_info anchor="bottom" id="Find" order="8" sideWeight="0.49086884" weight="0.32756758" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="0" visible="true" weight="0.13503043" />
+      <window_info anchor="right" id="Database" order="0" visible="true" weight="0.13447703" />
       <window_info anchor="right" id="Remote Host" order="1" weight="0.078583285" />
       <window_info anchor="right" id="Coverage" order="2" side_tool="true" />
     </layout>
@@ -938,20 +919,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="639">
-          <caret line="900" column="4" lean-forward="true" selection-start-line="900" selection-start-column="4" selection-end-line="900" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1107">
-          <caret line="209" column="38" selection-start-line="209" selection-start-column="38" selection-end-line="209" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/persistence/lib/Doctrine/Common/Persistence/ManagerRegistry.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1030,13 +997,7 @@
     <entry file="file://$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Error/Runtime.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/templates/bundles/TwigBundle/error404.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/templates/bundles/TwigBundle/error404.html.twig" />
     <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/BookReview/view.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1125,23 +1086,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/BookReviewController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="58" column="27" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="61" />
-          <folding>
-            <element signature="e#52#92#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/ReviewerReviewBundle/Controller/BookReviewControllerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="80" column="24" selection-start-line="80" selection-start-column="6" selection-end-line="80" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/ReviewerReviewBundle/Controller/BookReviewControllerTest.php" />
     <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/config/services.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1185,16 +1130,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/ReviewerReviewBundle/Controller/BookSeviceTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="72" column="22" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
-          <folding>
-            <element signature="e#58#104#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/ReviewerReviewBundle/Controller/BookSeviceTest.php" />
     <entry file="file://$PROJECT_DIR$/tests/BookSeviceTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
@@ -1268,6 +1204,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Entity/Book.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="e#48#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/BookReviewController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="136" column="14" selection-start-line="136" selection-start-column="14" selection-end-line="136" selection-end-column="14" />
+          <folding>
+            <element signature="e#52#92#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

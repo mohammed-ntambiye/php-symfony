@@ -5,6 +5,8 @@ namespace Reviewer\ReviewBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 
 /**
@@ -35,7 +37,10 @@ class Book
     /**
      * @var string
      *
-     * @ORM\Column(name="isbn", type="string", length=12, unique=true)
+     * @ORM\Column(name="isbn", type="string", length=20, unique=true)
+     * @Assert\Isbn(
+     *     message = "This value is not  valid."
+     * )
      */
     private $isbn;
 

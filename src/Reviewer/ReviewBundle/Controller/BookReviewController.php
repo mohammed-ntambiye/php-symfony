@@ -19,13 +19,13 @@ class BookReviewController extends Controller
 
     public function viewBookAction($id, Request $request)
     {
-        $bookService = $this->container->get('book_service');
+        $bookService = $this->get('book_service');
         $book = $bookService->getBookById($id);
         $bookReviews = $bookService->getReviewsByBookId($id);
         $analysedReview = array();
 
         foreach ($bookReviews as $review) {
-          $results= $bookService->textAnalyzer($review->getFullReview());
+            $results = $bookService->textAnalyzer($review->getFullReview());
             array_push($analysedReview, [
                 "Analysis" => $results[0],
                 "Review" => $review
@@ -64,31 +64,34 @@ class BookReviewController extends Controller
         $form->handleRequest($request);
         // validates the form
         if ($form->isValid()) {
-
             $book->setGenreId($bookService->getGenreById($book->getGenreId()));
-            /** @var @Vich\Uploadable $image */
-            $image = $book->getCoverImage();
 
-            $filename = md5(uniqid()) . '.' . $image->guessExtension();
+            $bookCheck = $bookService->getBookIdByIsbn($book->getIsbn());
+            if ($bookCheck != null) {
+                return $this->redirect($this->generateUrl('book_view', ['id' => $bookCheck->getId()]));
+            } else {
+                /** @var @Vich\Uploadable $image */
+                $image = $book->getCoverImage();
+                $filename = md5(uniqid()) . '.' . $image->guessExtension();
 
-            $image->move(
-                $this->getParameter('book_covers'),
-                $filename
-            );
-            $book->setCoverImage($filename);
-            $book->setTimestamp(new \DateTime());
-            // Retrieve the doctrine entity manager
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($book);
-            // commit all changes
-            $em->flush();
+                $image->move(
+                    $this->getParameter('book_covers'),
+                    $filename
+                );
+                $book->setCoverImage($filename);
+                $book->setTimestamp(new \DateTime());
+                // Retrieve the doctrine entity manager
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($book);
+                // commit all changes
+                $em->flush();
+                return $this->redirect($this->generateUrl('book_view', ['id' => $book->getId()]));
+            }
 
-            return $this->redirect($this->generateUrl('book_view', ['id' => $book->getId()]));
         }
         return $this->render('ReviewerReviewBundle:Book:create.html.twig',
             ['form' => $form->createView()]);
     }
-
 
     public function viewReviewAction($id)
     {
@@ -105,7 +108,6 @@ class BookReviewController extends Controller
         }
     }
 
-
     public function createReviewAction(Request $request)
     {
         $review = new Review();
@@ -113,7 +115,6 @@ class BookReviewController extends Controller
             'action' => $request->getUri()
         ]);
         $bookService = $this->container->get('book_service');
-
         $form->handleRequest($request);
 
         if ($request->isMethod('post')) {
@@ -132,8 +133,11 @@ class BookReviewController extends Controller
             $em->flush();
             return $this->redirect($this->generateUrl('review_view', ['id' => $review->getId()]));
         }
-        return $this->render('ReviewerReviewBundle:BookReview:create.html.twig',
-            ['form' => $form->createView()]);
+        if ($request->headers->get('referer') != null) {
+            return $this->render('ReviewerReviewBundle:BookReview:create.html.twig',
+                ['form' => $form->createView()]);
+        }
+        return $this->redirect($this->generateUrl('reviewer_review_homepage'));
     }
 
     public function viewBooksByGenreAction($genreId, Request $request)
