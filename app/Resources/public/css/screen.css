@@ -153,3 +153,8 @@ navigationBar  li a:hover {
     padding-bottom: 15px;
     height: unset;
 }
+hr{
+    border: none;
+    height: 1px;
+    background-color: #333; /* Modern Browsers */
+}

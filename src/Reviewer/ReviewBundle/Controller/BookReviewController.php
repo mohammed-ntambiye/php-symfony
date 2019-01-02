@@ -30,7 +30,6 @@ class BookReviewController extends Controller
                 "Analysis" => $results[0],
                 "Review" => $review
             ]);
-
         }
 
         $paginator = $this->get('knp_paginator');
@@ -65,11 +64,11 @@ class BookReviewController extends Controller
         // validates the form
         if ($form->isValid()) {
             $book->setGenreId($bookService->getGenreById($book->getGenreId()));
-
             $bookCheck = $bookService->getBookIdByIsbn($book->getIsbn());
             if ($bookCheck != null) {
                 return $this->redirect($this->generateUrl('book_view', ['id' => $bookCheck->getId()]));
             } else {
+
                 /** @var @Vich\Uploadable $image */
                 $image = $book->getCoverImage();
                 $filename = md5(uniqid()) . '.' . $image->guessExtension();
@@ -78,12 +77,11 @@ class BookReviewController extends Controller
                     $this->getParameter('book_covers'),
                     $filename
                 );
+
                 $book->setCoverImage($filename);
                 $book->setTimestamp(new \DateTime());
-                // Retrieve the doctrine entity manager
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($book);
-                // commit all changes
                 $em->flush();
                 return $this->redirect($this->generateUrl('book_view', ['id' => $book->getId()]));
             }
@@ -97,7 +95,6 @@ class BookReviewController extends Controller
     {
         $bookService = $this->container->get('book_service');
         $review = $bookService->getReviewById($id);
-
         if (isset($review)) {
             return $this->render('ReviewerReviewBundle:BookReview:view.html.twig',
                 ['review' => $review]);
@@ -168,23 +165,25 @@ class BookReviewController extends Controller
 
 
 
-//    public function editAction($id, Request $request)
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//        $bookReview = $em->getRepository('ReviewerReviewBundle:BookReview')->find($id);
-//        $form = $this->createForm(BookReviewType::class, $bookReview, [
-//            'action' => $request->getUri()
-//        ]);
-//        $form->handleRequest($request);
-//        if ($form->isValid()) {
-//            $em->flush();
-//            return $this->redirect($this->generateUrl('view',
-//                ['id' => $bookReview->getId()]));
-//        }
-//        return $this->render('ReviewerReviewBundle:BookReview:edit.html.twig',
-//            ['form' => $form->createView(),
-//                'bookReview' => $bookReview]);
-//    }
+    public function editReviewAction($id, Request $request)
+    {
+        $bookService = $this->container->get('book_service');
+        $em = $this->getDoctrine()->getManager();
+        $bookReview = $bookService->getReviewById($id);
+        $form = $this->createForm(ReviewType::class, $bookReview, [
+            'action' => $request->getUri()
+        ]);
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $em->flush();
+            return $this->redirect($this->generateUrl('view',
+                ['id' => $bookReview->getId()]));
+        }
+        return $this->render('ReviewerReviewBundle:BookReview:edit.html.twig',
+            ['form' => $form->createView(),
+                'bookReview' => $bookReview]);
+    }
+
 //
 //
 //    public function deleteAction($id)

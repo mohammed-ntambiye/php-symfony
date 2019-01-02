@@ -270,4 +270,8 @@ class Book
     {
         return $this->author;
     }
+    /**
+     * @return string
+     */
+
 }

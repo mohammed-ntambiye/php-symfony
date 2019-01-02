@@ -9,33 +9,22 @@
             <div class="formElement">
                 <h2>Edit review</h2>
                 <div class="row form-group">
-                    <div class="col-sm-2">{{ form_label(form.title) }}</div>
-                    <div class="col-sm-6">{{ form_widget(form.title, {'attr': {'class': 'form-control' }}) }}</div>
-                    <div class="col-sm-6">{{ form_errors(form.title) }}</div>
+                    <div class="col-sm-2">{{ form_label(form.fullReview) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.fullReview, {'attr': {'class': 'form-control' }}) }}</div>
+                    <div class="col-sm-6">{{ form_errors(form.fullReview) }}</div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-2">{{ form_label(form.bookAuthor) }}</div>
-                    <div class="col-sm-6">{{ form_widget(form.bookAuthor, {'attr': {'class': 'form-control' }}) }}</div>
-                    <div class="col-sm-6">{{ form_errors(form.bookAuthor) }}</div>
+                    <div class="col-sm-2">{{ form_label(form.rating) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.rating) }}</div>
+                    <div class="col-sm-6">{{ form_errors(form.rating) }}</div>
                 </div>
-                <div class="row form-group">
-                    <div class="col-sm-2">{{ form_label(form.summaryReviewer) }}</div>
-                    <div class="col-sm-6">{{ form_widget(form.summaryReviewer, {'attr': {'class': 'form-control', 'rows': '6','maxlength':'300','col':'40' }}) }}</div>
-                    <div class="col-sm-6">{{ form_errors(form.summaryReviewer) }}</div>
-                </div>
-
-                <div class="row form-group">
-                    <div class="col-sm-2">{{ form_label(form.review) }}</div>
-                    <div class="col-sm-6">{{ form_widget(form.review, {'attr': {'class': 'form-control','rows':'10','maxlength':'500' }}) }}</div>
-                    <div class="col-sm-6">{{ form_errors(form.review) }}</div>
-                </div>
-                <p><a href="{{ path('delete',{id: bookReview.id}) }}">Delete</a></p>
-                <div class="form-group">
-                    <button id="reviewer_reviewbundle_bookreview_submitModifications" type="submit" class="btn btn-info btn-block createEditForm">Submit modifications</button>
-                </div>
-                <div class="invisible">
-                    {{ form(form) }}
-                    <div>
+                {#<p><a href="{{ path('delete',{id: bookReview.id}) }}">Delete</a></p>#}
+                {#<div class="form-group">#}
+                    {#<button id="reviewer_reviewbundle_bookreview_submitModifications" type="submit" class="btn btn-info btn-block createEditForm">Submit modifications</button>#}
+                {#</div>#}
+                {#<div class="invisible">#}
+                    {#{{ form(form) }}#}
+                    {#<div>#}
             </div>
         </div>
     </form>

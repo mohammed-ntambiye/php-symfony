@@ -43,11 +43,11 @@ search:
 
 
 
-#edit:
-#    path:     /edit/{id}
-#    defaults: { _controller: ReviewerReviewBundle:BookReview:edit }
-#    requirements:
-#        id: \d+
+edit:
+  path:     /edit/{id}
+  defaults: { _controller: ReviewerReviewBundle:BookReview:editReview }
+  requirements:
+    id: \d+
 
 #book_create:
 #    path:     /book/create/{id}

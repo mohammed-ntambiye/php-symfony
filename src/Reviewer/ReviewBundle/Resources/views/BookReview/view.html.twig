@@ -10,9 +10,8 @@
             <small>Created by {{ review.author }} at
                 {{ review.timestamp|date('H:i d/m/y') }}
             </small>
-            {#{{ form(form) }}#}
-            {#<a href="{{ path('edit',{'id':review.id}) }}">edit</a>#}
-
+            <a href="{{ path('edit',{'id':review.id}) }}"> edit
+            </a>
         </p>
     </article>
 {% endblock %}
