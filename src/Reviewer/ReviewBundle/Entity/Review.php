@@ -218,4 +218,10 @@ class Review
 
         return $this;
     }
+
+    public function isAuthor(User $user = null)
+    {
+        //If there is an author && their id matches the author id on the review
+        return $user && $user->hasReview($this);
+    }
 }

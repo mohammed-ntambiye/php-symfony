@@ -38,11 +38,13 @@ class BookReviewController extends Controller
             $request->query->getInt('page', 1),
             3
         );
+        $user = $this->getUser();
 
         if (isset($book)) {
             return $this->render('ReviewerReviewBundle:Book:view.html.twig',
                 ['book' => $book,
-                    'pagination' => $pagination
+                    'pagination' => $pagination,
+                    'currentUser' => $user,
                 ]);
         } else {
             return $this->render('ReviewerReviewBundle:ErrorPages:error.html.twig', [
@@ -163,16 +165,20 @@ class BookReviewController extends Controller
 
     }
 
-
-
     public function editReviewAction($id, Request $request)
     {
         $bookService = $this->container->get('book_service');
         $em = $this->getDoctrine()->getManager();
         $bookReview = $bookService->getReviewById($id);
-        $form = $this->createForm(ReviewType::class, $bookReview, [
-            'action' => $request->getUri()
-        ]);
+
+        if ($bookReview->isAuthor($this->getUser())) {
+            $form = $this->createForm(ReviewType::class, $bookReview, [
+                'action' => $request->getUri()
+            ]);
+        } else {
+            return $this->redirect($this->generateUrl('reviewer_review_homepage'));
+        }
+
         $form->handleRequest($request);
         if ($form->isValid()) {
             $em->flush();

@@ -46,10 +46,13 @@
                         </div>
                     </a>
                 </tr>
-                <p class="border-bottom">"<i>Penned by <strong>{{ article.Review.author }}</strong>
+                <p class="border-bottom"><i>Penned by <strong>{{ article.Review.author }}</strong>
                         on {{ article.Review.timestamp|date("m/d/Y") }}</i>
-                    <a href="{{ path('edit',{'id': article.Review.id}) }}"> Modify review</a>
-
+                    {% if currentUser is not empty %}
+                        {% if article.Review.author == currentUser.username %}
+                            <a href="{{ path('edit',{'id': article.Review.id}) }}"> Modify</a>
+                        {% endif %}
+                    {% endif %}
                 </p>
             {% endfor %}
         </section>
