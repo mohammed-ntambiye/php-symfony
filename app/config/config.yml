@@ -168,6 +168,4 @@ easy_admin:
         - id
         - author
         - bookId
-        - rating
-        - summaryReview
         - fullReview

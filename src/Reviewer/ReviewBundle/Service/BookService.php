@@ -110,14 +110,6 @@ class BookService
         return $query->getResult();
     }
 
-    public function getBookIdByReviewId($reviewId)
-    {
-        $em = $this->getEntityManager();
-        return $em->getRepository(Review::class)->findOneBy(['id' => $reviewId]);
-
-    }
-
-
     public function getBookIdByIsbn($isbn)
     {
         $em = $this->getEntityManager();
