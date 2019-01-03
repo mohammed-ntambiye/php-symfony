@@ -36,3 +36,10 @@ book_genre:
     defaults: {  _controller: ReviewerReviewBundle:BookReview:viewBooksByGenre}
     requirements:
         genreId: \d+
+
+report_review:
+    path:     /report/{id}
+    defaults: {  _controller: ReviewerReviewBundle:BookReview:report}
+    requirements:
+        id: \d+
+

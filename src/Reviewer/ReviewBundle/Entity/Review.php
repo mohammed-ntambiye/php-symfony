@@ -46,6 +46,15 @@ class Review
      */
     private $rating;
 
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="reports", type="integer")
+     */
+    private $reports;
+
+
     /**
      * @ORM\ManyToOne(targetEntity="Reviewer\ReviewBundle\Entity\Book")
      * @ORM\JoinColumn(name="bookId", referencedColumnName="id")
@@ -231,5 +240,30 @@ class Review
     {
         //If there is an author && their id matches the author id on the review
         return $user && $user->hasReview($this);
+    }
+
+
+    /**
+     * Set reports.
+     *
+     * @param int $reports
+     *
+     * @return Review
+     */
+    public function setReports($reports)
+    {
+        $this->reports = $reports;
+
+        return $this;
+    }
+
+    /**
+     * Get reports.
+     *
+     * @return int
+     */
+    public function getReports()
+    {
+        return $this->reports;
     }
 }

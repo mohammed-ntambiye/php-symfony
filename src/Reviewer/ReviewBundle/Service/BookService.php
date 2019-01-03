@@ -25,7 +25,6 @@ class BookService
     public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
-
     }
 
     /**
@@ -36,10 +35,8 @@ class BookService
     public function getGenres()
     {
         $em = $this->getEntityManager();
-
         $query = $em->createQuery(
             'SELECT g.id, g.genreName FROM ReviewerReviewBundle:Genre g');
-
         return $query->getResult();
     }
 
@@ -51,20 +48,14 @@ class BookService
     public function getBookById($id)
     {
         $em = $this->getEntityManager();
-
-        $result = $em->getRepository(Book::class)->find($id);
-
-        return $result;
+        return   $em->getRepository(Book::class)->find($id);
     }
 
 
     public function getGenreById($id)
     {
         $em = $this->getEntityManager();
-
-        $result = $em->getRepository(Genre::class)->find($id);
-
-        return $result;
+        return $em->getRepository(Genre::class)->find($id);
     }
 
 
@@ -90,7 +81,6 @@ class BookService
     public function getReviewById($id)
     {
         $em = $this->getEntityManager();
-
         return $em->getRepository(Review::class)->find($id);
     }
 
@@ -102,7 +92,7 @@ class BookService
             'SELECT r.timestamp, b.title, b.isbn,b.id,r.rating, b.coverImage FROM ReviewerReviewBundle:Review r
                 JOIN  ReviewerReviewBundle:Book b          
                 WITH r.bookId =  b.id
-                WHERE b.approval =1
+                WHERE b.approval =1 AND r.reports < 10
                 ORDER BY r.timestamp DESC
             ');
 
@@ -141,6 +131,7 @@ class BookService
         return $max;
     }
 
+
     public function updateReview($review, $isbn)
     {
         $em = $this->getEntityManager();
@@ -149,6 +140,14 @@ class BookService
         $em->persist($review);
         $em->flush();
         return $book->getId();
+    }
+
+    public function reportReview($id){
+        $em = $this->getEntityManager();
+        $reportedReview = $this->getReviewById($id);
+        $reportedReview->setReports($reportedReview->getReports()+1);
+        $em->persist($reportedReview);
+        $em->flush();
     }
 
 }

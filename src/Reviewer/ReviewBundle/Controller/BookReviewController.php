@@ -212,4 +212,12 @@ class BookReviewController extends Controller
 
     }
 
+    public function reportAction($id){
+
+        $bookService = $this->container->get('book_service');
+        $book = $bookService->reportReview($id);
+        return $this->render('ReviewerReviewBundle:BookReview:reportConfirmation.html.twig');
+
+    }
+
 }
