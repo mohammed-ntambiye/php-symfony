@@ -55,12 +55,13 @@
                             on {{ article.Review.timestamp|date("m/d/Y") }}</i>
                         {% if currentUser is not empty %}
                             {% if article.Review.author == currentUser %}
-                                <a href="{{ path('edit',{'id':article.Review.id ,'isbn':book.isbn }) }}"> Modify</a>
-                                <a href="{{ path('delete',{'id':article.Review.id}) }}"> delete</a>
+                                <a href="{{ path('edit',{'id':article.Review.id ,'isbn':book.isbn }) }}"> Modify |</a>
+                                <a href="{{ path('delete',{'id':article.Review.id}) }}"> Delete</a>
+                            {% else %}
+                                <i class="fa fa-flag" aria-hidden="true"></i>
+                                <a href="{{ path('report_review',{'id':article.Review.id}) }}"> report as
+                                    inappropriate</a>
                             {% endif %}
-                            <br>
-                            <i class="fa fa-flag" aria-hidden="true"></i>
-                            <a href="{{ path('report_review',{'id':article.Review.id}) }}"> report as inappropriate</a>
                         {% endif %}
                     </p>
                 {% endif %}
