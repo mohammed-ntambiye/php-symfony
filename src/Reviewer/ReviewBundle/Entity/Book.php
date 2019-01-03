@@ -45,6 +45,12 @@ class Book
     private $isbn;
 
     /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $approval;
+
+
+    /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
@@ -61,7 +67,7 @@ class Book
     /**
      * @var string
      *
-     * @ORM\Column(name="$bookDescription", type="string", length=400)
+     * @ORM\Column(name="bookDescription", type="string", length=400)
      */
     private $bookDescription;
 
@@ -279,4 +285,28 @@ class Book
         return (string) $this->id;
     }
 
+
+    /**
+     * Set approval.
+     *
+     * @param bool $approval
+     *
+     * @return Book
+     */
+    public function setApproval($approval)
+    {
+        $this->approval = $approval;
+
+        return $this;
+    }
+
+    /**
+     * Get approval.
+     *
+     * @return bool
+     */
+    public function getApproval()
+    {
+        return $this->approval;
+    }
 }

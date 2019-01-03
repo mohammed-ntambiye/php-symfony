@@ -12,7 +12,7 @@ review_view:
     id: \d+
 
 review_create:
-  path:     /create/review
+  path:     /create/review/{isbn}
   defaults: { _controller: ReviewerReviewBundle:BookReview:createReview }
 
 

@@ -124,6 +124,7 @@ easy_admin:
         - title
         - author
         - isbn
+        - approval
         - { property: 'coverImage', type: 'image', base_path: 'Public/image-uploads' }
       edit:
         fields:
@@ -131,6 +132,7 @@ easy_admin:
         - author
         - bookDescription
         - isbn
+        - approval
         - { property: 'imageFile', type: 'vich_file' }
     User:
       class: Reviewer\ReviewBundle\Entity\User

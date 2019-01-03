@@ -17,10 +17,16 @@
             <p><b>Book author:</b> {{ book.author }}</p>
             <p class="descriptionText"><b>Book Description:</b> {{ book.bookDescription }}</p>
         </section>
-        <div class="col-md-12">
-            <a class="btn btn-primary btn-lg btn-block createEditForm"
-               href="{{ path('review_create', {'isbn': book.isbn,  }) }}">Write a review</a>
-        </div>
+        {% if  book.approval %}
+            <div class="col-md-12">
+                <a class="btn btn-primary btn-lg btn-block createEditForm"
+                   href="{{ path('review_create', {'isbn': book.isbn}) }}">Write a review</a>
+            </div>
+        {% else %}
+            <div class="col-md-12">
+                <h3 class="red">Waiting for approval</h3>
+            </div>
+        {% endif %}
         <section class="col-md-12">
             <h3>Reviews</h3>
             {% for article in pagination %}
@@ -49,7 +55,7 @@
                 <p class="border-bottom"><i>Penned by <strong>{{ article.Review.author }}</strong>
                         on {{ article.Review.timestamp|date("m/d/Y") }}</i>
                     {% if currentUser is not empty %}
-                        {% if article.Review.author == currentUser%}
+                        {% if article.Review.author == currentUser %}
                             <a href="{{ path('edit',{'id':article.Review.id ,'isbn':book.isbn }) }}"> Modify</a>
                             <a href="{{ path('delete',{'id':article.Review.id}) }}"> delete</a>
                         {% endif %}

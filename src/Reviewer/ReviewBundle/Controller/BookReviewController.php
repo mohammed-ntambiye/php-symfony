@@ -78,7 +78,7 @@ class BookReviewController extends Controller
                     $this->getParameter('book_covers'),
                     $filename
                 );
-
+                $book->setApproval('0');
                 $book->setCoverImage($filename);
                 $book->setTimestamp(new \DateTime());
                 $em = $this->getDoctrine()->getManager();
@@ -106,16 +106,16 @@ class BookReviewController extends Controller
         }
     }
 
-    public function createReviewAction(Request $request)
+    public function createReviewAction($isbn, Request $request)
     {
         $review = new Review();
         $form = $this->createForm(ReviewType::class, $review, [
             'action' => $request->getUri()
         ]);
+
         $bookService = $this->container->get('book_service');
         $form->handleRequest($request);
-        $bookId = $bookService->getBookIdByIsbn($review->getBookId());
-
+        $bookId = $bookService->getBookIdByIsbn($isbn);
         if ($request->isMethod('post')) {
             if (!isset($bookId)) {
                 $form->get('bookId')->addError(new FormError('Invalid isbn please try again or use the search'));
@@ -131,12 +131,13 @@ class BookReviewController extends Controller
             $em->flush();
             return $this->redirect($this->generateUrl('reviewer_review_homepage'));
         }
-        if ($request->headers->get('referer') != null) {
+        if ($request->headers->get('referer') != null && $bookId->getApproval()!= false) {
             return $this->render('ReviewerReviewBundle:BookReview:create.html.twig',
                 ['form' => $form->createView()]);
         }
         return $this->redirect($this->generateUrl('reviewer_review_homepage'));
     }
+
 
     public function viewBooksByGenreAction($genreId, Request $request)
     {

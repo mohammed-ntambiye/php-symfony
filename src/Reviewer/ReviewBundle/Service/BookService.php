@@ -100,9 +100,10 @@ class BookService
         $em = $this->getEntityManager();
         $query = $em->createQuery(
             'SELECT r.timestamp, b.title, b.isbn,b.id,r.rating, b.coverImage FROM ReviewerReviewBundle:Review r
-             JOIN  ReviewerReviewBundle:Book b 
-             WITH r.bookId =  b.id
-             ORDER BY r.timestamp DESC
+                JOIN  ReviewerReviewBundle:Book b          
+                WITH r.bookId =  b.id
+                WHERE b.approval =1
+                ORDER BY r.timestamp DESC
             ');
 
         $query->setMaxResults(4);
@@ -148,10 +149,10 @@ class BookService
         return $max;
     }
 
-    public function updateReview($review,$isbn)
+    public function updateReview($review, $isbn)
     {
         $em = $this->getEntityManager();
-        $book= $this->getBookIdByIsbn($isbn);
+        $book = $this->getBookIdByIsbn($isbn);
         $review->setBookId($book);
         $em->persist($review);
         $em->flush();

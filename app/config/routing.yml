@@ -21,11 +21,6 @@ review_view:
     requirements:
         id: \d+
 
-review_create:
-    path:     /create/review
-    defaults: { _controller: ReviewerReviewBundle:BookReview:createReview }
-
-
 book_view:
     path:     /view/book/{id}
     defaults: {  _controller: ReviewerReviewBundle:BookReview:viewBook}

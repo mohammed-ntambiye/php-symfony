@@ -5,6 +5,8 @@ namespace Reviewer\ReviewBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 
 /**
@@ -35,9 +37,18 @@ class Book
     /**
      * @var string
      *
-     * @ORM\Column(name="isbn", type="string", length=12, unique=true)
+     * @ORM\Column(name="isbn", type="string", length=20, unique=true)
+     * @Assert\Isbn(
+     *     message = "This value is not  valid."
+     * )
      */
     private $isbn;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $approval;
+
 
     /**
      * @var string
@@ -56,7 +67,7 @@ class Book
     /**
      * @var string
      *
-     * @ORM\Column(name="$bookDescription", type="string", length=400)
+     * @ORM\Column(name="bookDescription", type="string", length=400)
      */
     private $bookDescription;
 
@@ -240,5 +251,62 @@ class Book
     public function getBookDescription()
     {
         return $this->bookDescription;
+    }
+
+    /**
+     * Set author.
+     *
+     * @param string $author
+     *
+     * @return Book
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author.
+     *
+     * @return string
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->id;
+    }
+
+
+    /**
+     * Set approval.
+     *
+     * @param bool $approval
+     *
+     * @return Book
+     */
+    public function setApproval($approval)
+    {
+        $this->approval = $approval;
+
+        return $this;
+    }
+
+    /**
+     * Get approval.
+     *
+     * @return bool
+     */
+    public function getApproval()
+    {
+        return $this->approval;
     }
 }

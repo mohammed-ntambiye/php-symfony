@@ -30,7 +30,7 @@ class Genre
     /**
      * @var string
      *
-     * @ORM\Column(name="genreIcon", type="string", length=10)
+     * @ORM\Column(name="genreIcon", type="string", length=50)
      */
     private $genreIcon;
 
