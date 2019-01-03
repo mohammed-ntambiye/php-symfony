@@ -159,5 +159,4 @@ class BookService
         return $book->getId();
     }
 
-
 }

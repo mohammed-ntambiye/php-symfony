@@ -38,7 +38,13 @@ class BookReviewController extends Controller
             $request->query->getInt('page', 1),
             3
         );
-        $user = $this->getUser()->getUsername();
+
+        if($this->getUser() != null){
+            $user = $this->getUser()->getUsername();
+        }else{
+            $user = false;
+        }
+
         if (isset($book)) {
             return $this->render('ReviewerReviewBundle:Book:view.html.twig',
                 ['book' => $book,
