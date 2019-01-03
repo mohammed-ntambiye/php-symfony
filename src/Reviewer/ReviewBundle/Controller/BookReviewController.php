@@ -38,8 +38,7 @@ class BookReviewController extends Controller
             $request->query->getInt('page', 1),
             3
         );
-        $user = $this->getUser();
-
+        $user = $this->getUser()->getUsername();
         if (isset($book)) {
             return $this->render('ReviewerReviewBundle:Book:view.html.twig',
                 ['book' => $book,
@@ -115,9 +114,9 @@ class BookReviewController extends Controller
         ]);
         $bookService = $this->container->get('book_service');
         $form->handleRequest($request);
+        $bookId = $bookService->getBookIdByIsbn($review->getBookId());
 
         if ($request->isMethod('post')) {
-            $bookId = $bookService->getBookIdByIsbn($review->getBookId());
             if (!isset($bookId)) {
                 $form->get('bookId')->addError(new FormError('Invalid isbn please try again or use the search'));
             }
@@ -126,11 +125,11 @@ class BookReviewController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $review->setBookId($bookId);
-            $review->setAuthor($this->getUser());
             $review->setTimestamp(new \DateTime());
+            $review->setAuthor($this->getUser());
             $em->persist($review);
             $em->flush();
-            return $this->redirect($this->generateUrl('review_view', ['id' => $review->getId()]));
+            return $this->redirect($this->generateUrl('reviewer_review_homepage'));
         }
         if ($request->headers->get('referer') != null) {
             return $this->render('ReviewerReviewBundle:BookReview:create.html.twig',
@@ -165,12 +164,11 @@ class BookReviewController extends Controller
 
     }
 
-    public function editReviewAction($id, Request $request)
+    public function editReviewAction($id, $isbn, Request $request)
     {
         $bookService = $this->container->get('book_service');
         $em = $this->getDoctrine()->getManager();
         $bookReview = $bookService->getReviewById($id);
-
         if ($bookReview->isAuthor($this->getUser())) {
             $form = $this->createForm(ReviewType::class, $bookReview, [
                 'action' => $request->getUri()
@@ -179,29 +177,32 @@ class BookReviewController extends Controller
             return $this->redirect($this->generateUrl('reviewer_review_homepage'));
         }
 
-        $form->handleRequest($request);
-        if ($form->isValid()) {
-            $em->flush();
-            return $this->redirect($this->generateUrl('view',
-                ['id' => $bookReview->getId()]));
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $form->handleRequest($request);
+            $bookReview->setTimestamp(new \DateTime());
+            $bookReview->setAuthor($this->getUser());
+            $book = $bookService->updateReview($bookReview, $isbn);
+            return $this->redirect($this->generateUrl('book_view',
+                ['id' => $book]));
         }
+
         return $this->render('ReviewerReviewBundle:BookReview:edit.html.twig',
             ['form' => $form->createView(),
                 'bookReview' => $bookReview]);
     }
 
-//
-//
-//    public function deleteAction($id)
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//        $bookReview = $em->getRepository('ReviewerReviewBundle:BookReview')->find($id);
-//        $em->remove($bookReview);
-//        $em->flush();
-//
-//        return $this->redirect(
-//            $this->generateUrl('reviewer_review_homepage'));
-//
-//    }
+
+    public function deleteReviewAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $bookReview = $em->getRepository('ReviewerReviewBundle:Review')->find($id);
+        $em->remove($bookReview);
+        $em->flush();
+
+        return $this->redirect(
+            $this->generateUrl('reviewer_review_homepage'));
+
+    }
 
 }

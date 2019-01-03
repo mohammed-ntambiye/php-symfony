@@ -30,7 +30,6 @@ class Review
     /**
      * @var \Reviewer\ReviewBundle\Entity\User
      * @ORM\ManyToOne(targetEntity="Reviewer\ReviewBundle\Entity\User", inversedBy="entries")
-
      * @ORM\JoinColumn(name="author", referencedColumnName="id")
      */
     private $author;
@@ -197,6 +196,7 @@ class Review
 
         return $this;
     }
+
     /**
      * Get fullReview.
      *
@@ -217,6 +217,14 @@ class Review
         $this->id = id;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string)$this->getBookId();
     }
 
     public function isAuthor(User $user = null)

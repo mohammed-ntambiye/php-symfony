@@ -2,6 +2,7 @@
 
 namespace Reviewer\ReviewBundle\Service;
 
+use phpDocumentor\Reflection\DocBlock\Tags\Author;
 use \Reviewer\ReviewBundle\Entity\Genre;
 use \Reviewer\ReviewBundle\Entity\Book;
 use \Reviewer\ReviewBundle\Entity\Review;
@@ -108,6 +109,13 @@ class BookService
         return $query->getResult();
     }
 
+    public function getBookIdByReviewId($reviewId)
+    {
+        $em = $this->getEntityManager();
+        return $em->getRepository(Review::class)->findOneBy(['id' => $reviewId]);
+
+    }
+
 
     public function getBookIdByIsbn($isbn)
     {
@@ -138,6 +146,16 @@ class BookService
         $result = $analyzer->getSentiment($sentence);
         $max = array_keys($result, max($result));
         return $max;
+    }
+
+    public function updateReview($review,$isbn)
+    {
+        $em = $this->getEntityManager();
+        $book= $this->getBookIdByIsbn($isbn);
+        $review->setBookId($book);
+        $em->persist($review);
+        $em->flush();
+        return $book->getId();
     }
 
 

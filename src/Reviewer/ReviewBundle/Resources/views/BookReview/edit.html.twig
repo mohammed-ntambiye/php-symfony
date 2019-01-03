@@ -3,29 +3,23 @@
 {% block title %}ReviewerReviewBundle:BookReview:edit{% endblock %}
 
 {% block body %}
-    <form name="reviewer_reviewbundle_bookreview" method="post" >
-
-        <div id="reviewer_reviewbundle_bookreview">
-            <div class="formElement">
-                <h2>Edit review</h2>
-                <div class="row form-group">
-                    <div class="col-sm-2">{{ form_label(form.fullReview) }}</div>
-                    <div class="col-sm-6">{{ form_widget(form.fullReview, {'attr': {'class': 'form-control' }}) }}</div>
-                    <div class="col-sm-6">{{ form_errors(form.fullReview) }}</div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-2">{{ form_label(form.rating) }}</div>
-                    <div class="col-sm-6">{{ form_widget(form.rating) }}</div>
-                    <div class="col-sm-6">{{ form_errors(form.rating) }}</div>
-                </div>
-                {#<p><a href="{{ path('delete',{id: bookReview.id}) }}">Delete</a></p>#}
-                {#<div class="form-group">#}
-                    {#<button id="reviewer_reviewbundle_bookreview_submitModifications" type="submit" class="btn btn-info btn-block createEditForm">Submit modifications</button>#}
-                {#</div>#}
-                {#<div class="invisible">#}
-                    {#{{ form(form) }}#}
-                    {#<div>#}
+    <form name="reviewer_reviewbundle_bookreview" method="post">
+        <section class="formElement">
+            <div class="row form-group">
+                <div class="col-sm-2">{{ form_label(form.fullReview) }}</div>
+                <div class="col-sm-6">{{ form_widget(form.fullReview, {'attr': {'class': 'form-control', 'rows': '6','maxlength':'500','col':'40'  }}) }}</div>
+                <div class="col-sm-6">{{ form_errors(form.fullReview) }}</div>
             </div>
-        </div>
+            <div class="row form-group">
+                <div class="col-sm-2">{{ form_label(form.rating) }}</div>
+                <div class="col-sm-6">{{ form_widget(form.rating) }}</div>
+                <div class="col-sm-6">{{ form_errors(form.rating) }}</div>
+            </div>
+            <div class="form-group">
+                <button id="reviewer_reviewbundle_bookreview_submitModifications" type="submit"
+                        class="btn btn-info btn-block createEditForm">Submit modifications
+                </button>
+            </div>
+        </section>
     </form>
 {% endblock %}

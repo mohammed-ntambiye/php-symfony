@@ -41,22 +41,14 @@ search:
   path:  /search/{seachQuery}
   defaults: {  _controller: ReviewerReviewBundle:Filtering:submitSearch}
 
-
-
 edit:
-  path:     /edit/{id}
+  path:     /edit/{id}/{isbn}
   defaults: { _controller: ReviewerReviewBundle:BookReview:editReview }
   requirements:
     id: \d+
 
-#book_create:
-#    path:     /book/create/{id}
-#    defaults: { _controller: ReviewerReviewBundle:DefaultController:createBook }
-#    requirements:
-#        id: \d+
-
-#delete:
-#    path:     /delete/{id}
-#    defaults: { _controller: ReviewerReviewBundle:BookReview:delete }
-#    requirements:
-#        id: \d+
+delete:
+    path:     /delete/{id}
+    defaults: { _controller: ReviewerReviewBundle:BookReview:deleteReview }
+    requirements:
+        id: \d+
