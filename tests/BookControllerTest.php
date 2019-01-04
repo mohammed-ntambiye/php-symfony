@@ -9,9 +9,7 @@ class BookReviewControllerTest extends WebTestCase
     public function testIndex()
     {
         $client = static::createClient();
-
-        $crawler = $client->request('GET', '/');
-
+         $client->request('GET', '/');
         $this->assertContains('Book Genres', $client->getResponse()->getContent());
 
     }
@@ -65,14 +63,14 @@ class BookReviewControllerTest extends WebTestCase
     public function testCreateBookWithoutLogin()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/create/book');
+        $client->request('GET', '/create/book');
         $this->assertTrue($client->getResponse()->isRedirect());
     }
 
     public function testAdminWithoutLogin()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/admin');
+        $client->request('GET', '/admin');
         $this->assertTrue($client->getResponse()->isRedirect());
     }
 
@@ -89,5 +87,21 @@ class BookReviewControllerTest extends WebTestCase
         //checking login user can create a book
         $client->request('GET', '/create/book');
         $this->assertEquals(302, $client->getResponse()->getStatusCode());
+    }
+
+    public function testReportReview(){
+
+        //success test
+        $client = static::createClient();
+        $client->request('GET', '/report/67');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
+
+    public function urlProvider()
+    {
+        yield ['/'];
+        yield ['/create/book'];
+        yield ['/login'];
+        yield ['/register'];
     }
 }
