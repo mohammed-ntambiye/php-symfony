@@ -1,13 +1,11 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}ReviewerReviewBundle:BookReview:create{% endblock %}
+{% block title %}Create review{% endblock %}
 {% block body %}
     <h2>Create Review</h2>
     {{ form_start(form) }}
     <section class="formElement">
-
     {{ form_widget(form.bookId)}}
-
         <div class="row form-group">
             <div class="col-sm-2">{{ form_label(form.fullReview) }}</div>
             <div class="col-sm-6">{{ form_widget(form.fullReview, {'attr': {'class': 'form-control', 'rows': '6','maxlength':'500','col':'40'  }}) }}</div>

@@ -4,7 +4,7 @@ namespace Reviewer\ReviewBundle\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class BookReviewControllerTest extends WebTestCase
+class BookControllerTest extends WebTestCase
 {
     public function testIndex()
     {
@@ -42,22 +42,12 @@ class BookReviewControllerTest extends WebTestCase
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 
-    public function testReviewRoute()
-    {
-        $client = static::createClient();
-
-        $client->request('GET', '/view/review/3');
-
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-    }
-
     public function testGenreRoute()
     {
         $client = static::createClient();
-
         $client->request('GET', 'book/genre/1');
-
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
+
     }
 
     public function testCreateBookWithoutLogin()
@@ -87,14 +77,6 @@ class BookReviewControllerTest extends WebTestCase
         //checking login user can create a book
         $client->request('GET', '/create/book');
         $this->assertEquals(302, $client->getResponse()->getStatusCode());
-    }
-
-    public function testReportReview(){
-
-        //success test
-        $client = static::createClient();
-        $client->request('GET', '/report/67');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 
     public function urlProvider()

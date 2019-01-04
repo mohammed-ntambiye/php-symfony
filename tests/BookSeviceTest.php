@@ -20,7 +20,6 @@ class BookServiceTest extends KernelTestCase
             ->get('book_service');
     }
 
-
     public function testGenreGetNotNull()
     {
         $result = $this->bookService->getGenres();
@@ -53,7 +52,7 @@ class BookServiceTest extends KernelTestCase
 
     public function testGetBookIdByIsbnNotNull()
     {
-        $result = $this->bookService->getBookIdByIsbn("0710273");
+        $result = $this->bookService->getBookIdByIsbn("978-0008307738");
         $this->assertNotNull($result);
     }
 
@@ -69,6 +68,7 @@ class BookServiceTest extends KernelTestCase
         $result = $this->bookService->getReviewsByBookId(3);
         $this->assertNotNull($result);
     }
+
 
     public function testTextAnalyzerNotNull()
     {

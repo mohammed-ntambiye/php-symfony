@@ -4,47 +4,48 @@ reviewer_review_homepage:
 
 review_view:
   path:     /view/review/{id}
-  defaults: { _controller: ReviewerReviewBundle:BookReview:viewReview }
+  defaults: { _controller: ReviewerReviewBundle:Review:viewReview }
   requirements:
     id: \d+
 
 review_create:
   path:     /create/review/{isbn}
-  defaults: { _controller: ReviewerReviewBundle:BookReview:createReview }
+  defaults: { _controller: ReviewerReviewBundle:Review:createReview }
 
 book_view:
   path:     /view/book/{id}
-  defaults: {  _controller: ReviewerReviewBundle:BookReview:viewBook}
+  defaults: {  _controller: ReviewerReviewBundle:Book:viewBook}
   requirements:
     id: \d+
 
 book_create:
   path:     /create/book
-  defaults: {  _controller: ReviewerReviewBundle:BookReview:createBook}
+  defaults: {  _controller: ReviewerReviewBundle:Book:createBook}
 
 book_genre:
   path:     /book/genre/{genreId}
-  defaults: {  _controller: ReviewerReviewBundle:BookReview:viewBooksByGenre}
+  defaults: {  _controller: ReviewerReviewBundle:Book:viewBooksByGenre}
   requirements:
     genreId: \d+
+
 search:
   path:  /search/{seachQuery}
   defaults: {  _controller: ReviewerReviewBundle:Filtering:submitSearch}
 
-edit:
+edit_review:
   path:     /edit/{id}/{isbn}
-  defaults: { _controller: ReviewerReviewBundle:BookReview:editReview }
+  defaults: { _controller: ReviewerReviewBundle:Review:editReview }
   requirements:
     id: \d+
 
-delete:
+delete_review:
     path:     /delete/{id}
-    defaults: { _controller: ReviewerReviewBundle:BookReview:deleteReview }
+    defaults: { _controller: ReviewerReviewBundle:Review:deleteReview }
     requirements:
         id: \d+
 
 report_review:
   path:     /report/{id}
-  defaults: {  _controller: ReviewerReviewBundle:BookReview:report}
+  defaults: {  _controller: ReviewerReviewBundle:Review:report}
   requirements:
     id: \d+
