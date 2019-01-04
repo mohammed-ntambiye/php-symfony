@@ -23,7 +23,6 @@ class BookReviewController extends Controller
         $book = $bookService->getBookById($id);
         $bookReviews = $bookService->getReviewsByBookId($id);
         $analysedReview = array();
-
         foreach ($bookReviews as $review) {
             $results = $bookService->textAnalyzer($review->getFullReview());
             array_push($analysedReview, [
@@ -39,9 +38,9 @@ class BookReviewController extends Controller
             3
         );
 
-        if($this->getUser() != null){
+        if ($this->getUser() != null) {
             $user = $this->getUser()->getUsername();
-        }else{
+        } else {
             $user = false;
         }
 
@@ -61,38 +60,37 @@ class BookReviewController extends Controller
 
     public function createBookAction(Request $request)
     {
-        $bookService = $this->container->get('book_service');
         $book = new Book();
+        $em = $this->getDoctrine()->getManager();
+        $bookService = $this->container->get('book_service');
         $form = $this->createForm(BookType::class, $book, [
             'action' => $request->getUri(), 'book_service' => $bookService
         ]);
 
         $form->handleRequest($request);
-        // validates the form
         if ($form->isValid()) {
             $book->setGenreId($bookService->getGenreById($book->getGenreId()));
+
             $bookCheck = $bookService->getBookIdByIsbn($book->getIsbn());
             if ($bookCheck != null) {
                 return $this->redirect($this->generateUrl('book_view', ['id' => $bookCheck->getId()]));
             } else {
-
-                /** @var @Vich\Uploadable $image */
                 $image = $book->getCoverImage();
                 $filename = md5(uniqid()) . '.' . $image->guessExtension();
-
                 $image->move(
                     $this->getParameter('book_covers'),
                     $filename
                 );
+
                 $book->setApproval('0');
                 $book->setCoverImage($filename);
                 $book->setTimestamp(new \DateTime());
-                $em = $this->getDoctrine()->getManager();
+
+
                 $em->persist($book);
                 $em->flush();
                 return $this->redirect($this->generateUrl('book_view', ['id' => $book->getId()]));
             }
-
         }
         return $this->render('ReviewerReviewBundle:Book:create.html.twig',
             ['form' => $form->createView()]);
@@ -115,13 +113,17 @@ class BookReviewController extends Controller
     public function createReviewAction($isbn, Request $request)
     {
         $review = new Review();
+        $em = $this->getDoctrine()->getManager();
+        $bookService = $this->container->get('book_service');
+
         $form = $this->createForm(ReviewType::class, $review, [
             'action' => $request->getUri()
         ]);
 
-        $bookService = $this->container->get('book_service');
+
         $form->handleRequest($request);
         $bookId = $bookService->getBookIdByIsbn($isbn);
+
         if ($request->isMethod('post')) {
             if (!isset($bookId)) {
                 $form->get('bookId')->addError(new FormError('Invalid isbn please try again or use the search'));
@@ -129,15 +131,16 @@ class BookReviewController extends Controller
         }
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
             $review->setBookId($bookId);
+            $review->setReports(0);
             $review->setTimestamp(new \DateTime());
             $review->setAuthor($this->getUser());
             $em->persist($review);
             $em->flush();
             return $this->redirect($this->generateUrl('reviewer_review_homepage'));
         }
-        if ($request->headers->get('referer') != null && $bookId->getApproval()!= false) {
+
+        if ($request->headers->get('referer') != null && $bookId->getApproval() != false) {
             return $this->render('ReviewerReviewBundle:BookReview:create.html.twig',
                 ['form' => $form->createView()]);
         }
@@ -151,7 +154,6 @@ class BookReviewController extends Controller
         $book = $bookService->getBookByGenre($genreId);
 
         $paginator = $this->get('knp_paginator');
-
         $pagination = $paginator->paginate(
             $book,
             $request->query->getInt('page', 1),
@@ -168,7 +170,6 @@ class BookReviewController extends Controller
                 'message' => 'This book does not exist'
             ]);
         }
-
     }
 
     public function editReviewAction($id, $isbn, Request $request)
@@ -206,18 +207,15 @@ class BookReviewController extends Controller
         $bookReview = $em->getRepository('ReviewerReviewBundle:Review')->find($id);
         $em->remove($bookReview);
         $em->flush();
-
         return $this->redirect(
             $this->generateUrl('reviewer_review_homepage'));
-
     }
 
-    public function reportAction($id){
-
+    public function reportAction($id)
+    {
         $bookService = $this->container->get('book_service');
         $book = $bookService->reportReview($id);
         return $this->render('ReviewerReviewBundle:BookReview:reportConfirmation.html.twig');
-
     }
 
 }

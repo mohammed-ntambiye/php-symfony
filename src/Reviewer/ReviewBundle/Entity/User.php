@@ -18,7 +18,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
-
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -31,7 +30,6 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="Reviewer\ReviewBundle\Entity\Review", mappedBy="author")
      */
     protected $reviews;
-
 
     public function __construct()
     {
@@ -52,5 +50,4 @@ class User extends BaseUser
     {
         return $this->getReviews()->contains($review);
     }
-
 }

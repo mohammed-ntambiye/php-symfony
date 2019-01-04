@@ -66,7 +66,7 @@ class BookServiceTest extends KernelTestCase
 
     public function testGetReviewsByBookIdNotNull()
     {
-        $result = $this->bookService->getReviewsByBookId(60);
+        $result = $this->bookService->getReviewsByBookId(3);
         $this->assertNotNull($result);
     }
 

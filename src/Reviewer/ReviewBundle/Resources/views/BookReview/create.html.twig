@@ -18,11 +18,9 @@
             <div class="col-sm-6">{{ form_widget(form.rating) }}</div>
             <div class="col-sm-6">{{ form_errors(form.rating) }}</div>
         </div>
-
         {{ form_row(form.submit,{'attr': {'class': 'btn btn-primary' }}) }}
         {{ form_end(form) }}
     </section>
-
     <script>
         var urlParams = new URLSearchParams(window.location.search);
         document.getElementById("reviewer_reviewbundle_review_bookId").value = urlParams.get('isbn');

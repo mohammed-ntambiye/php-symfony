@@ -21,15 +21,12 @@ class BookType extends AbstractType
     {
         /** @var BookService $bookService */
         $bookService = $options['book_service'];
-
         $genreArray = array_column($bookService->getGenres(), 'id', 'genreName');
-
 
         $builder->add('isbn', TextType::class)
             ->add('title', TextType::class)
             ->add('author', TextType::class)
             ->add('bookDescription', TextareaType::class,[
-
                 'label' => 'Book Description'
             ])
             ->add('genre_id', ChoiceType::class, [
@@ -54,7 +51,6 @@ class BookType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'Reviewer\ReviewBundle\Entity\Book'
         ));
-
         $resolver->setRequired('book_service');
     }
 

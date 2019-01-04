@@ -68,7 +68,6 @@ class BookService
         return $result;
     }
 
-
     /**
      * @return EntityManager
      */
@@ -76,7 +75,6 @@ class BookService
     {
         return $this->entityManager;
     }
-
 
     public function getReviewById($id)
     {
@@ -109,9 +107,9 @@ class BookService
     public function getBookByGenre($genreId)
     {
         $em = $this->getEntityManager();
-        return $em->getRepository(Book::class)->findBy(
-            ['genre_id' => $genreId]
-        );
+        $query = $em->createQuery("SELECT b.title, b.id,b.coverImage FROM ReviewerReviewBundle:Book b
+        WHERE b.genre_id = $genreId AND b.approval =1");
+            return ($query->getResult());
     }
 
     public function getReviewsByBookId($bookId)
@@ -149,5 +147,4 @@ class BookService
         $em->persist($reportedReview);
         $em->flush();
     }
-
 }

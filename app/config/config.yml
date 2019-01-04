@@ -114,6 +114,8 @@ knp_paginator:
 
 easy_admin:
   site_name: 'Uncovered'
+  design:
+    brand_color: '#21545e'
   entities:
     Book:
       class:  Reviewer\ReviewBundle\Entity\Book

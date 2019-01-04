@@ -45,8 +45,6 @@ class Review
      * @ORM\Column(type="float")
      */
     private $rating;
-
-
     /**
      * @var int
      *
@@ -60,8 +58,6 @@ class Review
      * @ORM\JoinColumn(name="bookId", referencedColumnName="id")
      */
     private $bookId;
-
-
     /**
      * Get id.
      *
@@ -71,7 +67,6 @@ class Review
     {
         return $this->id;
     }
-
     /**
      * Set timestamp.
      *
@@ -85,7 +80,6 @@ class Review
 
         return $this;
     }
-
     /**
      * Get timestamp.
      *
@@ -109,7 +103,6 @@ class Review
 
         return $this;
     }
-
     /**
      * Get author.
      *
@@ -119,7 +112,6 @@ class Review
     {
         return $this->author;
     }
-
     /**
      * Set summaryReview.
      *
@@ -133,7 +125,6 @@ class Review
 
         return $this;
     }
-
     /**
      * Get summaryReview.
      *
@@ -143,7 +134,6 @@ class Review
     {
         return $this->summaryReview;
     }
-
     /**
      * Set rating.
      *
@@ -157,7 +147,6 @@ class Review
 
         return $this;
     }
-
     /**
      * Get rating.
      *
@@ -167,7 +156,6 @@ class Review
     {
         return $this->rating;
     }
-
     /**
      * Set bookId.
      *
@@ -181,7 +169,6 @@ class Review
 
         return $this;
     }
-
     /**
      * Get bookId.
      *
@@ -191,7 +178,6 @@ class Review
     {
         return $this->bookId;
     }
-
     /**
      * Set fullReview.
      *
@@ -205,7 +191,6 @@ class Review
 
         return $this;
     }
-
     /**
      * Get fullReview.
      *
@@ -215,7 +200,6 @@ class Review
     {
         return $this->fullReview;
     }
-
     /**
      * Get fullReview.
      *
@@ -227,7 +211,6 @@ class Review
 
         return $this;
     }
-
     /**
      * @return string
      */
@@ -238,10 +221,8 @@ class Review
 
     public function isAuthor(User $user = null)
     {
-        //If there is an author && their id matches the author id on the review
         return $user && $user->hasReview($this);
     }
-
 
     /**
      * Set reports.

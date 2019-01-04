@@ -14,32 +14,3 @@ reviewer_review_homepage:
 # app/config/routing.yml
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-
-review_view:
-    path:     /view/review/{id}
-    defaults: { _controller: ReviewerReviewBundle:BookReview:viewReview }
-    requirements:
-        id: \d+
-
-book_view:
-    path:     /view/book/{id}
-    defaults: {  _controller: ReviewerReviewBundle:BookReview:viewBook}
-    requirements:
-        id: \d+
-
-book_create:
-    path:     /create/book
-    defaults: {  _controller: ReviewerReviewBundle:BookReview:createBook}
-
-book_genre:
-    path:     /book/genre/{genreId}
-    defaults: {  _controller: ReviewerReviewBundle:BookReview:viewBooksByGenre}
-    requirements:
-        genreId: \d+
-
-report_review:
-    path:     /report/{id}
-    defaults: {  _controller: ReviewerReviewBundle:BookReview:report}
-    requirements:
-        id: \d+
-

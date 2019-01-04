@@ -34,8 +34,6 @@ class Genre
      */
     private $genreIcon;
 
-
-
     /**
      * Get id.
      *

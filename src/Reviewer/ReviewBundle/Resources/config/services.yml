@@ -6,6 +6,3 @@ services:
   book_service:
     class: Reviewer\ReviewBundle\Service\BookService
     arguments: [ "@doctrine.orm.entity_manager" ]
-
-
-

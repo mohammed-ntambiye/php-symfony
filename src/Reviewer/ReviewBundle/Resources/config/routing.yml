@@ -2,9 +2,6 @@ reviewer_review_homepage:
   path:  /
   defaults: { _controller: ReviewerReviewBundle:Default:index }
 
-fos_user:
-  resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-
 review_view:
   path:     /view/review/{id}
   defaults: { _controller: ReviewerReviewBundle:BookReview:viewReview }
@@ -14,7 +11,6 @@ review_view:
 review_create:
   path:     /create/review/{isbn}
   defaults: { _controller: ReviewerReviewBundle:BookReview:createReview }
-
 
 book_view:
   path:     /view/book/{id}
@@ -31,12 +27,6 @@ book_genre:
   defaults: {  _controller: ReviewerReviewBundle:BookReview:viewBooksByGenre}
   requirements:
     genreId: \d+
-
-easy_admin_bundle:
-  resource: "@EasyAdminBundle/Controller/AdminController.php"
-  type:     annotation
-  prefix:   /admin
-
 search:
   path:  /search/{seachQuery}
   defaults: {  _controller: ReviewerReviewBundle:Filtering:submitSearch}
@@ -52,3 +42,9 @@ delete:
     defaults: { _controller: ReviewerReviewBundle:BookReview:deleteReview }
     requirements:
         id: \d+
+
+report_review:
+  path:     /report/{id}
+  defaults: {  _controller: ReviewerReviewBundle:BookReview:report}
+  requirements:
+    id: \d+
