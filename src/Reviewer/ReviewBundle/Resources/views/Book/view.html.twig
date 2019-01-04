@@ -57,7 +57,7 @@
                             {% if article.Review.author == currentUser %}
                                 <a href="{{ path('edit_review',{'id':article.Review.id ,'isbn':book.isbn }) }}"> Modify </a> |
                                 <a href="{{ path('delete_review',{'id':article.Review.id}) }}"> Delete</a>
-                            {% else %}
+                            {% elseif(is_granted('ROLE_USER')) %}
                                 <i class="fa fa-flag" aria-hidden="true"></i>
                                 <a href="{{ path('report_review',{'id':article.Review.id}) }}"> report as
                                     inappropriate</a>

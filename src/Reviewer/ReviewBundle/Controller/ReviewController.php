@@ -103,9 +103,13 @@ class ReviewController extends Controller
 
     public function reportAction($id)
     {
-        $bookService = $this->container->get('book_service');
-        $bookService->reportReview($id);
-        return $this->render('ReviewerReviewBundle:BookReview:reportConfirmation.html.twig');
+        if ($this->getUser() !=null) {
+            $bookService = $this->container->get('book_service');
+            $bookService->reportReview($id);
+            return $this->render('ReviewerReviewBundle:BookReview:reportConfirmation.html.twig');
+        }
+        return $this->redirect($this->generateUrl('reviewer_review_homepage'));
+
     }
 
 }

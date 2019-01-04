@@ -6,14 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class BookControllerTest extends WebTestCase
 {
-    public function testIndex()
-    {
-        $client = static::createClient();
-         $client->request('GET', '/');
-        $this->assertContains('Book Genres', $client->getResponse()->getContent());
-
-    }
-
     public function testViewBookActionRoute()
     {
         $client = static::createClient();

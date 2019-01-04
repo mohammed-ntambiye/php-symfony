@@ -23,6 +23,7 @@ class BookController extends Controller
         $book = $bookService->getBookById($id);
         $bookReviews = $bookService->getReviewsByBookId($id);
         $analysedReview = array();
+
         foreach ($bookReviews as $review) {
             $results = $bookService->textAnalyzer($review->getFullReview());
             array_push($analysedReview, [
@@ -37,13 +38,7 @@ class BookController extends Controller
             $request->query->getInt('page', 1),
             3
         );
-
-        if ($this->getUser() != null) {
-            $user = $this->getUser()->getUsername();
-        } else {
-            $user = false;
-        }
-
+        $user = ($this->getUser()? $this->getUser()->getUsername() :'guest');
         if (isset($book)) {
             return $this->render('ReviewerReviewBundle:Book:view.html.twig',
                 ['book' => $book,
@@ -56,7 +51,6 @@ class BookController extends Controller
             ]);
         }
     }
-
 
     public function createBookAction(Request $request)
     {
@@ -95,7 +89,6 @@ class BookController extends Controller
         return $this->render('ReviewerReviewBundle:Book:create.html.twig',
             ['form' => $form->createView()]);
     }
-
 
     public function viewBooksByGenreAction($genreId, Request $request)
     {
