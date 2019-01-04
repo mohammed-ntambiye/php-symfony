@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a5a850d-9b3f-44c2-b84a-3bf3bdb2b110" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Profile/Profile.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/BookReview/reportConfirmation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/BookReview/reportConfirmation.html.twig" afterDir="false" />
     </list>
     <ignored path="symblog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -296,7 +296,7 @@
           <entry key="json" value="6" />
           <entry key="php" value="179" />
           <entry key="review" value="20" />
-          <entry key="twig" value="98" />
+          <entry key="twig" value="99" />
           <entry key="user" value="1" />
           <entry key="xml" value="2" />
           <entry key="yml" value="61" />
@@ -310,7 +310,7 @@
           <entry key="JavaScript" value="1" />
           <entry key="PHP" value="179" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Twig" value="98" />
+          <entry key="Twig" value="99" />
           <entry key="XML" value="4" />
           <entry key="YAML" value="61" />
         </counts>
@@ -323,7 +323,7 @@
           <entry key="dummy" value="14" />
           <entry key="json" value="14" />
           <entry key="php" value="7601" />
-          <entry key="twig" value="2432" />
+          <entry key="twig" value="2440" />
           <entry key="yml" value="576" />
         </counts>
       </usages-collector>
@@ -335,7 +335,7 @@
           <entry key="PLAIN_TEXT" value="14" />
           <entry key="SQL" value="1" />
           <entry key="Scratch" value="118" />
-          <entry key="Twig" value="2432" />
+          <entry key="Twig" value="2440" />
           <entry key="XML" value="6" />
           <entry key="YAML" value="576" />
         </counts>
@@ -352,38 +352,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://576bce38-4752-4409-8f9c-db81135677c3/schema/stb422_advancedweb/table/review">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="167" column="12" selection-start-line="167" selection-start-column="12" selection-end-line="167" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Book/view.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="63" column="39" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/BookReview/reportConfirmation.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Profile/Profile.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" lean-forward="true" selection-end-line="8" />
+            <state relative-caret-position="85">
+              <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -437,7 +410,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/AppBundle.php" />
         <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/BookReview/create.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
@@ -488,6 +460,7 @@
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Book/view.html.twig" />
         <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/BookReview/reportConfirmation.html.twig" />
+        <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Profile/Profile.html.twig" />
       </list>
     </option>
   </component>
@@ -636,7 +609,7 @@
               <item name="ReviewBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="BookReview" type="462c0819:PsiDirectoryNode" />
+              <item name="Filtering" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -671,11 +644,11 @@
       <recent name="$PROJECT_DIR$/app/Resources/FOSUserBundle/views" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Profile" />
       <recent name="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/BookReview" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/tests/ReviewerReviewBundle/Controller" />
       <recent name="$PROJECT_DIR$/app/Resources" />
-      <recent name="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Filtering" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -806,7 +779,7 @@
       <workItem from="1545305194155" duration="38000" />
       <workItem from="1545339292543" duration="863000" />
       <workItem from="1545340180132" duration="4620000" />
-      <workItem from="1546553406359" duration="5867000" />
+      <workItem from="1546553406359" duration="6719000" />
     </task>
     <servers />
   </component>
@@ -843,7 +816,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="475691000" />
+    <option name="totallyTimeSpent" value="476543000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -906,9 +879,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/twig/twig/src/Error/SyntaxError.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1217,17 +1187,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://576bce38-4752-4409-8f9c-db81135677c3/schema/stb422_advancedweb/table/review">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/BookReview/reportConfirmation.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="167" column="12" selection-start-line="167" selection-start-column="12" selection-end-line="167" selection-end-column="12" />
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -1238,10 +1201,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/BookReview/reportConfirmation.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-end-line="8" />
+        <state relative-caret-position="408">
+          <caret line="167" column="12" selection-start-line="167" selection-start-column="12" selection-end-line="167" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://576bce38-4752-4409-8f9c-db81135677c3/schema/stb422_advancedweb/table/review">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Profile/Profile.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
         </state>
       </provider>
     </entry>
