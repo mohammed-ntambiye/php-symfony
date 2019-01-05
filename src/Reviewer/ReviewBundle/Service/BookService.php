@@ -28,6 +28,14 @@ class BookService
     }
 
     /**
+     * @return EntityManager
+     */
+    private function getEntityManager()
+    {
+        return $this->entityManager;
+    }
+
+    /**
      * Returns all Books genres
      *
      * @return array
@@ -68,20 +76,12 @@ class BookService
         return $result;
     }
 
-    /**
-     * @return EntityManager
-     */
-    private function getEntityManager()
-    {
-        return $this->entityManager;
-    }
 
     public function getReviewById($id)
     {
         $em = $this->getEntityManager();
         return $em->getRepository(Review::class)->find($id);
     }
-
 
     public function getLatestReviews()
     {

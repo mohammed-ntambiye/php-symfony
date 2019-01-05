@@ -34,7 +34,7 @@
                 {% if (article.Review.reports < 10) %}
                     <a class="reviews" href="{{ path('review_view', { 'id': article.Review.id }) }}">
                         <div class="col-md-12">
-                            <p>{{ article.Review.fullReview }}</p>
+                            <p>{{ article.Review.summeryReview }}</p>
                             <p><b>{{ article.Review.rating | rating }}</b></p>
 
                             {% if article.Analysis == "neu" %}

@@ -16,7 +16,6 @@ Use Sentiment\Analyzer;
 
 class BookController extends Controller
 {
-
     public function viewBookAction($id, Request $request)
     {
         $bookService = $this->get('book_service');
@@ -79,8 +78,6 @@ class BookController extends Controller
                 $book->setApproval('0');
                 $book->setCoverImage($filename);
                 $book->setTimestamp(new \DateTime());
-
-
                 $em->persist($book);
                 $em->flush();
                 return $this->redirect($this->generateUrl('book_view', ['id' => $book->getId()]));

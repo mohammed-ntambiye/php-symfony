@@ -24,6 +24,7 @@ class ReviewType extends AbstractType
                 'label' => 'Rating'
             ])
             ->add('fullReview', TextareaType::class)
+            ->add('summeryReview', TextareaType::class)
             ->add('bookId', HiddenType::class)
             ->add('submit', SubmitType::class, [
                 'label' => 'Add a review'

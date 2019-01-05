@@ -2,18 +2,18 @@
 
 namespace Reviewer\ReviewBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Reviewer\ReviewBundle\Entity\Review;
 use Reviewer\ReviewBundle\Form\BookType;
 use Reviewer\ReviewBundle\Form\ReviewType;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Reviewer\ReviewBundle\Entity\Book;
 use Reviewer\ReviewBundle\Service\BookService;
 use Symfony\Component\Form\FormError;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\Request;
 Use Sentiment\Analyzer;
-
 class ReviewController extends Controller
 {
     public function viewReviewAction($id)
@@ -103,13 +103,11 @@ class ReviewController extends Controller
 
     public function reportAction($id)
     {
-        if ($this->getUser() !=null) {
+        if ($this->getUser() != null) {
             $bookService = $this->container->get('book_service');
             $bookService->reportReview($id);
             return $this->render('ReviewerReviewBundle:BookReview:reportConfirmation.html.twig');
         }
         return $this->redirect($this->generateUrl('reviewer_review_homepage'));
-
     }
-
 }

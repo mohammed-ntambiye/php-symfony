@@ -37,6 +37,13 @@ class Review
     /**
      * @var string
      *
+     * @ORM\Column(name="summeryReview", type="string", length=300)
+     */
+    private $summeryReview;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="fullReview", type="string", length=500)
      */
     private $fullReview;
@@ -246,5 +253,29 @@ class Review
     public function getReports()
     {
         return $this->reports;
+    }
+
+    /**
+     * Set summeryReview.
+     *
+     * @param string $summeryReview
+     *
+     * @return Review
+     */
+    public function setSummeryReview($summeryReview)
+    {
+        $this->summeryReview = $summeryReview;
+
+        return $this;
+    }
+
+    /**
+     * Get summeryReview.
+     *
+     * @return string
+     */
+    public function getSummeryReview()
+    {
+        return $this->summeryReview;
     }
 }

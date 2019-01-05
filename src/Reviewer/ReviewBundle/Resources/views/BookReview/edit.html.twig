@@ -5,6 +5,11 @@
     <form name="reviewer_reviewbundle_bookreview" method="post">
         <section class="formElement">
             <div class="row form-group">
+                <div class="col-sm-2">{{ form_label(form.summeryReview) }}</div>
+                <div class="col-sm-6">{{ form_widget(form.summeryReview, {'attr': {'class': 'form-control', 'rows': '6','maxlength':'500','col':'40'  }}) }}</div>
+                <div class="col-sm-6">{{ form_errors(form.summeryReview) }}</div>
+            </div>
+            <div class="row form-group">
                 <div class="col-sm-2">{{ form_label(form.fullReview) }}</div>
                 <div class="col-sm-6">{{ form_widget(form.fullReview, {'attr': {'class': 'form-control', 'rows': '6','maxlength':'500','col':'40'  }}) }}</div>
                 <div class="col-sm-6">{{ form_errors(form.fullReview) }}</div>

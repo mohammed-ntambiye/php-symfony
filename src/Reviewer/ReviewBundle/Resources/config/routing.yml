@@ -10,7 +10,7 @@ review_view:
 
 review_create:
   path:     /create/review/{isbn}
-  defaults: { _controller: ReviewerReviewBundle:Review:createReview }
+  defaults: { _controller: ReviewerReviewBundle:Review:createReview}
 
 book_view:
   path:     /view/book/{id}
@@ -20,7 +20,7 @@ book_view:
 
 book_create:
   path:     /create/book
-  defaults: {  _controller: ReviewerReviewBundle:Book:createBook}
+  defaults: {  _controller:  ReviewerReviewBundle:Review:createBook}
 
 book_genre:
   path:     /book/genre/{genreId}
