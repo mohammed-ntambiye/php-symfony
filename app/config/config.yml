@@ -172,3 +172,5 @@ easy_admin:
         - bookId
         - fullReview
         - reports
+        edit:
+          fields:

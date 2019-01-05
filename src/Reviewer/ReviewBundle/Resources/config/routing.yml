@@ -20,7 +20,7 @@ book_view:
 
 book_create:
   path:     /create/book
-  defaults: {  _controller:  ReviewerReviewBundle:Review:createBook}
+  defaults: {  _controller:  ReviewerReviewBundle:Book:createBook}
 
 book_genre:
   path:     /book/genre/{genreId}
