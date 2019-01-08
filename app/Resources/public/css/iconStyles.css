@@ -4,6 +4,8 @@
 
 .error-message {
     text-align: center;
+    color: red;
+    font-size: large;
 }
 
 .icon {
