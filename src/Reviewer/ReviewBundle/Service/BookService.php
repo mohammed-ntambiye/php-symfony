@@ -98,7 +98,7 @@ class BookService
         return $query->getResult();
     }
 
-    public function getBookIdByIsbn($isbn)
+    public function getBookByIsbn($isbn)
     {
         $em = $this->getEntityManager();
         return $em->getRepository(Book::class)->findOneBy(['isbn' => $isbn]);
@@ -133,7 +133,7 @@ class BookService
     public function updateReview($review, $isbn)
     {
         $em = $this->getEntityManager();
-        $book = $this->getBookIdByIsbn($isbn);
+        $book = $this->getBookByIsbn($isbn);
         $review->setBookId($book);
         $em->persist($review);
         $em->flush();
@@ -151,8 +151,7 @@ class BookService
     public function getReviewsForBook($isbn, $limit, $offset)
     {
         $em = $this->getEntityManager();
-
-        $book = $this->getBookIdByIsbn($isbn);
+        $book = $this->getBookByIsbn($isbn);
 
         $reviews = $em->getRepository(Review::class)->findBy(
             ['bookId' => $book->getId()],
@@ -162,7 +161,6 @@ class BookService
         );
 
         $result = array();
-
         foreach ($reviews as $review) {
             array_push($result, [
                 "id" => $review->getId(),
