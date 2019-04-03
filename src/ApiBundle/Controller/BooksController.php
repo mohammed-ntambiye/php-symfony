@@ -19,16 +19,13 @@ class BooksController extends FOSRestController
         } else {
             $view = $this->view([ "error" => "Missing author or title parameter."], 400);
         }
-
         return $this->handleView($view);
     }
 
     public function getBookAction($isbn)
     {
         $bookService = $this->container->get('book_service');
-
         $book = $bookService->getBookByIsbn($isbn);
-
         if ($book) {
             $view = $this->view($book);
         } else {

@@ -129,7 +129,6 @@ class BookService
         return $max;
     }
 
-
     public function updateReview($review, $isbn)
     {
         $em = $this->getEntityManager();
@@ -170,7 +169,28 @@ class BookService
                 "date" => $review->getTimestamp(),
             ]);
         }
+        return $result;
+    }
+
+    public function getReviewForBook($isbn, $reviewId)
+    {
+        $em = $this->getEntityManager();
+
+        $book = $this->getBookByIsbn($isbn);
+
+        $review = $em->getRepository(Review::class)->findBy(
+            ['id' => $reviewId, 'bookId' => $book->getId()]
+        );
+
+        sizeOf($review) ? $result = [
+            "id" => $review[0]->getId(),
+            "username" => $review[0]->getAuthor()->getUsername(),
+            "rating" => $review[0]->getRating(),
+            "review" => $review[0]->getFullReview(),
+            "date" => $review[0]->getTimestamp(),
+        ] : $result = [];
 
         return $result;
     }
+
 }
