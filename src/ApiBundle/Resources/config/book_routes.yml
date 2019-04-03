@@ -1,0 +1,4 @@
+books:
+    resource: ApiBundle\Controller\BooksController
+    type: rest
+    name_prefix: api_book

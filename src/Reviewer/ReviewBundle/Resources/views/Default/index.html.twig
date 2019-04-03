@@ -23,6 +23,7 @@
             </a>
         {% endfor %}
     </section>
+    <hr>
     <section class="col-md-12 latestAddedReviews">
         <h2>Latest reviews</h2>
         {% for review in bookReviews %}
@@ -36,6 +37,7 @@
                     >
                 </a>
                 {{ review.rating | rating(5, "fa-2x") }}
+                 {{ review.fullReview }}
             </div>
         {% endfor %}
     </section>

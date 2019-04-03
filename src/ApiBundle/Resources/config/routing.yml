@@ -1,0 +1,3 @@
+api_book:
+    resource: "@ApiBundle/Resources/config/book_routes.yml"
+    type: rest

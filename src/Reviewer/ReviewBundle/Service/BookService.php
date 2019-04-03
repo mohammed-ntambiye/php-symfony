@@ -87,7 +87,7 @@ class BookService
     {
         $em = $this->getEntityManager();
         $query = $em->createQuery(
-            'SELECT r.timestamp, b.title, b.isbn,b.id,r.rating, b.coverImage FROM ReviewerReviewBundle:Review r
+            'SELECT r.fullReview, r.timestamp, b.title, b.isbn,b.id,r.rating, b.coverImage FROM ReviewerReviewBundle:Review r
                 JOIN  ReviewerReviewBundle:Book b          
                 WITH r.bookId =  b.id
                 WHERE b.approval =1 AND r.reports < 10
