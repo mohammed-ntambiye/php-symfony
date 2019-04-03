@@ -1,4 +1,10 @@
 books:
     resource: ApiBundle\Controller\BooksController
     type: rest
-    name_prefix: api_book
+    name_prefix: api_book_
+
+reviews:
+    resource: ApiBundle\Controller\ReviewsController
+    type: rest
+    parent: books
+    name_prefix: api_book_review_

@@ -147,4 +147,32 @@ class BookService
         $em->persist($reportedReview);
         $em->flush();
     }
+
+    public function getReviewsForBook($isbn, $limit, $offset)
+    {
+        $em = $this->getEntityManager();
+
+        $book = $this->getBookIdByIsbn($isbn);
+
+        $reviews = $em->getRepository(Review::class)->findBy(
+            ['bookId' => $book->getId()],
+            ['timestamp' => 'ASC'],
+            $limit,
+            $offset
+        );
+
+        $result = array();
+
+        foreach ($reviews as $review) {
+            array_push($result, [
+                "id" => $review->getId(),
+                "username" => $review->getAuthor()->getUsername(),
+                "rating" => $review->getRating(),
+                "review" => $review->getFullReview(),
+                "date" => $review->getTimestamp(),
+            ]);
+        }
+
+        return $result;
+    }
 }
