@@ -41,7 +41,7 @@ class ReviewController extends Controller
         ]);
 
         $form->handleRequest($request);
-        $bookId = $bookService->getBookIdByIsbn($isbn);
+        $bookId = $bookService->getBookByIsbn($isbn);
 
         if ($request->isMethod('post')) {
             if (!isset($bookId)) {
