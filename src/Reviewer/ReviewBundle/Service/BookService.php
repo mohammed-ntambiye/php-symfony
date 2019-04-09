@@ -148,7 +148,6 @@ class BookService
 
             $book = $this->getBookByIsbn($isbn);
             $user = $em->getRepository(User::class)->find($userId);
-
             $reviewEntity->setAuthor($user);
             $reviewEntity->setTimestamp(new DateTime());
             $reviewEntity->setRating($fields["rating"]);
