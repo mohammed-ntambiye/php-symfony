@@ -129,6 +129,39 @@ class BookService
         return $max;
     }
 
+    /**
+     * @param $isbn
+     * @param $fields
+     * @param $userId
+     *
+     * @return Review
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function createBookReview($isbn, $fields, $userId)
+    {
+        $em = $this->getEntityManager();
+
+        $reviewEntity = null;
+
+        if (isset($userId) && isset($fields["rating"]) && isset($fields["review"])) {
+            $reviewEntity = new Review();
+
+            $book = $this->getBookByIsbn($isbn);
+            $user = $em->getRepository(User::class)->find($userId);
+
+            $reviewEntity->setAuthor($user);
+            $reviewEntity->setTimestamp(new DateTime());
+            $reviewEntity->setRating($fields["rating"]);
+            $reviewEntity->setFullReview($fields["review"]);
+            $reviewEntity->setBookId($book);
+
+            $em->persist($reviewEntity);
+            $em->flush($reviewEntity);
+        }
+
+        return $reviewEntity;
+    }
+
     public function updateReview($review, $isbn)
     {
         $em = $this->getEntityManager();
@@ -175,9 +208,7 @@ class BookService
     public function getReviewForBook($isbn, $reviewId)
     {
         $em = $this->getEntityManager();
-
         $book = $this->getBookByIsbn($isbn);
-
         $review = $em->getRepository(Review::class)->findBy(
             ['id' => $reviewId, 'bookId' => $book->getId()]
         );
@@ -192,5 +223,4 @@ class BookService
 
         return $result;
     }
-
 }

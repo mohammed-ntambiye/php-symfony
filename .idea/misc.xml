@@ -35,6 +35,6 @@
     </entry>
   </component>
   <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Entity/BookReview.php" />
+    <file url="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Entity/Client.php" />
   </component>
 </project>
