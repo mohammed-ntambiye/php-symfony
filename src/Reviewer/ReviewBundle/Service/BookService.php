@@ -7,8 +7,10 @@ use \Reviewer\ReviewBundle\Entity\Genre;
 use \Reviewer\ReviewBundle\Entity\Book;
 use \Reviewer\ReviewBundle\Entity\Review;
 use Doctrine\ORM\EntityManager;
+use Reviewer\ReviewBundle\Entity\User;
 use Reviewer\ReviewBundle\ReviewerReviewBundle;
 Use Sentiment\Analyzer;
+use DateTime;
 
 class BookService
 {
@@ -140,10 +142,8 @@ class BookService
     public function createBookReview($isbn, $fields, $userId)
     {
         $em = $this->getEntityManager();
-
         $reviewEntity = null;
-
-        if (isset($userId) && isset($fields["rating"]) && isset($fields["review"])) {
+        if (isset($userId) && isset($fields["rating"]) && isset($fields["fullReview"]) && isset($fields["summaryReview"])) {
             $reviewEntity = new Review();
 
             $book = $this->getBookByIsbn($isbn);
@@ -152,7 +152,9 @@ class BookService
             $reviewEntity->setAuthor($user);
             $reviewEntity->setTimestamp(new DateTime());
             $reviewEntity->setRating($fields["rating"]);
-            $reviewEntity->setFullReview($fields["review"]);
+            $reviewEntity->setFullReview($fields["fullReview"]);
+            $reviewEntity->setReports(0);
+            $reviewEntity->setSummaryReview($fields["summaryReview"]);
             $reviewEntity->setBookId($book);
 
             $em->persist($reviewEntity);

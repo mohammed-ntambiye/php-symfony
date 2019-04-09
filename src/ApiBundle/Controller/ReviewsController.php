@@ -44,14 +44,14 @@ class ReviewsController extends FOSRestController
 
         $fields = $request->request->all();
 
-        $em = $this->container->get('doctrine.orm.entity_manager');
+        $em = $this->getDoctrine()->getManager();
 
         $token = str_replace("Bearer ","", $request->server->getHeaders()["AUTHORIZATION"]);
-        $user = $em->getRepository(AccessToken::class)->findOneBy([
+        $user = $em->getRepository("ApiBundle:AccessToken")->findOneBy([
             "token" => $token
         ]);
 
-        if (isset($fields["rating"]) && isset($fields["review"]) && $this->isValidRating($fields["rating"])) {
+        if (isset($fields["rating"]) && isset($fields["fullReview"]) && isset($fields["summaryReview"])) {
             $bookReview = $bookService->createBookReview($isbn, $fields, $user->getUser()->getId());
 
             if (!$bookReview) {

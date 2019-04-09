@@ -128,7 +128,7 @@ class Review
      */
     public function setSummaryReview($summaryReview)
     {
-        $this->summaryReview = $summaryReview;
+        $this->summeryReview = $summaryReview;
 
         return $this;
     }
