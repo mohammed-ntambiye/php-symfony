@@ -70,6 +70,80 @@ class ReviewsController extends FOSRestController
         }
     }
 
+    public function putReviewAction($isbn, $reviewId, Request $request)
+    {
+        if ($request->getContentType() != 'json') {
+            return $this->handleView($this->view(null, 400));
+        }
+
+        $bookService = $this->container->get('book_service');
+        if (!$bookService->getReviewForBook($isbn, $reviewId)) {
+            return $this->handleView($this->view([ "error" => "Review not found."], 404));
+        }
+
+        $fields = $request->request->all();
+        $em = $this->getDoctrine()->getManager();
+
+        $token = str_replace("Bearer ","", $request->server->getHeaders()["AUTHORIZATION"]);
+        $user = $em->getRepository("ApiBundle:AccessToken")->findOneBy([
+            "token" => $token
+        ]);
+
+
+        if (isset($fields["fullReview"]) || isset($fields["rating"]) || isset($fields["summaryReview"])) {
+
+            if (isset($fields["rating"])) {
+                if (!$this->isValidRating($fields["rating"])) {
+                    return $this->handleView($this->view([ "error" => "Must provide at least one field and all fields must be valid." ], 400));
+                }
+            }
+
+            $result = $bookService->updateReviewForBook($isbn, $reviewId, $fields, $user->getUser()->getId());
+
+            if (!$result) {
+                return $this->handleView($this->view([ "error" => "You do not have permission to update this review." ], 403));
+            }
+
+            return $this->handleView($this->view(null, 204)
+                ->setLocation(
+                    $this->generateUrl('api_book_review_get_book_review',
+                        ['isbn' => $isbn, 'reviewId' => $result->getId()]
+                    )
+                )
+            );
+        } else {
+            return $this->handleView($this->view([ "error" => "Must provide at least one field and all fields must be valid." ], 400));
+        }
+    }
+
+
+    public function deleteReviewAction($isbn, $reviewId, Request $request)
+    {
+        $bookService = $this->container->get('book_service');
+
+        if (!$bookService->getReviewForBook($isbn, $reviewId)) {
+            return $this->handleView($this->view([ "error" => "Review not found."], 404));
+        }
+
+        $em = $this->getDoctrine()->getManager();
+
+        $token = str_replace("Bearer ","", $request->server->getHeaders()["AUTHORIZATION"]);
+        $user = $em->getRepository("ApiBundle:AccessToken")->findOneBy([
+            "token" => $token
+        ]);
+
+        $bookReview = $bookService->deleteReviewForBook($reviewId, $user->getUser()->getId());
+
+        if (!$bookReview) {
+            $view = $this->view(["error" => "You do not have permission to delete this review."], 403);
+        } else {
+            $view = $this->view(null, 204);
+        }
+        return $this->handleView($view);
+    }
+
+
+
     private function isValidRating($rating) {
         return filter_var($rating, FILTER_VALIDATE_INT, [ 'options' => [ 'min_range' => 1, 'max_range' => 5 ]]);
     }

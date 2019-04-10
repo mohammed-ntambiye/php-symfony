@@ -206,6 +206,49 @@ class BookService
         return $result;
     }
 
+    public function updateReviewForBook($reviewId, $fields, $userId)
+    {
+        $em = $this->getEntityManager();
+        $review =  $em->getRepository(Review::class)->find($reviewId);
+
+        if ($review->getAuthor()->getId() == $userId) {
+            if (isset($fields['fullReview'])) {
+                $review->setFullReview($fields['fullReview']);
+            }
+
+            if (isset($fields['summaryReview'])) {
+                $review->setSummaryReview($fields['summaryReview']);
+            }
+
+            if (isset($fields['rating'])) {
+                $review->setRating($fields['rating']);
+            }
+
+            $review->setTimestamp(new DateTime());
+
+            $em->persist($review);
+            $em->flush();
+        } else {
+            $review = null;
+        }
+
+        return $review;
+    }
+
+    public function deleteReviewForBook($reviewId, $userId)
+    {
+        $em = $this->getEntityManager();
+        $review =  $em->getRepository(Review::class)->find($reviewId);
+
+        if ($review->getAuthor()->getId() == $userId) {
+            $em->remove($review);
+            $em->flush();
+            return true;
+        }
+
+        return false;
+    }
+
     public function getReviewForBook($isbn, $reviewId)
     {
         $em = $this->getEntityManager();
