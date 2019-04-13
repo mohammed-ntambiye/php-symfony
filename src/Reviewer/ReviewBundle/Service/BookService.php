@@ -11,6 +11,7 @@ use Reviewer\ReviewBundle\Entity\User;
 use Reviewer\ReviewBundle\ReviewerReviewBundle;
 Use Sentiment\Analyzer;
 use DateTime;
+use GuzzleHttp;
 
 class BookService
 {
@@ -27,6 +28,7 @@ class BookService
     public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
+        $this->googleBooksApi = new GuzzleHttp\Client(['base_uri' => 'https://www.googleapis.com/books/v1/']);
     }
 
     /**
@@ -109,7 +111,7 @@ class BookService
     public function getBookByGenre($genreId)
     {
         $em = $this->getEntityManager();
-        $query = $em->createQuery("SELECT b.title, b.id,b.coverImage FROM ReviewerReviewBundle:Book b
+        $query = $em->createQuery("SELECT b.title, b.id, b.isbn, b.coverImage FROM ReviewerReviewBundle:Book b
         WHERE b.genre_id = $genreId AND b.approval =1");
             return ($query->getResult());
     }
@@ -119,6 +121,16 @@ class BookService
         $em = $this->getEntityManager();
         return $em->getRepository(Review::class)->findBy(
             ['bookId' => $bookId],
+            ['timestamp' => 'DESC']
+        );
+    }
+
+    public function getReviewsByIsbn($isbn){
+        $em = $this->getEntityManager();
+        $book = $em->getRepository(Book::class)->findBy(['isbn'=>$isbn]);
+
+        return $em->getRepository(Review::class)->findBy(
+            ['bookId' => $book[0]->getId()],
             ['timestamp' => 'DESC']
         );
     }
@@ -249,6 +261,30 @@ class BookService
         return false;
     }
 
+
+    public function lookupBookDetailsByIsbn($isbn)
+    {
+        try {
+            $response = $this->googleBooksApi->get('volumes?q=isbn:' . $isbn . '&key=AIzaSyD-f3FZyjImM9ZSVStNcwp9m18cqO3PnGU');
+
+            var_dump($response->getBody());
+
+            if ($response->getStatusCode() == 200) {
+                $match = json_decode((string)$response->getBody(), true);
+
+                if ($match["totalItems"] == 1) {
+                    $fullBook = $match["items"][0]["volumeInfo"];
+
+                    return $this->sanitizeBookFields($isbn, $fullBook);
+                }
+            }
+        } catch (\Exception $e) {
+            return null;
+        }
+
+        return null;
+    }
+
     public function getReviewForBook($isbn, $reviewId)
     {
         $em = $this->getEntityManager();
@@ -266,5 +302,18 @@ class BookService
         ] : $result = [];
 
         return $result;
+    }
+
+    private function sanitizeBookFields($isbn, $fullBook)
+    {
+        return [
+            "isbn" => $isbn,
+            "title" => $fullBook["title"],
+            "publish_date" => array_key_exists("publishedDate", $fullBook) ? $fullBook["publishedDate"] : new DateTime(),
+            "publisher" => array_key_exists("publisher", $fullBook) ? $fullBook["publisher"] : "Unknown",
+            "author" => array_key_exists("authors", $fullBook) ? $fullBook["authors"][0] : "Unknown",
+            "synopsis" => array_key_exists("description", $fullBook) ? $fullBook["description"] : "No description.",
+            "cover_image" => array_key_exists("imageLinks", $fullBook) ? $fullBook["imageLinks"]["thumbnail"] : 'http://covers.openlibrary.org/b/isbn/' . $isbn . '-L.jpg',
+        ];
     }
 }

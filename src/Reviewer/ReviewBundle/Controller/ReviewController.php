@@ -1,7 +1,6 @@
 <?php
 
 namespace Reviewer\ReviewBundle\Controller;
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Reviewer\ReviewBundle\Entity\Review;
@@ -15,6 +14,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\Request;
 use DateTime;
 Use Sentiment\Analyzer;
+
 class ReviewController extends Controller
 {
     public function viewReviewAction($id)

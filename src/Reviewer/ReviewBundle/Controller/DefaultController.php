@@ -30,12 +30,9 @@ class DefaultController extends Controller
     public function apiClientAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $existingClient = $em->getRepository("ApiBundle:Client")->findOneBy(
             [ "user" => $this->getUser() ]
         );
-
-
         $clientId = null;
         $clientSecret = null;
 
@@ -62,12 +59,5 @@ class DefaultController extends Controller
         );
     }
 
-    /**
-     * @return EntityManager
-     */
-    private function getEntityManager()
-    {
-        return $this->container->get('doctrine.orm.default_entity_manager');
-    }
 }
 

@@ -29,7 +29,7 @@
         {% for review in bookReviews %}
             <div class="col-md-3">
                 <p>{{ review.title }}</p>
-                <a href="{{ path('book_view', { 'id': review.id }) }}">
+                <a href="{{ path('book_view', { 'id': review.isbn }) }}">
                     <img
                             class="center-block img-responsive"
                             src="{{ asset('Public/image-uploads/' ~ review.coverImage) }}"

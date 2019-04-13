@@ -13,10 +13,8 @@ review_create:
   defaults: { _controller: ReviewerReviewBundle:Review:createReview}
 
 book_view:
-  path:     /view/book/{id}
+  path:     /view/book/{isbn}
   defaults: {  _controller: ReviewerReviewBundle:Book:viewBook}
-  requirements:
-    id: \d+
 
 book_create:
   path:     /create/book

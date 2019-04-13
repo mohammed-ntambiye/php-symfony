@@ -116,7 +116,6 @@ class ReviewsController extends FOSRestController
         }
     }
 
-
     public function deleteReviewAction($isbn, $reviewId, Request $request)
     {
         $bookService = $this->container->get('book_service');
@@ -141,8 +140,6 @@ class ReviewsController extends FOSRestController
         }
         return $this->handleView($view);
     }
-
-
 
     private function isValidRating($rating) {
         return filter_var($rating, FILTER_VALIDATE_INT, [ 'options' => [ 'min_range' => 1, 'max_range' => 5 ]]);

@@ -16,14 +16,56 @@ Use Sentiment\Analyzer;
 
 class BookController extends Controller
 {
-    public function viewBookAction($id, Request $request)
+//    public function viewBookAction($id, Request $request)
+//    {
+//        /** @var BookService $bookService */
+//        $bookService = $this->get('book_service');
+//        $book = $bookService->getBookById($id);
+//        $bookReviews = $bookService->getReviewsByBookId($id);
+//        $analysedReview = array();
+//
+//        foreach ($bookReviews as $review) {
+//            $results = $bookService->textAnalyzer($review->getFullReview());
+//            array_push($analysedReview, [
+//                "Analysis" => $results[0],
+//                "Review" => $review
+//            ]);
+//        }
+//
+//        $paginator = $this->get('knp_paginator');
+//        $pagination = $paginator->paginate(
+//            $analysedReview,
+//            $request->query->getInt('page', 1),
+//            3
+//        );
+//
+//        $user = ($this->getUser() != null ? $this->getUser()->getUsername() : 'guest');
+//
+//        if (isset($book)) {
+//            return $this->render('ReviewerReviewBundle:Book:view.html.twig',
+//                ['book' => $book,
+//                    'pagination' => $pagination,
+//                    'currentUser' => $user,
+//                ]);
+//        } else {
+//            return $this->render('ReviewerReviewBundle:ErrorPages:error.html.twig', [
+//                'message' => 'This book does not exist'
+//            ]);
+//        }
+//    }
+
+    public function viewBookAction($isbn, Request $request)
     {
+        /** @var BookService $bookService */
         $bookService = $this->get('book_service');
-        $book = $bookService->getBookById($id);
-        $bookReviews = $bookService->getReviewsByBookId($id);
+        $book = $bookService->getBookByIsbn($isbn);
+        $bookReviews = $bookService->getReviewsByIsbn($isbn);
+        $additionalDetails = $bookService->lookupBookDetailsByIsbn($isbn);
+
+        var_dump($additionalDetails);
         $analysedReview = array();
 
-        foreach ($bookReviews as $review) {
+        foreach ($bookReviews[0] as $review) {
             $results = $bookService->textAnalyzer($review->getFullReview());
             array_push($analysedReview, [
                 "Analysis" => $results[0],
@@ -31,21 +73,33 @@ class BookController extends Controller
             ]);
         }
 
-        $paginator = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
+        $paginate = $this->get('knp_paginator');
+
+        $pagination = $paginate->paginate(
             $analysedReview,
             $request->query->getInt('page', 1),
             3
         );
+        $user = ($this->getUser() != null ? $this->getUser()->getUsername() : 'guest');
 
-        $user = ($this->getUser() !=null ? $this->getUser()->getUsername() :'guest');
+        $viewModel = [
+            'book' => $book,
+            'pagination' => $pagination,
+            'currentUser' => $user
+        ];
+
+        if ($additionalDetails) {
+            $viewModel["publisher"] = $additionalDetails["publisher"];
+        }
+
+
+        if ($additionalDetails) {
+            $viewModel["publisher"] = $additionalDetails["publisher"];
+        }
+
 
         if (isset($book)) {
-            return $this->render('ReviewerReviewBundle:Book:view.html.twig',
-                ['book' => $book,
-                    'pagination' => $pagination,
-                    'currentUser' => $user,
-                ]);
+            return $this->render('ReviewerReviewBundle:Book:view.html.twig',$viewModel);
         } else {
             return $this->render('ReviewerReviewBundle:ErrorPages:error.html.twig', [
                 'message' => 'This book does not exist'
@@ -56,6 +110,7 @@ class BookController extends Controller
     public function createBookAction(Request $request)
     {
         $book = new Book();
+        /** @var BookService $bookService */
         $em = $this->getDoctrine()->getManager();
         $bookService = $this->container->get('book_service');
         $form = $this->createForm(BookType::class, $book, [
@@ -111,6 +166,45 @@ class BookController extends Controller
                 'message' => 'This book does not exist'
             ]);
         }
+    }
+
+    /**
+     * @param $isbn
+     *
+     * @return array|null
+     */
+    public function lookupBookDetailsByIsbn($isbn)
+    {
+        try {
+            $response = $this->googleBooksApi->get('volumes?q=isbn:' . $isbn . '&key=AIzaSyD-f3FZyjImM9ZSVStNcwp9m18cqO3PnGU');
+
+            if ($response->getStatusCode() == 200) {
+                $match = json_decode((string)$response->getBody(), true);
+
+                if ($match["totalItems"] == 1) {
+                    $fullBook = $match["items"][0]["volumeInfo"];
+
+                    return $this->sanitizeBookFields($isbn, $fullBook);
+                }
+            }
+        } catch (\Exception $e) {
+            return null;
+        }
+
+        return null;
+    }
+
+    private function sanitizeBookFields($isbn, $fullBook)
+    {
+        return [
+            "isbn" => $isbn,
+            "title" => $fullBook["title"],
+            "publish_date" => array_key_exists("publishedDate", $fullBook) ? $fullBook["publishedDate"] : new DateTime(),
+            "publisher" => array_key_exists("publisher", $fullBook) ? $fullBook["publisher"] : "Unknown",
+            "author" => array_key_exists("authors", $fullBook) ? $fullBook["authors"][0] : "Unknown",
+            "synopsis" => array_key_exists("description", $fullBook) ? $fullBook["description"] : "No description.",
+            "cover_image" => array_key_exists("imageLinks", $fullBook) ? $fullBook["imageLinks"]["thumbnail"] : 'http://covers.openlibrary.org/b/isbn/' . $isbn . '-L.jpg',
+        ];
     }
 
 }
