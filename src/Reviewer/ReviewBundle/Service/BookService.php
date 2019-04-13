@@ -60,7 +60,7 @@ class BookService
     public function getBookById($id)
     {
         $em = $this->getEntityManager();
-        return   $em->getRepository(Book::class)->find($id);
+        return $em->getRepository(Book::class)->find($id);
     }
 
 
@@ -113,7 +113,7 @@ class BookService
         $em = $this->getEntityManager();
         $query = $em->createQuery("SELECT b.title, b.id, b.isbn, b.coverImage FROM ReviewerReviewBundle:Book b
         WHERE b.genre_id = $genreId AND b.approval =1");
-            return ($query->getResult());
+        return ($query->getResult());
     }
 
     public function getReviewsByBookId($bookId)
@@ -125,9 +125,10 @@ class BookService
         );
     }
 
-    public function getReviewsByIsbn($isbn){
+    public function getReviewsByIsbn($isbn)
+    {
         $em = $this->getEntityManager();
-        $book = $em->getRepository(Book::class)->findBy(['isbn'=>$isbn]);
+        $book = $em->getRepository(Book::class)->findBy(['isbn' => $isbn]);
 
         return $em->getRepository(Review::class)->findBy(
             ['bookId' => $book[0]->getId()],
@@ -185,10 +186,11 @@ class BookService
         return $book->getId();
     }
 
-    public function reportReview($id){
+    public function reportReview($id)
+    {
         $em = $this->getEntityManager();
         $reportedReview = $this->getReviewById($id);
-        $reportedReview->setReports($reportedReview->getReports()+1);
+        $reportedReview->setReports($reportedReview->getReports() + 1);
         $em->persist($reportedReview);
         $em->flush();
     }
@@ -221,7 +223,7 @@ class BookService
     public function updateReviewForBook($reviewId, $fields, $userId)
     {
         $em = $this->getEntityManager();
-        $review =  $em->getRepository(Review::class)->find($reviewId);
+        $review = $em->getRepository(Review::class)->find($reviewId);
 
         if ($review->getAuthor()->getId() == $userId) {
             if (isset($fields['fullReview'])) {
@@ -250,7 +252,7 @@ class BookService
     public function deleteReviewForBook($reviewId, $userId)
     {
         $em = $this->getEntityManager();
-        $review =  $em->getRepository(Review::class)->find($reviewId);
+        $review = $em->getRepository(Review::class)->find($reviewId);
 
         if ($review->getAuthor()->getId() == $userId) {
             $em->remove($review);
@@ -267,14 +269,12 @@ class BookService
         try {
             $response = $this->googleBooksApi->get('volumes?q=isbn:' . $isbn . '&key=AIzaSyD-f3FZyjImM9ZSVStNcwp9m18cqO3PnGU');
 
-            var_dump(json_decode((string)$response->getBody()));
-
             if ($response->getStatusCode() == 200) {
                 $match = json_decode((string)$response->getBody(), true);
 
+               var_dump($match);
                 if ($match["totalItems"] == 1) {
                     $fullBook = $match["items"][0]["volumeInfo"];
-
                     return $this->sanitizeBookFields($isbn, $fullBook);
                 }
             }

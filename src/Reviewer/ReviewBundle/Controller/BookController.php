@@ -65,10 +65,10 @@ class BookController extends Controller
         var_dump($additionalDetails);
         $analysedReview = array();
 
-        foreach ($bookReviews[0] as $review) {
+        foreach ($bookReviews as $review) {
             $results = $bookService->textAnalyzer($review->getFullReview());
             array_push($analysedReview, [
-                "Analysis" => $results[0],
+                "Analysis" => $results,
                 "Review" => $review
             ]);
         }
@@ -121,7 +121,7 @@ class BookController extends Controller
         if ($form->isValid()) {
             $book->setGenreId($bookService->getGenreById($book->getGenreId()));
 
-            $bookCheck = $bookService->getBookIdByIsbn($book->getIsbn());
+            $bookCheck = $bookService->getBookByIsbn($book->getIsbn());
             if ($bookCheck != null) {
                 return $this->redirect($this->generateUrl('book_view', ['id' => $bookCheck->getId()]));
             } else {
@@ -137,7 +137,7 @@ class BookController extends Controller
                 $book->setTimestamp(new \DateTime());
                 $em->persist($book);
                 $em->flush();
-                return $this->redirect($this->generateUrl('book_view', ['id' => $book->getId()]));
+                return $this->redirect($this->generateUrl('book_view', ['isbn' => $book->getId()]));
             }
         }
         return $this->render('ReviewerReviewBundle:Book:create.html.twig',
