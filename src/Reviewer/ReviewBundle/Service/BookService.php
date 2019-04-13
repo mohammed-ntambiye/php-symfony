@@ -267,7 +267,7 @@ class BookService
         try {
             $response = $this->googleBooksApi->get('volumes?q=isbn:' . $isbn . '&key=AIzaSyD-f3FZyjImM9ZSVStNcwp9m18cqO3PnGU');
 
-            var_dump($response->getBody());
+            var_dump(json_decode((string)$response->getBody()));
 
             if ($response->getStatusCode() == 200) {
                 $match = json_decode((string)$response->getBody(), true);
