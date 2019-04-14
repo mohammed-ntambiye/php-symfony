@@ -3,21 +3,20 @@
 {% block title %}book details{% endblock %}
 
 {% block body %}
-    <article class="col-md-6">
-        <div class="col-md-3">
+    <article class="col-md-12">
+        <div class="col-md-5">
             <img
                     class="center-block img-responsive"
                     src="{{ asset('Public/image-uploads/' ~ book.coverImage) }}"
                     alt="cover"
             >
         </div>
-        <section class="col-md-9">
+        <section class="col-md-5  bookDetails">
             <p><b>Book Isbn:</b> {{ book.isbn }} </p>
             <p><b>Book title:</b> {{ book.title }}</p>
-            <p><b>Book author:</b> {{ book.author }}</p>
-            {% if not publisher is empty %}
-                <h4>Publisher: {{ publisher }}</h4>
-            {% endif %}
+            <p><b>Book author:</b> {{ author }}</p>
+            <p><b>Publisher:</b> {{ publisher }}</p>
+            <p><b>Publisher date:</b> {{ publish_date }}</p>
             <p class="descriptionText"><b>Book Description:</b> {{ book.bookDescription }}</p>
         </section>
         {% if  book.approval %}
@@ -36,19 +35,14 @@
             <tr {% if loop.index is odd %}class="color"{% endif %}>
                 {% if (article.Review.reports < 10) %}
                     <a class="reviews" href="{{ path('review_view', { 'id': article.Review.id }) }}">
-                        <div class="col-md-12">
+                        <div class="col-md-12 sub-reviews">
                             <p>{{ article.Review.summeryReview }}</p>
                             <p><b>{{ article.Review.rating | rating }}</b></p>
-
                             {% if article.Analysis == "neu" %}
                             <i class="fa fa-meh-o fa-3x" aria-hidden="true"></i>
-
                             {% elseif article.Analysis == "neg" %}
-
-                            <i class="fa fa-thumbs-down fa-3x" aria-hidden="true"></i>
-
+                                <i class="fa fa-thumbs-down fa-3x" aria-hidden="true"></i>
                             {% elseif article.Analysis == "pos" %}
-
                             <i class="fa fa-thumbs-up fa-3x" aria-hidden="true"></i>
                         </div>
                         {% endif %}
@@ -58,7 +52,8 @@
                             on {{ article.Review.timestamp|date("m/d/Y") }}</i>
                         {% if currentUser is not empty %}
                             {% if article.Review.author == currentUser %}
-                                <a href="{{ path('edit_review',{'id':article.Review.id ,'isbn':book.isbn }) }}"> Modify </a> |
+                                <a href="{{ path('edit_review',{'id':article.Review.id ,'isbn':book.isbn }) }}">
+                                    Modify </a> |
                                 <a href="{{ path('delete_review',{'id':article.Review.id}) }}"> Delete</a>
                             {% elseif(is_granted('ROLE_USER')) %}
                                 <i class="fa fa-flag" aria-hidden="true"></i>

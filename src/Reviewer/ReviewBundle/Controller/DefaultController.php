@@ -10,6 +10,8 @@ use Reviewer\ReviewBundle\Form\ReviewType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Reviewer\ReviewBundle\Entity\Book;
 use Reviewer\ReviewBundle\Service\BookService;
+use GuzzleHttp;
+
 
 class DefaultController extends Controller
 {
@@ -19,9 +21,12 @@ class DefaultController extends Controller
         $bookService = $this->container->get('book_service');
         $allGenres = $bookService->getAllGenres();
         $latestReviews = $bookService->getLatestReviews();
+        $bestSellers = $this->getNewYorkBestSeller();
         return $this->render('ReviewerReviewBundle:Default:index.html.twig',
             ['genres' => $allGenres,
-                'bookReviews' => $latestReviews
+                'bookReviews' => $latestReviews,
+                'fiction' => $bestSellers["fiction"],
+                'nonfiction' => $bestSellers["nonfiction"]
             ]
         );
     }
@@ -31,7 +36,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $existingClient = $em->getRepository("ApiBundle:Client")->findOneBy(
-            [ "user" => $this->getUser() ]
+            ["user" => $this->getUser()]
         );
         $clientId = null;
         $clientSecret = null;
@@ -57,6 +62,41 @@ class DefaultController extends Controller
                 "username" => $this->getUser()->getUsername()
             ]
         );
+    }
+
+
+    public function getNewYorkBestSeller()
+    {
+        $bookService = $this->container->get('book_service');
+        $bestsellers = [];
+
+        $nytApi = new GuzzleHttp\Client(['base_uri' => 'https://api.nytimes.com/svc/books/v3/lists.json']);
+        try {
+            $fiction = $nytApi->get("?list=combined-print-and-e-book-fiction&rank=1&api-key=A2wggy3cOa1WwMc6x5RnW5vnnGxrHIZb");
+            if ($fiction->getStatusCode() == 200) {
+                $book = json_decode((string)$fiction->getBody(), true);
+                $isbn = $book["results"][0]["book_details"][0]["primary_isbn13"];
+                if ($isbn == "9780735219090")
+                    $isbn = "1472154630";
+                $fictionBook = $bookService->fetchBookDetailsByIsbn($isbn);
+                if ($fictionBook) {
+                    $bestsellers["fiction"] = $fictionBook;
+                }
+            }
+
+            $nonfiction = $nytApi->get("?list=combined-print-and-e-book-nonfiction&rank=1&api-key=A2wggy3cOa1WwMc6x5RnW5vnnGxrHIZb");
+            if ($nonfiction->getStatusCode() == 200) {
+                $book = json_decode((string)$nonfiction->getBody(), true);
+                $isbn = $book["results"][0]["book_details"][0]["primary_isbn13"];
+                $fictionBook = $bookService->fetchBookDetailsByIsbn($isbn);
+                if ($fictionBook) {
+                    $bestsellers["nonfiction"] = $fictionBook;
+                }
+            }
+        } catch (\Exception $e) {
+            $bestsellers = [];
+        }
+        return $bestsellers;
     }
 
 }

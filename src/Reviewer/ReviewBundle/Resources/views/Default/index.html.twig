@@ -24,20 +24,38 @@
         {% endfor %}
     </section>
     <hr>
+    <section class="col-md-12 bestSellers">
+        <h2>Best Selling</h2>
+        <div class="col-md-6">
+        <h3>Fiction</h3>
+            <p>{{ fiction.title }}</p>
+            <img src="{{fiction.cover_image }}" alt="Fiction bestseller">
+            <p>{{ fiction.author }}</p>
+            <p>{{ fiction.publisher }}</p>
+        </div>
+        <div class="col-md-6">
+            <h3>non-Fiction</h3>
+            <p>{{ nonfiction.title }}</p>
+            <img src="{{nonfiction.cover_image }}" alt="Nonfiction bestseller">
+            <p>{{ nonfiction.author }}</p>
+            <p>{{ nonfiction.publisher }}</p>
+        </div>
+    </section>
+    <hr>
     <section class="col-md-12 latestAddedReviews">
         <h2>Latest reviews</h2>
         {% for review in bookReviews %}
             <div class="col-md-3">
-                <p>{{ review.title }}</p>
+
                 <a href="{{ path('book_view', { 'isbn': review.isbn }) }}">
-                    <img
-                            class="center-block img-responsive"
-                            src="{{ asset('Public/image-uploads/' ~ review.coverImage) }}"
-                            alt="cover"
-                    >
+                    <div class="book-title">
+                        <p>{{ review.title }}</p>
+                    </div>
+                    {{ review.summeryReview }}
+                    {{ review.rating | rating(5, "fa-2x") }}
+
                 </a>
-                {{ review.rating | rating(5, "fa-2x") }}
-                 {{ review.fullReview }}
+
             </div>
         {% endfor %}
     </section>

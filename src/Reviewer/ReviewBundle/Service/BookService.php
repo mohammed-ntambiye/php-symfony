@@ -91,7 +91,7 @@ class BookService
     {
         $em = $this->getEntityManager();
         $query = $em->createQuery(
-            'SELECT r.fullReview, r.timestamp, b.title, b.isbn,b.id,r.rating, b.coverImage FROM ReviewerReviewBundle:Review r
+            'SELECT r.fullReview, r.timestamp, b.title,r.summeryReview ,b.isbn,b.id,r.rating, b.coverImage FROM ReviewerReviewBundle:Review r
                 JOIN  ReviewerReviewBundle:Book b          
                 WITH r.bookId =  b.id
                 WHERE b.approval =1 AND r.reports < 10
@@ -264,15 +264,12 @@ class BookService
     }
 
 
-    public function lookupBookDetailsByIsbn($isbn)
+    public function fetchBookDetailsByIsbn($isbn)
     {
         try {
             $response = $this->googleBooksApi->get('volumes?q=isbn:' . $isbn . '&key=AIzaSyD-f3FZyjImM9ZSVStNcwp9m18cqO3PnGU');
-
             if ($response->getStatusCode() == 200) {
                 $match = json_decode((string)$response->getBody(), true);
-
-                var_dump($match);
                 if ($match["totalItems"] == 1) {
                     $fullBook = $match["items"][0]["volumeInfo"];
                     return $this->sanitizeBookFields($isbn, $fullBook);

@@ -60,9 +60,8 @@ class BookController extends Controller
         $bookService = $this->get('book_service');
         $book = $bookService->getBookByIsbn($isbn);
         $bookReviews = $bookService->getReviewsByIsbn($isbn);
-        $additionalDetails = $bookService->lookupBookDetailsByIsbn($isbn);
+        $additionalDetails = $bookService->fetchBookDetailsByIsbn($isbn);
 
-        var_dump($additionalDetails);
         $analysedReview = array();
 
         foreach ($bookReviews as $review) {
@@ -90,11 +89,9 @@ class BookController extends Controller
 
         if ($additionalDetails) {
             $viewModel["publisher"] = $additionalDetails["publisher"];
-        }
-
-
-        if ($additionalDetails) {
-            $viewModel["publisher"] = $additionalDetails["publisher"];
+            $viewModel["publish_date"] = $additionalDetails["publish_date"];
+            $viewModel["author"] = $additionalDetails["author"];
+            $viewModel["synopsis"] = $additionalDetails["synopsis"];
         }
 
 
@@ -137,7 +134,7 @@ class BookController extends Controller
                 $book->setTimestamp(new \DateTime());
                 $em->persist($book);
                 $em->flush();
-                return $this->redirect($this->generateUrl('book_view', ['isbn' => $book->getId()]));
+                return $this->redirect($this->generateUrl('book_view', ['isbn' => $book->getIsbn()]));
             }
         }
         return $this->render('ReviewerReviewBundle:Book:create.html.twig',
