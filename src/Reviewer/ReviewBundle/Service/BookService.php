@@ -272,7 +272,7 @@ class BookService
             if ($response->getStatusCode() == 200) {
                 $match = json_decode((string)$response->getBody(), true);
 
-               var_dump($match);
+                var_dump($match);
                 if ($match["totalItems"] == 1) {
                     $fullBook = $match["items"][0]["volumeInfo"];
                     return $this->sanitizeBookFields($isbn, $fullBook);

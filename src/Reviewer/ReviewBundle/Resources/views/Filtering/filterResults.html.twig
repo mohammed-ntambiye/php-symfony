@@ -23,7 +23,7 @@
                 <tr {% if loop.index is odd %}class="color"{% endif %}>
                     <div class="col-md-3">
                         <p>{{ search.title }}</p>
-                        <a href="{{ path('book_view', { 'id': search.id }) }}">
+                        <a href="{{ path('book_view', { 'isbn': search.isbn }) }}">
                             <img
                                     class="center-block img-responsive"
                                     src="{{ asset('Public/image-uploads/' ~ search.cover_image) }}"

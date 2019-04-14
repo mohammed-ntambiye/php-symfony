@@ -123,7 +123,7 @@ class BookController extends Controller
 
             $bookCheck = $bookService->getBookByIsbn($book->getIsbn());
             if ($bookCheck != null) {
-                return $this->redirect($this->generateUrl('book_view', ['id' => $bookCheck->getId()]));
+                return $this->redirect($this->generateUrl('book_view', ['isbn' => $bookCheck->getIsbn()]));
             } else {
                 $image = $book->getCoverImage();
                 $filename = md5(uniqid()) . '.' . $image->guessExtension();
