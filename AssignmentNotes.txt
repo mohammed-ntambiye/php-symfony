@@ -1,0 +1,46 @@
+ 
+--API implementation completed-- 
+
+- view books Information
+- view reviews for a book
+- View review id for a book
+- client Authontication oath2 
+- User doesn't need to be authenticated to view reviews
+- Create a review
+- Put request/ with permissions check
+- delete a review/ with permissions check
+- Use google Api,
+- used newYork times best selling book 
+- View genres
+- View genres by id
+
+-To do-
+Fix the front-page add reviews.
+Add functionality view all books in the system 
+search functionality not working 
+
+
+
+
+-API consumption--
+-use smith api to get prices of books 
+
+
+
+--End-point--
+  api_book_get_books                  GET        ANY      ANY    /api/v1/books.{_format}                            
+  api_book_get_book                   GET        ANY      ANY    /api/v1/books/{isbn}.{_format}                     
+  api_book_review_get_book_reviews    GET        ANY      ANY    /api/v1/books/{isbn}/reviews.{_format}             
+  api_book_review_get_book_review     GET        ANY      ANY    /api/v1/books/{isbn}/reviews/{reviewId}.{_format}  
+  api_book_review_post_book_review    POST       ANY      ANY    /api/v1/books/{isbn}/reviews.{_format}    
+  api_book_review_put_book_review     PUT        ANY      ANY    /api/v1/books/{isbn}/reviews/{reviewId}.{_format} 
+ api_book_review_delete_book_review   DELETE     ANY      ANY    /api/v1/books/{isbn}/reviews/{reviewId}.{_format} 
+ get_genres                           GET        ANY      ANY    /api/v1/genres.{_format}                           
+ get_genre                            GET        ANY      ANY    /api/v1/genres/{genreId}.{_format}    
+
+
+**Information utilised from api**
+Publish-date 
+Publisher
+Book author
+new yourk time best selling books

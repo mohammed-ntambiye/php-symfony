@@ -31,7 +31,6 @@ class DefaultController extends Controller
         );
     }
 
-
     public function apiClientAction()
     {
         $em = $this->getDoctrine()->getManager();
