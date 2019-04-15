@@ -220,6 +220,11 @@ class BookService
         return $result;
     }
 
+    public function viewAllBooks(){
+        $em = $this->getEntityManager();
+        return $em->getRepository(Book::class);
+    }
+
     public function updateReviewForBook($reviewId, $fields, $userId)
     {
         $em = $this->getEntityManager();
@@ -263,7 +268,6 @@ class BookService
         return false;
     }
 
-
     public function fetchBookDetailsByIsbn($isbn)
     {
         try {
@@ -272,7 +276,7 @@ class BookService
                 $match = json_decode((string)$response->getBody(), true);
                 if ($match["totalItems"] == 1) {
                     $fullBook = $match["items"][0]["volumeInfo"];
-                    return $this->sanitizeBookFields($isbn, $fullBook);
+                    return $this->serializeBook($isbn, $fullBook);
                 }
             }
         } catch (\Exception $e) {
@@ -301,7 +305,7 @@ class BookService
         return $result;
     }
 
-    private function sanitizeBookFields($isbn, $fullBook)
+    private function serializeBook($isbn, $fullBook)
     {
         return [
             "isbn" => $isbn,

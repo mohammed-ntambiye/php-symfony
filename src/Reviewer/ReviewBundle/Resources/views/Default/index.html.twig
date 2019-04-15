@@ -49,7 +49,7 @@
 
                 <a href="{{ path('book_view', { 'isbn': review.isbn }) }}">
                     <div class="book-title">
-                        <p>{{ review.title }}</p>
+                        <h4>{{ review.title }}</h4>
                     </div>
                     {{ review.summeryReview }}
                     {{ review.rating | rating(5, "fa-2x") }}

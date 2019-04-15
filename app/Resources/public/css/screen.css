@@ -110,6 +110,13 @@ h2 {
     padding-bottom: 20px;
 }
 
+.latestAddedReviews a{
+    text-decoration: none;
+}
+.latestAddedReviews p{
+    font-size: medium;
+}
+
 .navigation {
     font-weight: bold;
     font-size: large;
