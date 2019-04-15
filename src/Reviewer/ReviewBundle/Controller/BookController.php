@@ -16,44 +16,6 @@ Use Sentiment\Analyzer;
 
 class BookController extends Controller
 {
-//    public function viewBookAction($id, Request $request)
-//    {
-//        /** @var BookService $bookService */
-//        $bookService = $this->get('book_service');
-//        $book = $bookService->getBookById($id);
-//        $bookReviews = $bookService->getReviewsByBookId($id);
-//        $analysedReview = array();
-//
-//        foreach ($bookReviews as $review) {
-//            $results = $bookService->textAnalyzer($review->getFullReview());
-//            array_push($analysedReview, [
-//                "Analysis" => $results[0],
-//                "Review" => $review
-//            ]);
-//        }
-//
-//        $paginator = $this->get('knp_paginator');
-//        $pagination = $paginator->paginate(
-//            $analysedReview,
-//            $request->query->getInt('page', 1),
-//            3
-//        );
-//
-//        $user = ($this->getUser() != null ? $this->getUser()->getUsername() : 'guest');
-//
-//        if (isset($book)) {
-//            return $this->render('ReviewerReviewBundle:Book:view.html.twig',
-//                ['book' => $book,
-//                    'pagination' => $pagination,
-//                    'currentUser' => $user,
-//                ]);
-//        } else {
-//            return $this->render('ReviewerReviewBundle:ErrorPages:error.html.twig', [
-//                'message' => 'This book does not exist'
-//            ]);
-//        }
-//    }
-
     public function viewBookAction($isbn, Request $request)
     {
         /** @var BookService $bookService */

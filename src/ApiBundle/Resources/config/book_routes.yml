@@ -8,3 +8,7 @@ reviews:
     type: rest
     parent: books
     name_prefix: api_book_review_
+
+Genres:
+    resource: ApiBundle\Controller\GenresController
+    type: rest
