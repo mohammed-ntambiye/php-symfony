@@ -23,9 +23,8 @@ class BookController extends Controller
         $book = $bookService->getBookByIsbn($isbn);
         $bookReviews = $bookService->getReviewsByIsbn($isbn);
         $additionalDetails = $bookService->fetchBookDetailsByIsbn($isbn);
-
+        $criticalReviews = $bookService->fetchCriticReviews($book->getTitle());
         $analysedReview = array();
-
         foreach ($bookReviews as $review) {
             $results = $bookService->textAnalyzer($review->getFullReview());
             array_push($analysedReview, [
@@ -35,17 +34,16 @@ class BookController extends Controller
         }
 
         $paginate = $this->get('knp_paginator');
-
         $pagination = $paginate->paginate(
             $analysedReview,
-            $request->query->getInt('page', 1),
+            $request->query->getInt('page', 3),
             3
         );
         $user = ($this->getUser() != null ? $this->getUser()->getUsername() : 'guest');
-
         $viewModel = [
             'book' => $book,
             'pagination' => $pagination,
+            'criticReviews'=>$criticalReviews,
             'currentUser' => $user
         ];
 
@@ -112,7 +110,7 @@ class BookController extends Controller
         $pagination = $paginator->paginate(
             $book,
             $request->query->getInt('page', 1),
-            1
+            5
         );
 
         if (isset($book)) {
@@ -139,17 +137,14 @@ class BookController extends Controller
 
             if ($response->getStatusCode() == 200) {
                 $match = json_decode((string)$response->getBody(), true);
-
                 if ($match["totalItems"] == 1) {
                     $fullBook = $match["items"][0]["volumeInfo"];
-
                     return $this->sanitizeBookFields($isbn, $fullBook);
                 }
             }
         } catch (\Exception $e) {
             return null;
         }
-
         return null;
     }
 

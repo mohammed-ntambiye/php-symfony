@@ -166,6 +166,10 @@ navigationBar  li a:hover {
 }
 .bookDetails{
     font-size: medium;
+    text-align: justify;
+}
+.bookDetails h3{
+    text-align: center;
 }
 
 .sub-reviews{
@@ -180,4 +184,8 @@ navigationBar  li a:hover {
 .bestSellers{
     text-align: center;
     font-size:medium;
+}
+.critic-review{
+    overflow: scroll;
+    height: 200px;
 }

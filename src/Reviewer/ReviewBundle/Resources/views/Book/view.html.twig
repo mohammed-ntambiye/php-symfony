@@ -4,20 +4,38 @@
 
 {% block body %}
     <article class="col-md-12">
-        <div class="col-md-5">
+        <div class="col-md-3">
             <img
                     class="center-block img-responsive"
                     src="{{ asset('Public/image-uploads/' ~ book.coverImage) }}"
                     alt="cover"
             >
         </div>
-        <section class="col-md-5  bookDetails">
+        <section class="col-md-4  bookDetails">
             <p><b>Book Isbn:</b> {{ book.isbn }} </p>
             <p><b>Book title:</b> {{ book.title }}</p>
             <p><b>Book author:</b> {{ author }}</p>
             <p><b>Publisher:</b> {{ publisher }}</p>
             <p><b>Publisher date:</b> {{ publish_date }}</p>
             <p class="descriptionText"><b>Book Description:</b> {{ book.bookDescription }}</p>
+        </section>
+        <section class="col-md-12  bookDetails">
+            <h3>Critic reviews</h3>
+            {% for review in criticReviews %}
+                <div class="col-md-3">
+                    <h4><b>{{ review.source }}</b></h4>
+                    <p>{{ review.review_date }} </p>
+                    <div class="critic-review">
+                        <p>"<i>{{ review.snippet }}</i>"</p>
+                    </div>
+
+                    <p>{{ review.star_rating| rating }} </p>
+                    <img src={{ review.smiley_or_sad }}>
+                    <div>
+                        <a href="{{ review.review_link }}">view review</a>
+                    </div>
+                </div>
+            {% endfor %}
         </section>
         {% if  book.approval %}
             <div class="col-md-12">

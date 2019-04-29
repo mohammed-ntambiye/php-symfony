@@ -29,6 +29,7 @@ class BookService
     {
         $this->entityManager = $entityManager;
         $this->googleBooksApi = new GuzzleHttp\Client(['base_uri' => 'https://www.googleapis.com/books/v1/']);
+        $this->dreambooksApi = new GuzzleHttp\Client(['base_uri' => 'http://idreambooks.com/api/books/reviews.json']);
     }
 
     /**
@@ -286,6 +287,24 @@ class BookService
         return null;
     }
 
+    public function fetchCriticReviews($title){
+        try {
+            $response = $this->dreambooksApi->get('?q=:' . $title . '&key=a7bc59f50e295cdf58d6d0453e96731a702f3c7c');
+            if ($response->getStatusCode() == 200) {
+                $match = json_decode((string)$response->getBody(), true);
+
+                if ($match["total_results"] >0) {
+
+                    return $this->serializeCriticReview($match["book"]["critic_reviews"]);
+                }
+            }
+        } catch (\Exception $e) {
+            return null;
+        }
+
+        return null;
+    }
+
     public function getReviewForBook($isbn, $reviewId)
     {
         $em = $this->getEntityManager();
@@ -317,4 +336,22 @@ class BookService
             "cover_image" => array_key_exists("imageLinks", $fullBook) ? $fullBook["imageLinks"]["thumbnail"] : 'http://covers.openlibrary.org/b/isbn/' . $isbn . '-L.jpg',
         ];
     }
+
+    private function serializeCriticReview($criticReview)
+    {
+        $sanitizedReviews = array();
+        foreach ($criticReview as $review) {
+            array_push($sanitizedReviews, [
+                "snippet" => $review["snippet"],
+                "source" => $review["source"],
+                "review_link" => $review["review_link"],
+                "pos_or_neg" => $review["pos_or_neg"],
+                "star_rating" => $review["star_rating"],
+                "review_date" => $review["review_date"],
+                "smiley_or_sad" =>$review["smiley_or_sad"],
+            ]);
+        }
+        return $sanitizedReviews;
+    }
+
 }
