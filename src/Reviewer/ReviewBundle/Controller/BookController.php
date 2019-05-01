@@ -36,9 +36,10 @@ class BookController extends Controller
         $paginate = $this->get('knp_paginator');
         $pagination = $paginate->paginate(
             $analysedReview,
-            $request->query->getInt('page', 3),
+            $request->query->getInt('page', 1),
             3
         );
+        
         $user = ($this->getUser() != null ? $this->getUser()->getUsername() : 'guest');
         $viewModel = [
             'book' => $book,

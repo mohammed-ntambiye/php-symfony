@@ -230,6 +230,9 @@ class BookService
     {
         $em = $this->getEntityManager();
         $review = $em->getRepository(Review::class)->find($reviewId);
+        if ($review ==null){
+         return null;
+        }
 
         if ($review->getAuthor()->getId() == $userId) {
             if (isset($fields['fullReview'])) {

@@ -28,11 +28,10 @@ class Review
     private $timestamp;
 
     /**
-     * @var \Reviewer\ReviewBundle\Entity\User
-     * @ORM\ManyToOne(targetEntity="Reviewer\ReviewBundle\Entity\User", inversedBy="entries")
-     * @ORM\JoinColumn(name="author", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Reviewer\ReviewBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $author;
+    private $user_id;
 
     /**
      * @var string
@@ -98,26 +97,26 @@ class Review
     }
 
     /**
-     * Set author.
+     * Set user_id.
      *
-     * @param string $author
+     * @param string $user_id
      *
      * @return review
      */
-    public function setAuthor($author)
+    public function setAuthor($user_id)
     {
-        $this->author = $author;
+        $this->user_id = $user_id;
 
         return $this;
     }
     /**
-     * Get author.
+     * Get user_id.
      *
      * @return string
      */
     public function getAuthor()
     {
-        return $this->author;
+        return $this->user_id;
     }
     /**
      * Set summaryReview.

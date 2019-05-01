@@ -98,7 +98,7 @@ class ReviewsController extends FOSRestController
                 }
             }
 
-            $result = $bookService->updateReviewForBook($isbn, $reviewId, $fields, $user->getUser()->getId());
+            $result = $bookService->updateReviewForBook($reviewId, $fields, $user->getUser()->getId());
 
             if (!$result) {
                 return $this->handleView($this->view([ "error" => "You do not have permission to update this review." ], 403));

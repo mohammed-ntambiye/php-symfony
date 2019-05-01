@@ -29,7 +29,7 @@ class BooksController extends FOSRestController
         if ($book) {
             $view = $this->view($book);
         } else {
-            $view = $this->view([ "error" => "No book found on Beyond the Cover with that ISBN."], 404);
+            $view = $this->view([ "error" => "No book found on  Uncovered with that ISBN."], 404);
         }
         return $this->handleView($view);
     }
