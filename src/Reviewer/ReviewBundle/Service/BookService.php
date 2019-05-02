@@ -80,6 +80,45 @@ class BookService
 
         return $result;
     }
+    public function getBooksByTitleAuthor($title, $author)
+    {
+        $query = 'volumes?q=';
+        if (isset($title)) {
+            $query .= 'intitle:' . urlencode($title);
+        }
+        if (isset($author)) {
+            isset($title) ? $query .= '+inauthor:' : $query .= 'inauthor:';
+            $query .= urlencode($author);
+        }
+
+        try {
+            $response = $this->googleBooksApi->get($query . '&key=AIzaSyD-f3FZyjImM9ZSVStNcwp9m18cqO3PnGU');
+
+            if ($response->getStatusCode() == 200) {
+                $matches = json_decode((string)$response->getBody(), true);
+
+                if ($matches["totalItems"] >= 1) {
+                    $bookList = array();
+                    foreach ($matches["items"] as $match) {
+                        if (array_key_exists("industryIdentifiers", $match["volumeInfo"])) {
+                            foreach ($match["volumeInfo"]["industryIdentifiers"] as $identifier) {
+                                if ($identifier["type"] == "ISBN_13") {
+                                    $book = $this->serializeBook($identifier["identifier"], $match["volumeInfo"]);
+                                    if ($book) {
+                                        array_push($bookList, $book);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    return $bookList;
+                }
+            }
+        } catch (\Exception $e) {
+            return null;
+        }
+        return null;
+    }
 
 
     public function getReviewById($id)

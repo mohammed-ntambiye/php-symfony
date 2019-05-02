@@ -4,24 +4,25 @@
 
 {% block body %}
     <div class="container">
-        <h1 style="text-align: center">Your API client</h1>
+        <h1 style="text-align: center">API client</h1>
     </div>
     <div class="row">
-        <table class="table">
+        <table class="table table-hover">
             <tr>
-                <td>Client ID</td>
-                <td>{{ client_id }}</td>
+                <td><b>Client ID</b></td>
+                <td><b>{{ client_id }}</b></td>
 
             </tr>
             <tr>
-                <td>Client secret</td>
-                <td>{{ client_secret }}</td>
+                <td> <b>Client secret </b></td>
+                <td><b>{{ client_secret }}</b></td>
             </tr>
         </table>
     </div>
     <div class="row">
-        <p>Send a POST request to the endpoint "/oauth/v2/token" with the following JSON data in the body:</p>
-        <pre>
+
+            <p>Send a POST request to the endpoint "/oauth/v2/token" with the following JSON data in the body:</p>
+            <pre>
 {
     "grant_type": "password",
     "client_id": "{{ client_id }}",
@@ -30,10 +31,12 @@
     "password": "YOUR_PASSWORD_HERE"
 }
         </pre>
-        <p>This will generate a token which can be used to access the Uncovered API by setting the following header:</p>
-        <pre>
+            <p>This will generate a token which can be used to access the Uncovered API by setting the following
+                header:</p>
+            <pre>
 Authorization: Bearer AUTH_TOKEN_HERE
         </pre>
+
     </div>
 {% endblock %}
 

@@ -189,3 +189,7 @@ navigationBar  li a:hover {
     overflow: scroll;
     height: 200px;
 }
+
+.search-section{
+    margin:0;
+}

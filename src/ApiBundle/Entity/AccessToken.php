@@ -25,7 +25,7 @@ class AccessToken extends BaseAccessToken
     protected $client;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Reviewer\ReviewBundle\Entity\User")
+     * @ORM\OneToOne(targetEntity="Reviewer\ReviewBundle\Entity\User")
      */
     protected $user;
 
