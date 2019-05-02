@@ -3,6 +3,7 @@ var authorElem = document.getElementById("reviewer_reviewbundle_book_author");
 var isbnElem = document.getElementById("reviewer_reviewbundle_book_isbn");
 var synopsisElem = document.getElementById("reviewer_reviewbundle_book_bookDescription");
 var suggestionsElem = document.getElementById("suggestionsTable");
+
 var lastTitle, lastAuthor;
 
 function valueHasChanged(title, author) {

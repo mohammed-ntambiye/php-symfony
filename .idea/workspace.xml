@@ -4,7 +4,7 @@
     <list default="true" id="8a5a850d-9b3f-44c2-b84a-3bf3bdb2b110" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/public/Javascript/site.js" afterPath="$PROJECT_DIR$/app/Resources/public/Javascript/site.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/BookController.php" afterPath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/BookController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Book/create.html.twig" afterPath="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Book/create.html.twig" />
     </list>
     <ignored path="symblog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -359,23 +359,57 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="create.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Book/create.html.twig">
+      <file leaf-file-name="BookService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Service/BookService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+            <state relative-caret-position="377">
+              <caret line="380" column="0" lean-forward="false" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
               <folding>
-                <element signature="n#script#0;n#!!top" expanded="false" />
+                <marker date="1556830342835" expanded="true" signature="1276:1334" ph="SELECT g.id,... ReviewerReviewBundle" />
+                <marker date="1556830342835" expanded="true" signature="3788:4111" ph="SELECT r.ful... ReviewerReviewBundle" />
+                <marker date="1556830342835" expanded="true" signature="4506:4635" ph="SELECT b.tit... ReviewerReviewBundle" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="site.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="security.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3980">
+              <caret line="199" column="8" lean-forward="false" selection-start-line="199" selection-start-column="4" selection-end-line="199" selection-end-column="8" />
+              <folding>
+                <marker date="1556799300211" expanded="true" signature="2524:3134" ph="fos_rest: &lt;6 keys&gt;" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Firewall.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Firewall.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1009">
+              <caret line="30" column="6" lean-forward="false" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="site.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/public/Javascript/site.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+            <state relative-caret-position="500">
+              <caret line="44" column="65" lean-forward="false" selection-start-line="44" selection-start-column="65" selection-end-line="44" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -391,21 +425,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BookController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/BookController.php">
+      <file leaf-file-name="create.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Book/create.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-640">
-              <caret line="38" column="13" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Book.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Entity/Book.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="248" column="38" lean-forward="false" selection-start-line="248" selection-start-column="20" selection-end-line="248" selection-end-column="38" />
+            <state relative-caret-position="530">
+              <caret line="53" column="51" lean-forward="false" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -415,7 +439,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dun</find>
       <find>du</find>
       <find>dump</find>
       <find>v</find>
@@ -445,6 +468,7 @@
       <find>search_book_title</find>
       <find>user</find>
       <find>bookDe</find>
+      <find>oauth_</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -508,12 +532,12 @@
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/ApiBundle/Entity/AccessToken.php" />
         <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Default/apiclient.html.twig" />
-        <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Service/BookService.php" />
         <option value="$PROJECT_DIR$/app/Resources/public/css/screen.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Book/create.html.twig" />
         <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/BookController.php" />
+        <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Service/BookService.php" />
         <option value="$PROJECT_DIR$/app/Resources/public/Javascript/site.js" />
+        <option value="$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Book/create.html.twig" />
       </list>
     </option>
   </component>
@@ -658,10 +682,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
-    <option name="y" value="-2" />
-    <option name="width" value="1680" />
-    <option name="height" value="1052" />
+    <option name="x" value="67" />
+    <option name="y" value="25" />
+    <option name="width" value="1853" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -749,7 +773,97 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
+              <option name="myItemId" value="Service" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Uncovered" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php-symfony" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Reviewer" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReviewBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Uncovered" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php-symfony" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Reviewer" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReviewBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Book" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Uncovered" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php-symfony" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Reviewer" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReviewBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -893,7 +1007,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="SearchEverywhereHistoryKey" value="base&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/Resources/views/base.html.twig&#10;revi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Entity/Review.php&#10;review&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Entity/Review.php&#10;api&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/views/Default/apiclient.html.twig&#10;view&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/views/Book/view.html.twig&#10;la&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/views/layout.html.twig&#10;rou&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/ApiBundle/Resources/config/routing.yml&#10;genre&#9;null&#9;null&#10;ro&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/ApiBundle/Resources/config/routing.yml&#10;routi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/config/routing.yml&#10;book&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Service/BookService.php&#10;sc&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/Resources/public/css/screen.css&#10;scre&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/Resources/public/css/screen.css&#10;getLatestReviews&#9;null&#9;null&#10;bookse&#9;null&#9;null&#10;fi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Controller/FilteringController.php&#10;boo&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Service/BookService.php&#10;in&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/views/Default/index.html.twig&#10;ind&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/views/Default/index.html.twig&#10;booksBy&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/views/Book/booksByGenre.html.twig&#10;rout&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/config/routing.yml&#10;re&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Entity/Review.php&#10;ase&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/Resources/views/base.html.twig&#10;sec&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/config/security.yml&#10;secury&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/config/security.yml&#10;con&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/config/config.yml&#10;confi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/config/config.yml&#10;acc&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/ApiBundle/Entity/AccessToken.php&#10;security&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/config/security.yml&#10;app&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/AppKernel.php&#10;compos&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/composer.json&#10;getBookIdByIsbn&#9;null&#9;null&#10;ap&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/AppKernel.php&#10;security.&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/config/security.yml&#10;roy&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/config/routing.yml&#10;compose&#9;null&#9;null&#10;conf&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/app/config/config.yml&#10;bas&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/app/Resources/views/base.html.twig&#10;edi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/src/Reviewer/ReviewBundle/Resources/views/BookReview/edit.html.twig&#10;edit&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/src/Reviewer/ReviewBundle/Resources/views/Book/edit.html.twig&#10;crea&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/src/Reviewer/ReviewBundle/Resources/views/BookReview/create.html.twig&#10;reviewT&#9;null&#9;null&#10;routin&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/app/config/routing.yml&#10;FileLoader.php:&#9;FILE&#9;phar:///home/arslaan/Documents/AdvancedWebDev/php-symfony/bin/phpunit.phar/phpunit/Util/FileLoader.php&#10;KernelTestCase.&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Test/KernelTestCase.php&#10;kern&#9;null&#9;null&#10;BAS&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/app/Resources/views/base.html.twig&#10;ba&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/app/Resources/views/base.html.twig&#10;phpU&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/phpunit.xml.dist&#10;phpunit.&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/phpunit.xml.dist" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/Resources/public/Javascript/site.js&#10;secur&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/config/security.yml&#10;firew&#9;null&#9;null&#10;con&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/config/config.yml&#10;sec&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/config/security.yml&#10;base&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/Resources/views/base.html.twig&#10;revi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Entity/Review.php&#10;review&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Entity/Review.php&#10;api&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/views/Default/apiclient.html.twig&#10;view&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/views/Book/view.html.twig&#10;la&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/views/layout.html.twig&#10;rou&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/ApiBundle/Resources/config/routing.yml&#10;genre&#9;null&#9;null&#10;ro&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/ApiBundle/Resources/config/routing.yml&#10;routi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/config/routing.yml&#10;book&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Service/BookService.php&#10;sc&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/Resources/public/css/screen.css&#10;scre&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/Resources/public/css/screen.css&#10;getLatestReviews&#9;null&#9;null&#10;bookse&#9;null&#9;null&#10;fi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Controller/FilteringController.php&#10;boo&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Service/BookService.php&#10;in&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/views/Default/index.html.twig&#10;ind&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/views/Default/index.html.twig&#10;booksBy&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/views/Book/booksByGenre.html.twig&#10;rout&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/config/routing.yml&#10;re&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Entity/Review.php&#10;ase&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/Resources/views/base.html.twig&#10;secury&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/config/security.yml&#10;confi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/config/config.yml&#10;acc&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/ApiBundle/Entity/AccessToken.php&#10;security&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/config/security.yml&#10;app&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/AppKernel.php&#10;compos&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/composer.json&#10;getBookIdByIsbn&#9;null&#9;null&#10;ap&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/AppKernel.php&#10;security.&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/app/config/security.yml&#10;roy&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/Assignment 2/php-symfony/src/Reviewer/ReviewBundle/Resources/config/routing.yml&#10;compose&#9;null&#9;null&#10;conf&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/app/config/config.yml&#10;bas&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/app/Resources/views/base.html.twig&#10;edi&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/src/Reviewer/ReviewBundle/Resources/views/BookReview/edit.html.twig&#10;edit&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/src/Reviewer/ReviewBundle/Resources/views/Book/edit.html.twig&#10;crea&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/src/Reviewer/ReviewBundle/Resources/views/BookReview/create.html.twig&#10;reviewT&#9;null&#9;null&#10;routin&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/app/config/routing.yml&#10;FileLoader.php:&#9;FILE&#9;phar:///home/arslaan/Documents/AdvancedWebDev/php-symfony/bin/phpunit.phar/phpunit/Util/FileLoader.php&#10;KernelTestCase.&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Test/KernelTestCase.php&#10;kern&#9;null&#9;null&#10;BAS&#9;FILE&#9;file:///home/arslaan/Documents/AdvancedWebDev/php-symfony/app/Resources/views/base.html.twig" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
@@ -1152,7 +1266,7 @@
       <workItem from="1556634431566" duration="5738000" />
       <workItem from="1556725874426" duration="9309000" />
       <workItem from="1556744402057" duration="1237000" />
-      <workItem from="1556749430064" duration="12903000" />
+      <workItem from="1556749430064" duration="16006000" />
     </task>
     <servers />
   </component>
@@ -1189,7 +1303,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="645935000" />
+    <option name="totallyTimeSpent" value="649038000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1201,19 +1315,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="-2" width="1680" height="1052" extended-state="6" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27111384" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24515772" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32034633" sideWeight="0.18421052" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.18372993" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.497552" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32034633" sideWeight="0.81578946" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.81627005" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
     </layout>
@@ -1254,7 +1368,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php" />
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
@@ -1302,13 +1415,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="109" column="20" lean-forward="false" selection-start-line="109" selection-start-column="20" selection-end-line="109" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-220">
-          <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1527,33 +1633,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
-          <folding>
-            <marker date="1556799300211" expanded="true" signature="2524:3134" ph="fos_rest: &lt;6 keys&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ApiBundle/Entity/Client.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-280">
           <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Service/BookService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="375" column="66" lean-forward="false" selection-start-line="375" selection-start-column="66" selection-end-line="375" selection-end-column="66" />
-          <folding>
-            <marker date="1556816931519" expanded="true" signature="1276:1334" ph="SELECT g.id,... ReviewerReviewBundle" />
-            <marker date="1556816931519" expanded="true" signature="3788:4111" ph="SELECT r.ful... ReviewerReviewBundle" />
-            <marker date="1556816931519" expanded="true" signature="4506:4635" ph="SELECT b.tit... ReviewerReviewBundle" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1613,20 +1697,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Book/create.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/BookController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-          <folding>
-            <element signature="n#script#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Book/view.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="56" column="4" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+        <state relative-caret-position="-640">
+          <caret line="38" column="13" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1639,18 +1713,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Controller/BookController.php">
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-640">
-          <caret line="38" column="13" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        <state relative-caret-position="3980">
+          <caret line="199" column="8" lean-forward="false" selection-start-line="199" selection-start-column="4" selection-end-line="199" selection-end-column="8" />
+          <folding>
+            <marker date="1556799300211" expanded="true" signature="2524:3134" ph="fos_rest: &lt;6 keys&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Firewall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1009">
+          <caret line="30" column="6" lean-forward="false" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Service/BookService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="380" column="0" lean-forward="false" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
+          <folding>
+            <marker date="1556830342835" expanded="true" signature="1276:1334" ph="SELECT g.id,... ReviewerReviewBundle" />
+            <marker date="1556830342835" expanded="true" signature="3788:4111" ph="SELECT r.ful... ReviewerReviewBundle" />
+            <marker date="1556830342835" expanded="true" signature="4506:4635" ph="SELECT b.tit... ReviewerReviewBundle" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Book/view.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="56" column="4" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/public/Javascript/site.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        <state relative-caret-position="500">
+          <caret line="44" column="65" lean-forward="false" selection-start-line="44" selection-start-column="65" selection-end-line="44" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reviewer/ReviewBundle/Resources/views/Book/create.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="53" column="51" lean-forward="false" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
           <folding />
         </state>
       </provider>
