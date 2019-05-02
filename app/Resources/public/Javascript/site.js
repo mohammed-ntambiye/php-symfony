@@ -2,17 +2,7 @@ var titleElem = document.getElementById("reviewer_reviewbundle_book_title");
 var authorElem = document.getElementById("reviewer_reviewbundle_book_author");
 var isbnElem = document.getElementById("reviewer_reviewbundle_book_isbn");
 var synopsisElem = document.getElementById("reviewer_reviewbundle_book_bookDescription");
-var titleSearch = document.getElementById("search_book_title");
-var authorSearch = document.getElementById("search_book_author");
 var suggestionsElem = document.getElementById("suggestionsTable");
-
-// titleSearch.addEventListener("blur", function () {
-//     findSuggestedBooks(this.value, authorSearch.value)
-// });
-// authorSearch.addEventListener("blur", function () {
-//     findSuggestedBooks(titleSearch.value, this.value)
-// });
-
 var lastTitle, lastAuthor;
 
 function valueHasChanged(title, author) {
@@ -63,7 +53,7 @@ function findSuggestedBooks(title, author) {
                     titleElem.value = this.dataset.title;
                     authorElem.value = this.dataset.author;
                     isbnElem.value = this.dataset.isbn;
-                    synopsisElem.value = this.dataset.synopsis;
+                    synopsisElem.value = this.dataset.synopsis.substr(0,250);
                 });
             });
         });

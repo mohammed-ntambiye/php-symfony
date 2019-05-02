@@ -32,7 +32,6 @@ class BookController extends Controller
                 "Review" => $review
             ]);
         }
-
         $paginate = $this->get('knp_paginator');
         $pagination = $paginate->paginate(
             $analysedReview,
