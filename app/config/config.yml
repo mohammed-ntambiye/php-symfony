@@ -92,8 +92,26 @@ fos_user:
     sender_name: "%mailer_user%"
 
 fos_rest:
-  routing_loader:
-    default_format: json
+    routing_loader:
+        default_format: json
+        include_format: true
+    view:
+        view_response_listener: force
+        force_redirects:
+            html: true
+    format_listener:
+        rules:
+            - { path: '^/api/v1', fallback_format: json}
+    param_fetcher_listener: force
+    body_listener: true
+    exception:
+        codes:
+            'Symfony\Component\HttpKernel\Exception\NotFoundHttpException': 404
+            'Doctrine\ORM\OptimisticLockException': HTTP_CONFLICT
+        messages:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
+    zone:
+        - { path: ^/api/v1/* }
 
 vich_uploader:
   db_driver: orm

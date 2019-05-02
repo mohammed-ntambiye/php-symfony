@@ -1,3 +1,7 @@
 api_book:
     resource: "@ApiBundle/Resources/config/book_routes.yml"
     type: rest
+
+Genres:
+    resource: ApiBundle\Controller\GenresController
+    type: rest
