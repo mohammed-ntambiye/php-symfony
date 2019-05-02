@@ -15,14 +15,14 @@
             <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
         {% endstylesheets %}
     {% endblock %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     {% block javascript %}
     {% javascripts
     'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'
     '@StarRatingBundle/Resources/public/js/rating.js'
+    '../app/Resources/public/Javascript/site.js'
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
-
     {% endjavascripts %}
 {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
