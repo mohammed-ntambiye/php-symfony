@@ -9,38 +9,45 @@
 - Create a review
 - Put request/ with permissions check
 - delete a review/ with permissions check
-- Use google Api,
-- used newYork times best selling book 
 - View genres
 - View genres by id
 
--To do-
-Fix the front-page add reviews.
-Add functionality view all books in the system 
-search functionality not working 
-
-
-
 
 -API consumption--
--use smith api to get prices of books 
+- Use google Api,
+- used google Api TO autofill the fields 
+- used dreambooks api to retrievs special critics for books
+- used newYork times best selling book 
 
-
-
---End-point--
+--End-point-
   api_book_get_books                  GET        ANY      ANY    /api/v1/books.{_format}                            
   api_book_get_book                   GET        ANY      ANY    /api/v1/books/{isbn}.{_format}                     
   api_book_review_get_book_reviews    GET        ANY      ANY    /api/v1/books/{isbn}/reviews.{_format}             
   api_book_review_get_book_review     GET        ANY      ANY    /api/v1/books/{isbn}/reviews/{reviewId}.{_format}  
   api_book_review_post_book_review    POST       ANY      ANY    /api/v1/books/{isbn}/reviews.{_format}    
   api_book_review_put_book_review     PUT        ANY      ANY    /api/v1/books/{isbn}/reviews/{reviewId}.{_format} 
- api_book_review_delete_book_review   DELETE     ANY      ANY    /api/v1/books/{isbn}/reviews/{reviewId}.{_format} 
+ api_book_review_delete_book_review   DELETE     ANY      ANY    /api/v1/books/{isbn}/reviews/{reviewId}.{_format}
  get_genres                           GET        ANY      ANY    /api/v1/genres.{_format}                           
  get_genre                            GET        ANY      ANY    /api/v1/genres/{genreId}.{_format}    
 
 
-**Information utilised from api**
-Publish-date 
-Publisher
-Book author
-new yourk time best selling books
+-To do-
+Add functionality view all books in the system 
+search functionality not working 
+Review without login needs to redirect to login page
+
+
+-Geting a token--
+
+[POST] http://localhost:8000/app_dev.php/oauth/v2/token
+
+{
+    "grant_type": "password",
+    "client_id": "12_2kxpezjh3y044o8cksowgocg08cckkswgs00wocwsg0cgo84wg",
+    "client_secret": "44u9sczuu0u848s4w0og8sco0k4sc44ogkk44o4ckwoc4gwks8",
+    "username": "Stephan",
+    "password": "yellow"
+}
+
+dreamBooks key
+a7bc59f50e295cdf58d6d0453e96731a702f3c7c
