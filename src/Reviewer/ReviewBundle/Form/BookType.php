@@ -4,6 +4,7 @@ namespace Reviewer\ReviewBundle\Form;
 
 use Reviewer\ReviewBundle\Service\BookService;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -26,6 +27,9 @@ class BookType extends AbstractType
         $builder->add('isbn', TextType::class)
             ->add('title', TextType::class)
             ->add('author', TextType::class)
+             ->add('imageHolder', HiddenType::class, [
+               'mapped' => false,
+           ])
             ->add('bookDescription', TextareaType::class,[
                 'label' => 'Book Description'
             ])
@@ -36,10 +40,12 @@ class BookType extends AbstractType
                 'label' => 'Genre'
             ])
             ->add('cover_image', FileType::class, [
-                'data_class' => null])
+                'data_class' => null,
+                'required'=> false])
             ->add('submit', SubmitType::class, [
                 'attr' => array(
-                    'class' => 'btn btn-primary')
+                    'class' => 'btn btn-primary',
+                    )
             ]);
     }
 

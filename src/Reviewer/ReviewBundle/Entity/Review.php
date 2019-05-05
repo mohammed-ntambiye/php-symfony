@@ -28,7 +28,7 @@ class Review
     private $timestamp;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Reviewer\ReviewBundle\Entity\User")
+     * @ORM\OneToOne(targetEntity="Reviewer\ReviewBundle\Entity\User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user_id;

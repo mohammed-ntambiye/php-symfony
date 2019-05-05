@@ -38,12 +38,12 @@ class BookController extends Controller
             $request->query->getInt('page', 1),
             3
         );
-        
+
         $user = ($this->getUser() != null ? $this->getUser()->getUsername() : 'guest');
         $viewModel = [
             'book' => $book,
             'pagination' => $pagination,
-            'criticReviews'=>$criticalReviews,
+            'criticReviews' => $criticalReviews,
             'currentUser' => $user
         ];
 
@@ -56,12 +56,20 @@ class BookController extends Controller
 
 
         if (isset($book)) {
-            return $this->render('ReviewerReviewBundle:Book:view.html.twig',$viewModel);
+            return $this->render('ReviewerReviewBundle:Book:view.html.twig', $viewModel);
         } else {
             return $this->render('ReviewerReviewBundle:ErrorPages:error.html.twig', [
                 'message' => 'This book does not exist'
             ]);
         }
+    }
+
+    public function createImageFile($url, $name)
+    {
+        $content = file_get_contents($url);
+        $image = $this->get('kernel')->getProjectDir() . '/web/Public/image-uploads/' . $name . '.jpeg';
+        file_put_contents($image, $content);
+        return $image;
     }
 
     public function createBookAction(Request $request)
@@ -74,28 +82,39 @@ class BookController extends Controller
             'action' => $request->getUri(), 'book_service' => $bookService
         ]);
 
+
         $form->handleRequest($request);
         if ($form->isValid()) {
             $book->setGenreId($bookService->getGenreById($book->getGenreId()));
 
+
             $bookCheck = $bookService->getBookByIsbn($book->getIsbn());
             if ($bookCheck != null) {
                 return $this->redirect($this->generateUrl('book_view', ['isbn' => $bookCheck->getIsbn()]));
-            } else {
-                $image = $book->getCoverImage();
-                $filename = md5(uniqid()) . '.' . $image->guessExtension();
-                $image->move(
-                    $this->getParameter('book_covers'),
-                    $filename
-                );
-
-                $book->setApproval('0');
-                $book->setCoverImage($filename);
-                $book->setTimestamp(new \DateTime());
-                $em->persist($book);
-                $em->flush();
-                return $this->redirect($this->generateUrl('book_view', ['isbn' => $book->getIsbn()]));
             }
+
+            $isbn = $form['isbn']->getData();
+            $unmappedField = $form['imageHolder']->getData();
+
+            $url = $unmappedField;
+            $image_path = $this->createImageFile($url, $isbn);
+
+
+//                $image = $book->getCoverImage();
+//                $filename = md5(uniqid()) . '.' . $image->guessExtension();
+//                $image->move(
+//                    $this->getParameter('book_covers'),
+//                    $filename
+
+            $image = $isbn.".jpeg";
+            $book->setApproval('0');
+            $book->setCoverImage($image);
+            $book->setTimestamp(new \DateTime());
+            $em->persist($book);
+            $em->flush();
+            return $this->redirect($this->generateUrl('book_view', ['isbn' => $book->getIsbn()]));
+
+
         }
         return $this->render('ReviewerReviewBundle:Book:create.html.twig',
             ['form' => $form->createView()]);

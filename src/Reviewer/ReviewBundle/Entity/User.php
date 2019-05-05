@@ -27,7 +27,7 @@ class User extends BaseUser
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
-     * @ORM\OneToMany(targetEntity="Reviewer\ReviewBundle\Entity\Review", mappedBy="author")
+     * @ORM\OneToMany(targetEntity="Reviewer\ReviewBundle\Entity\Review", mappedBy="user_id")
      */
     protected $reviews;
 

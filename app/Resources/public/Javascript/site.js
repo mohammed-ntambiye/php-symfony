@@ -2,6 +2,7 @@ var titleElem = document.getElementById("reviewer_reviewbundle_book_title");
 var authorElem = document.getElementById("reviewer_reviewbundle_book_author");
 var isbnElem = document.getElementById("reviewer_reviewbundle_book_isbn");
 var synopsisElem = document.getElementById("reviewer_reviewbundle_book_bookDescription");
+var bookImage = document.getElementById("reviewer_reviewbundle_book_imageHolder");
 var suggestionsElem = document.getElementById("suggestionsTable");
 
 var lastTitle, lastAuthor;
@@ -47,13 +48,15 @@ function findSuggestedBooks(title, author) {
             matches.forEach(function (book) {
                 var image = '<td><img src="' + book.cover_image + '" alt="Book cover"></td>';
                 var details = '<td><h4>' + book.title + '</h4><p>Author: ' + book.author + '</p><p>Publisher: ' + book.publisher + '</p><p>Publication date: ' + book.publish_date + '</p><p>ISBN: ' + book.isbn + '</p></td>';
-                suggestionsElem.innerHTML += '<tr data-isbn="' + book.isbn + '" data-title="' + book.title + '" data-author="' + book.author + '" data-synopsis="' + book.synopsis + '">' + image + details + '</tr>';
+                suggestionsElem.innerHTML += '<tr data-isbn="' + book.isbn + '" data-title="' + book.title + '" data-author="' + book.author + '" data-image="' + book.cover_image + '" data-synopsis="' + book.synopsis + '">' + image + details + '</tr>';
             });
             document.querySelectorAll("#suggestionsTable tr").forEach(function (row) {
                 row.addEventListener("click", function () {
                     titleElem.value = this.dataset.title;
                     authorElem.value = this.dataset.author;
                     isbnElem.value = this.dataset.isbn;
+                    var temp = this.dataset.image;
+                    $("#reviewer_reviewbundle_book_imageHolder").val(temp)
                     synopsisElem.value = this.dataset.synopsis.substr(0,250);
                 });
             });
