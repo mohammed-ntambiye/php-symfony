@@ -6,12 +6,14 @@
     <article class="col-md-12">
         {% for article in pagination %}
             <tr {% if loop.index is odd %}class="color"{% endif %}>
-                <div class="col-md-3">
+                <div class="col-md-4 image-block">
                     <p><b>{{ article.title }}</b></p>
                     <a href="{{ path('book_view', { 'isbn': article.isbn }) }}">
                         <img
-                                class="center-block img-responsive"
+                                class="center-block"
                                 src="{{ asset('Public/image-uploads/' ~ article.coverImage) }}"
+                                height="280"
+                                width="200"
                         >
                     </a>
                 </div>

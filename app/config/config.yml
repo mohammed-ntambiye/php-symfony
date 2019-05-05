@@ -112,8 +112,8 @@ knp_paginator:
     filter_field_name: filterField
     filter_value_name: filterValue
   template:
-    pagination: '@KnpPaginator/Pagination/sliding.html.twig'     # sliding pagination controls template
-    sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
+    pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig
+    sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
     filtration: '@KnpPaginator/Pagination/filtration.html.twig'
 
 easy_admin:
