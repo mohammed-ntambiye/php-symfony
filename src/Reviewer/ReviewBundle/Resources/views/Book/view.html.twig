@@ -21,10 +21,11 @@
             <p><b>Publisher date:</b> {{ publish_date }}</p>
             <p class="descriptionText"><b>Book Description:</b> {{ book.bookDescription }}</p>
         </section>
+        <hr/>
         <section class="col-md-12  bookDetails">
             <h3>Critic reviews</h3>
             {% for review in criticReviews %}
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <h4><b>{{ review.source }}</b></h4>
                     <p>{{ review.review_date }} </p>
                     <div class="critic-review">

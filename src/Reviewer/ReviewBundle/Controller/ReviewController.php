@@ -67,7 +67,7 @@ class ReviewController extends Controller
             }
             return $this->redirect($this->generateUrl('reviewer_review_homepage'));
         }
-        return $this->redirect($this->generateUrl('reviewer_review_homepage'));
+        return $this->redirect($this->generateUrl('fos_user_security_login'));
     }
 
     public function editReviewAction($id, $isbn, Request $request)

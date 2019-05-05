@@ -186,7 +186,8 @@ navigationBar  li a:hover {
     font-size:medium;
 }
 .critic-review{
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
     height: 200px;
 }
 .image-block{
