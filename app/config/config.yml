@@ -113,7 +113,7 @@ fos_rest:
     zone:
         - { path: ^/api/v1/* }
 
-GETGET
+
 vich_uploader:
   db_driver: orm
   mappings:

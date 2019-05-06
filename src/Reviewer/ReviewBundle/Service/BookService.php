@@ -251,9 +251,10 @@ class BookService
         foreach ($reviews as $review) {
             array_push($result, [
                 "id" => $review->getId(),
-                "username" => $review->getAuthor()->getUsername(),
+                "author" => $review->getAuthor()->getUsername(),
                 "rating" => $review->getRating(),
-                "review" => $review->getFullReview(),
+                "summary_review" => $review->getSummaryReview(),
+                "full_review" => $review->getFullReview(),
                 "date" => $review->getTimestamp(),
             ]);
         }
