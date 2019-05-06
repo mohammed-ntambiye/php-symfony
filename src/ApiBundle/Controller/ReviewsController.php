@@ -1,6 +1,7 @@
 <?php
 
 namespace ApiBundle\Controller;
+
 use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -25,7 +26,6 @@ class ReviewsController extends FOSRestController
     {
         $bookService = $this->container->get('book_service');
         $bookReview = $bookService->getReviewForBook($isbn, $reviewId);
-
         if (!$bookReview) {
             $view = $this->view(["error" => "Review not found."], 404);
         } else {
@@ -46,7 +46,7 @@ class ReviewsController extends FOSRestController
 
         $em = $this->getDoctrine()->getManager();
 
-        $token = str_replace("Bearer ","", $request->server->getHeaders()["AUTHORIZATION"]);
+        $token = str_replace("Bearer ", "", $request->server->getHeaders()["AUTHORIZATION"]);
         $user = $em->getRepository("ApiBundle:AccessToken")->findOneBy([
             "token" => $token
         ]);
@@ -57,8 +57,14 @@ class ReviewsController extends FOSRestController
             if (!$bookReview) {
                 return $this->handleView($this->view(["error" => "An error occurred creating the review."], 500));
             }
+            $result = [
+                "review_id"=> $bookReview->getId(),
+                "summery_review" => $bookReview->getSummaryReview(),
+                "full_review" => $bookReview->getFullReview(),
+                "rating"=> $bookReview->getRating()
+            ];
 
-            return $this->handleView($this->view($bookReview, 201)
+            return $this->handleView($this->view($result, 201)
                 ->setLocation(
                     $this->generateUrl('api_book_review_get_book_review',
                         ['isbn' => $isbn, 'reviewId' => $bookReview->getId()]
@@ -66,7 +72,7 @@ class ReviewsController extends FOSRestController
                 )
             );
         } else {
-            return $this->handleView($this->view([ "error" => "Required fields are missing or invalid." ], 400));
+            return $this->handleView($this->view(["error" => "Required fields are missing or invalid."], 400));
         }
     }
 
@@ -78,13 +84,13 @@ class ReviewsController extends FOSRestController
 
         $bookService = $this->container->get('book_service');
         if (!$bookService->getReviewForBook($isbn, $reviewId)) {
-            return $this->handleView($this->view([ "error" => "Review not found."], 404));
+            return $this->handleView($this->view(["error" => "Review not found."], 404));
         }
 
         $fields = $request->request->all();
         $em = $this->getDoctrine()->getManager();
 
-        $token = str_replace("Bearer ","", $request->server->getHeaders()["AUTHORIZATION"]);
+        $token = str_replace("Bearer ", "", $request->server->getHeaders()["AUTHORIZATION"]);
         $user = $em->getRepository("ApiBundle:AccessToken")->findOneBy([
             "token" => $token
         ]);
@@ -94,14 +100,14 @@ class ReviewsController extends FOSRestController
 
             if (isset($fields["rating"])) {
                 if (!$this->isValidRating($fields["rating"])) {
-                    return $this->handleView($this->view([ "error" => "Must provide at least one field and all fields must be valid." ], 400));
+                    return $this->handleView($this->view(["error" => "Must provide at least one field and all fields must be valid."], 400));
                 }
             }
 
             $result = $bookService->updateReviewForBook($reviewId, $fields, $user->getUser()->getId());
 
             if (!$result) {
-                return $this->handleView($this->view([ "error" => "You do not have permission to update this review." ], 403));
+                return $this->handleView($this->view(["error" => "You do not have permission to update this review."], 403));
             }
 
             return $this->handleView($this->view(null, 204)
@@ -112,7 +118,7 @@ class ReviewsController extends FOSRestController
                 )
             );
         } else {
-            return $this->handleView($this->view([ "error" => "Must provide at least one field and all fields must be valid." ], 400));
+            return $this->handleView($this->view(["error" => "Must provide at least one field and all fields must be valid."], 400));
         }
     }
 
@@ -121,12 +127,12 @@ class ReviewsController extends FOSRestController
         $bookService = $this->container->get('book_service');
 
         if (!$bookService->getReviewForBook($isbn, $reviewId)) {
-            return $this->handleView($this->view([ "error" => "Review not found."], 404));
+            return $this->handleView($this->view(["error" => "Review not found."], 404));
         }
 
         $em = $this->getDoctrine()->getManager();
 
-        $token = str_replace("Bearer ","", $request->server->getHeaders()["AUTHORIZATION"]);
+        $token = str_replace("Bearer ", "", $request->server->getHeaders()["AUTHORIZATION"]);
         $user = $em->getRepository("ApiBundle:AccessToken")->findOneBy([
             "token" => $token
         ]);
@@ -141,7 +147,8 @@ class ReviewsController extends FOSRestController
         return $this->handleView($view);
     }
 
-    private function isValidRating($rating) {
-        return filter_var($rating, FILTER_VALIDATE_INT, [ 'options' => [ 'min_range' => 1, 'max_range' => 5 ]]);
+    private function isValidRating($rating)
+    {
+        return filter_var($rating, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1, 'max_range' => 5]]);
     }
 }

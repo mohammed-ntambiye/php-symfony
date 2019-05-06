@@ -357,7 +357,7 @@ class BookService
 
         sizeOf($review) ? $result = [
             "id" => $review[0]->getId(),
-            "username" => $review[0]->getAuthor()->getUsername(),
+            "author" => $review[0]->getAuthor()->getUsername(),
             "rating" => $review[0]->getRating(),
             "review" => $review[0]->getFullReview(),
             "date" => $review[0]->getTimestamp(),

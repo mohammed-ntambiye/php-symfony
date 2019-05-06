@@ -138,7 +138,7 @@ class Review
      */
     public function getSummaryReview()
     {
-        return $this->summaryReview;
+        return $this->summeryReview;
     }
     /**
      * Set rating.
