@@ -190,6 +190,7 @@ navigationBar  li a:hover {
     overflow-y: auto;
     height: 200px;
 }
+
 .image-block{
     margin-bottom: 20px;
     text-align: center;
@@ -198,6 +199,7 @@ navigationBar  li a:hover {
 .search-section{
     margin:0;
 }
+
 .token-section{
     margin-top: 20px;
     font-size: medium;
