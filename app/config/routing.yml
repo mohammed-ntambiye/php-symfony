@@ -25,6 +25,8 @@ fos_oauth_server_token:
 fos_oauth_server_authorize:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
 
+
+
 api_client:
-    path: /account/api-client
-    defaults: { _controller: ReviewerReviewBundle:Default:apiclient }
+  path: /account/api-client
+  defaults: { _controller: ReviewerReviewBundle:Default:apiClient }

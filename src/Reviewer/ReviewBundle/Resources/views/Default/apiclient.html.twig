@@ -14,15 +14,19 @@
 
             </tr>
             <tr>
-                <td> <b>Client secret </b></td>
+                <td><b>Client secret </b></td>
                 <td><b>{{ client_secret }}</b></td>
             </tr>
         </table>
     </div>
+
+    <input type="hidden" id="client_id" value="{{ client_id }}">
+    <input type="hidden" id="secret" value="{{ client_secret }}">
+    <input type="hidden" id="username" value="{{ username }}">
     <div class="row">
 
-            <p>Send a POST request to the endpoint "/oauth/v2/token" with the following JSON data in the body:</p>
-            <pre>
+        <p>Send a POST request to the endpoint "/oauth/v2/token" with the following JSON data in the body:</p>
+        <pre>
 {
     "grant_type": "password",
     "client_id": "{{ client_id }}",
@@ -31,12 +35,56 @@
     "password": "YOUR_PASSWORD_HERE"
 }
         </pre>
-            <p>This will generate a token which can be used to access the Uncovered API by setting the following
-                header:</p>
-            <pre>
+        <p>This will generate a token which can be used to access the Uncovered API by setting the following
+            header:</p>
+        <pre>
 Authorization: Bearer AUTH_TOKEN_HERE
         </pre>
 
+        <div>
+            <h2>Generate token</h2>
+            <p>Enter password</p>
+            <input type="password" id="password" name="password">
+            <button id="submit-token" type="submit">Generate Token</button>
+        </div>
+        <div class="token-section hidden">
+            <div>Access token: <label id="token"></label></div>
+            <div>Refresh token: <label id="refresh-token"></label></div>
+            <div>Token type: <label id="token-type"></label></div>
+            <div>Expires in: <label id="expires"></label></div>
+        </div>
     </div>
+
+    <script>
+        $("#submit-token").click(function () {
+            var password = $("#password").val()
+            var clientId = $("#client_id").val();
+            var clients = $("#secret").val();
+            var username = $("#username").val();
+
+            var data = {
+                'grant_type': 'password',
+                'client_id': clientId,
+                'client_secret': clients,
+                'username': username,
+                'password': password,
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:8000/oauth/v2/token",
+                data: data,
+                success: function (data, status) {// success callback
+                    console.log(data.access_token);
+                    $('#token').text(data.access_token);
+                    $('#refresh-token').text(data.refresh_token);
+                    $('#token-type').text(data.token_type);
+                    $('#expires').text(data.expires_in);
+                    $('.token-section').removeClass("hidden")
+                }
+            }).done(function () {
+            });
+        })
+    </script>
 {% endblock %}
 

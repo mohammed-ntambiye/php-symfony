@@ -47,3 +47,9 @@ report_review:
   defaults: {  _controller: ReviewerReviewBundle:Review:report}
   requirements:
     id: \d+
+
+
+
+generate_token:
+  path: /token
+  defaults: { _controller: ReviewerReviewBundle:Default:generateToken }
